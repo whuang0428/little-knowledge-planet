@@ -42,6 +42,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
       .find(Boolean) || lessons[0];
   const recommendedCategory = categories.find((category) => category.id === recommendedLesson.category);
   const activeCategory = categories.find((category) => category.id === activeLesson.category);
+  const lessonById = useMemo(() => new Map(lessons.map((lesson) => [lesson.id, lesson])), []);
 
   const filteredLessons = useMemo(() => {
     const normalizedSearch = searchQuery.trim().toLocaleLowerCase();
@@ -125,6 +126,27 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   const incompleteLessons = lessons.filter((lesson) => !completed.includes(lesson.id));
   const continueLessons = incompleteLessons.filter((lesson) => lesson.id !== recommendedLesson.id).slice(0, 3);
   const homeSuggestions = continueLessons.length > 0 ? continueLessons : incompleteLessons.slice(0, 3);
+  const relatedLessonSuggestions = useMemo(() => {
+    const suggestions = [];
+    const seenIds = new Set([activeLesson.id]);
+
+    function addLesson(lesson) {
+      if (!lesson || seenIds.has(lesson.id) || suggestions.length >= 3) return;
+      seenIds.add(lesson.id);
+      suggestions.push(lesson);
+    }
+
+    (activeLesson.relatedLessons || []).forEach((lessonId) => addLesson(lessonById.get(lessonId)));
+    lessons
+      .filter((lesson) => lesson.category === activeLesson.category)
+      .forEach(addLesson);
+    lessons
+      .filter((lesson) => !completed.includes(lesson.id))
+      .forEach(addLesson);
+    lessons.forEach(addLesson);
+
+    return suggestions;
+  }, [activeLesson, completed, lessonById]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-sky-50 text-slate-800">
@@ -617,6 +639,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                           ? "再复习一次也很厉害，知识会记得更牢。"
                           : "三道题都答对了，你把今天的小秘密带回家啦。"}
                       </p>
+                      <p className="mt-2 text-sm font-semibold text-green-700">
+                        还可以继续看看下面的相关小秘密。
+                      </p>
                       <div className="mt-5 grid gap-3 sm:grid-cols-2">
                         <button
                           onClick={() => setView("library")}
@@ -632,6 +657,29 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                         </button>
                       </div>
                     </motion.div>
+                  )}
+
+                  {relatedLessonSuggestions.length > 0 && (
+                    <div className="rounded-[1.5rem] bg-white p-5 shadow-sm ring-1 ring-slate-100">
+                      <div className="mb-4 flex flex-col justify-between gap-2 md:flex-row md:items-end">
+                        <div>
+                          <h2 className="text-2xl font-black">继续发现</h2>
+                          <p className="mt-1 text-sm text-slate-500">
+                            这个问题还可以带你去看看这些小秘密。
+                          </p>
+                        </div>
+                      </div>
+                      <div className="grid gap-4 md:grid-cols-3">
+                        {relatedLessonSuggestions.map((lesson) => (
+                          <RelatedLessonCard
+                            key={lesson.id}
+                            lesson={lesson}
+                            completed={completed.includes(lesson.id)}
+                            onOpen={() => openLesson(lesson)}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </div>
               </section>
@@ -742,6 +790,46 @@ function LessonCard({ lesson, completed, onOpen }) {
         <span>{lesson.level}</span>
         <span>打开 →</span>
       </div>
+    </button>
+  );
+}
+
+function RelatedLessonCard({ lesson, completed, onOpen }) {
+  const visibleTags = (lesson.tags || []).slice(0, 3);
+  const category = categories.find((item) => item.id === lesson.category);
+
+  return (
+    <button
+      onClick={onOpen}
+      className="rounded-[1.25rem] bg-slate-50 p-4 text-left shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:bg-white hover:shadow-md"
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="text-4xl">{lesson.emoji}</div>
+        <span className={`rounded-full px-3 py-1 text-xs font-bold ${
+          completed ? "bg-green-100 text-green-700" : "bg-white text-slate-500"
+        }`}>
+          {completed ? "已完成" : lesson.readingTime}
+        </span>
+      </div>
+      <h3 className="mt-3 text-base font-black leading-6">{lesson.title}</h3>
+      <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-500">
+        {lesson.question || lesson.intro}
+      </p>
+      <div className="mt-3 text-xs font-semibold text-slate-400">
+        {category?.label || "百科主题"}
+      </div>
+      {visibleTags.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {visibleTags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-amber-700"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </button>
   );
 }
