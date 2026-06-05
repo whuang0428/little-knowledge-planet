@@ -29,6 +29,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [activeLesson, setActiveLesson] = useState(lessons[0]);
   const [view, setView] = useState("home");
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [completed, setCompleted] = useState(getStoredCompleted);
   const [moonPhase, setMoonPhase] = useState(0);
@@ -43,9 +44,34 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   const activeCategory = categories.find((category) => category.id === activeLesson.category);
 
   const filteredLessons = useMemo(() => {
-    if (selectedCategory === "all") return lessons;
-    return lessons.filter((lesson) => lesson.category === selectedCategory);
-  }, [selectedCategory]);
+    const normalizedSearch = searchQuery.trim().toLocaleLowerCase();
+
+    return lessons.filter((lesson) => {
+      if (selectedCategory !== "all" && lesson.category !== selectedCategory) {
+        return false;
+      }
+
+      if (!normalizedSearch) {
+        return true;
+      }
+
+      const categoryLabel = categories.find((category) => category.id === lesson.category)?.label || "";
+      const searchableText = [
+        lesson.title,
+        lesson.intro,
+        categoryLabel,
+        lesson.question,
+        lesson.discovery,
+        lesson.funFact,
+        ...(lesson.tags || []),
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLocaleLowerCase();
+
+      return searchableText.includes(normalizedSearch);
+    });
+  }, [selectedCategory, searchQuery]);
 
   const correctCount = activeLesson.quiz.reduce((count, item, index) => {
     return selectedAnswers[index] === item.answer ? count + 1 : count;
@@ -349,6 +375,34 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                 </div>
               </div>
 
+              <div className="rounded-[1.5rem] bg-white p-4 shadow-sm">
+                <label htmlFor="lesson-search" className="mb-2 block text-sm font-black text-slate-600">
+                  搜一搜小知识
+                </label>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <input
+                    id="lesson-search"
+                    type="search"
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
+                    placeholder="想知道什么？试试搜索“彩虹”“月亮”“动物”……"
+                    className="min-h-12 flex-1 rounded-2xl border border-slate-100 bg-slate-50 px-4 text-sm font-medium outline-none transition placeholder:text-slate-400 focus:border-amber-200 focus:bg-white focus:ring-4 focus:ring-amber-100"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery("")}
+                      className="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                    >
+                      清空搜索
+                    </button>
+                  )}
+                </div>
+                <div className="mt-3 text-sm font-semibold text-slate-500">
+                  找到 {filteredLessons.length} 个探索主题
+                </div>
+              </div>
+
               <div className="flex gap-2 overflow-x-auto pb-2">
                 {categories.map((category) => {
                   const Icon = category.icon;
@@ -367,16 +421,33 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                 })}
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {filteredLessons.map((lesson) => (
-                  <LessonCard
-                    key={lesson.id}
-                    lesson={lesson}
-                    completed={completed.includes(lesson.id)}
-                    onOpen={() => openLesson(lesson)}
-                  />
-                ))}
-              </div>
+              {filteredLessons.length > 0 ? (
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {filteredLessons.map((lesson) => (
+                    <LessonCard
+                      key={lesson.id}
+                      lesson={lesson}
+                      completed={completed.includes(lesson.id)}
+                      onOpen={() => openLesson(lesson)}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="rounded-[2rem] bg-white p-6 text-center shadow-sm">
+                  <div className="text-5xl">🔍</div>
+                  <h2 className="mt-3 text-2xl font-black">还没有找到这个主题</h2>
+                  <p className="mx-auto mt-2 max-w-md leading-7 text-slate-500">
+                    换个词试试看，比如“动物”“天空”“声音”。
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery("")}
+                    className="mt-5 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  >
+                    清空搜索
+                  </button>
+                </div>
+              )}
             </motion.div>
           )}
 
@@ -634,6 +705,8 @@ function StatCard({ label, value }) {
 
 
 function LessonCard({ lesson, completed, onOpen }) {
+  const visibleTags = (lesson.tags || []).slice(0, 3);
+
   return (
     <button
       onClick={onOpen}
@@ -653,6 +726,18 @@ function LessonCard({ lesson, completed, onOpen }) {
       </div>
       <h3 className="text-xl font-black leading-tight">{lesson.title}</h3>
       <p className="mt-3 line-clamp-2 text-sm leading-6 text-slate-500">{lesson.intro}</p>
+      {visibleTags.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {visibleTags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-700"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
       <div className="mt-5 flex items-center justify-between text-sm font-semibold text-slate-500">
         <span>{lesson.level}</span>
         <span>打开 →</span>
