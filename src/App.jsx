@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
 import { lessons } from "./data/lessons";
 import { categories } from "./data/categories";
@@ -30,15 +30,15 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   const [activeLesson, setActiveLesson] = useState(lessons[0]);
   const [view, setView] = useState("home");
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [completed, setCompleted] = useState([]);
+  const [completed, setCompleted] = useState(getStoredCompleted);
   const [moonPhase, setMoonPhase] = useState(0);
   const [showReflection, setShowReflection] = useState(false);
 
-  useEffect(() => {
-    setCompleted(getStoredCompleted());
-  }, []);
-
-  const dailyLesson = lessons[0];
+  const recommendedLesson =
+    ["rainbow", "cat-eyes", "sunflower", "moon-shape", "pipa-string"]
+      .map((id) => lessons.find((lesson) => lesson.id === id))
+      .find(Boolean) || lessons[0];
+  const recommendedCategory = categories.find((category) => category.id === recommendedLesson.category);
 
   const filteredLessons = useMemo(() => {
     if (selectedCategory === "all") return lessons;
@@ -74,6 +74,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   }
 
   const progressPercent = Math.round((completed.length / lessons.length) * 100);
+  const incompleteLessons = lessons.filter((lesson) => !completed.includes(lesson.id));
+  const continueLessons = incompleteLessons.filter((lesson) => lesson.id !== recommendedLesson.id).slice(0, 3);
+  const homeSuggestions = continueLessons.length > 0 ? continueLessons : incompleteLessons.slice(0, 3);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-sky-50 text-slate-800">
@@ -117,45 +120,54 @@ export default function ChildrenKnowledgeExplorerPrototype() {
               transition={{ duration: 0.25 }}
               className="space-y-8"
             >
-              <section className="grid gap-5 md:grid-cols-[1.25fr_0.75fr]">
+              <section className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
                 <div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-amber-200 via-orange-100 to-white p-6 shadow-sm md:p-8">
-                  <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/75 px-4 py-2 text-sm font-medium">
-                    <Star className="h-4 w-4" /> 今日探索
+                  <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/75 px-4 py-2 text-sm font-bold">
+                    <Sparkles className="h-4 w-4" /> 小小百科星球
                   </div>
                   <h1 className="max-w-2xl text-3xl font-black leading-tight md:text-5xl">
-                    写完作业和练完琴后，来探索一个小问题吧！
+                    今天想发现什么新秘密？
                   </h1>
                   <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
-                    每天只需要 5–10 分钟。一个问题、一段简单解释、三道小测验，最后把今天学到的内容讲给爸爸妈妈听。
+                    选一个好奇的问题，点一点、看一看，把小知识变成自己的发现。
                   </p>
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                     <button
-                      onClick={() => openLesson(dailyLesson)}
-                      className="rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                      onClick={() => setView("library")}
+                      className="flex items-center justify-center gap-2 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                     >
-                      开始今日探索
+                      <BookOpen className="h-5 w-5" /> 去探索主题
                     </button>
                     <button
-                      onClick={() => setView("library")}
-                      className="rounded-2xl bg-white px-6 py-3 font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                      onClick={() => setView("badges")}
+                      className="flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                     >
-                      看全部主题
+                      <Trophy className="h-5 w-5" /> 看我的徽章
                     </button>
                   </div>
                 </div>
 
                 <div className="rounded-[2rem] bg-white p-6 shadow-sm">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-bold">学习进度</h2>
-                    <span className="rounded-full bg-amber-100 px-3 py-1 text-sm font-medium">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h2 className="text-xl font-black">探索进度</h2>
+                      <p className="mt-1 text-sm text-slate-500">每完成一个主题，就点亮一个小徽章。</p>
+                    </div>
+                    <span className="rounded-full bg-amber-100 px-4 py-2 text-lg font-black">
                       {progressPercent}%
                     </span>
                   </div>
-                  <div className="mt-5 h-4 overflow-hidden rounded-full bg-slate-100">
-                    <div
-                      className="h-full rounded-full bg-slate-900 transition-all duration-700"
-                      style={{ width: `${progressPercent}%` }}
-                    />
+                  <div className="mt-5">
+                    <div className="flex items-end justify-between">
+                      <div className="text-4xl font-black">{completed.length}</div>
+                      <div className="pb-1 text-sm font-semibold text-slate-500">/ {lessons.length} 个主题</div>
+                    </div>
+                    <div className="mt-3 h-4 overflow-hidden rounded-full bg-slate-100">
+                      <div
+                        className="h-full rounded-full bg-slate-900 transition-all duration-700"
+                        style={{ width: `${progressPercent}%` }}
+                      />
+                    </div>
                   </div>
                   <div className="mt-5 grid grid-cols-3 gap-3">
                     <StatCard label="主题" value={lessons.length} />
@@ -169,6 +181,89 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     <RotateCcw className="h-4 w-4" /> 重置原型进度
                   </button>
                 </div>
+              </section>
+
+              <section className="rounded-[2rem] bg-white p-5 shadow-sm md:p-6">
+                <div className="grid gap-5 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+                  <div>
+                    <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-bold">
+                      <Star className="h-4 w-4" /> 今日推荐探索
+                    </div>
+                    <div className="text-6xl">{recommendedLesson.emoji}</div>
+                    <h2 className="mt-3 text-2xl font-black leading-tight md:text-3xl">
+                      {recommendedLesson.title}
+                    </h2>
+                    <p className="mt-3 leading-7 text-slate-600">{recommendedLesson.intro}</p>
+                  </div>
+
+                  <div className="rounded-[1.5rem] bg-slate-50 p-5">
+                    <div className="flex flex-wrap gap-2">
+                      <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold shadow-sm">
+                        {recommendedCategory?.label || "百科主题"}
+                      </span>
+                      <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold shadow-sm">
+                        {recommendedLesson.readingTime}
+                      </span>
+                      {completed.includes(recommendedLesson.id) && (
+                        <span className="flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
+                          <CheckCircle2 className="h-4 w-4" /> 已完成
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-4 text-sm leading-6 text-slate-500">
+                      这个主题有真实互动，可以边玩边观察一个小现象。
+                    </p>
+                    <button
+                      onClick={() => openLesson(recommendedLesson)}
+                      className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                    >
+                      开始这个探索
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <div className="mb-4 flex items-end justify-between gap-4">
+                  <div>
+                    <h2 className="text-2xl font-black">继续探索</h2>
+                    <p className="mt-1 text-sm text-slate-500">
+                      {incompleteLessons.length > 0 ? "挑一个还没完成的小问题继续前进。" : "所有主题都完成啦，可以回去看看点亮的徽章。"}
+                    </p>
+                  </div>
+                  {incompleteLessons.length === 0 && (
+                    <button
+                      onClick={() => setView("badges")}
+                      className="hidden rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm md:block"
+                    >
+                      查看徽章
+                    </button>
+                  )}
+                </div>
+                {incompleteLessons.length > 0 ? (
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {homeSuggestions.map((lesson) => (
+                      <LessonCard
+                        key={lesson.id}
+                        lesson={lesson}
+                        completed={false}
+                        onOpen={() => openLesson(lesson)}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="rounded-[2rem] bg-green-50 p-6 text-center shadow-sm">
+                    <div className="text-5xl">🏅</div>
+                    <h3 className="mt-3 text-2xl font-black">你已经点亮整颗星球！</h3>
+                    <p className="mt-2 text-slate-600">去徽章页看看自己的探索成果吧。</p>
+                    <button
+                      onClick={() => setView("badges")}
+                      className="mt-5 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                    >
+                      查看我的徽章
+                    </button>
+                  </div>
+                )}
               </section>
 
               <section>
@@ -570,9 +665,11 @@ function InteractiveDemo({ lesson, moonPhase, setMoonPhase }) {
     return <PipaStringDemo />;
   }
 
-  return <CategoryExploreDemo lesson={lesson} />;
+  return <CategoryExploreDemo key={lesson.id} lesson={lesson} />;
 }
 
+// Legacy static demo kept unmounted; current generic lessons use CategoryExploreDemo.
+// eslint-disable-next-line no-unused-vars
 function SimpleExploreDemo({ lessonId }) {
   const demoMap = {
     "giraffe-neck": {
@@ -986,10 +1083,6 @@ function RainbowDemo() {
 
 function CategoryExploreDemo({ lesson }) {
   const [activeStep, setActiveStep] = useState(0);
-
-  useEffect(() => {
-    setActiveStep(0);
-  }, [lesson.id]);
 
   const templates = {
     animals: {

@@ -1,6 +1,5 @@
 import {
   BookOpen,
-  Star,
   PawPrint,
   Leaf,
   Rocket,
@@ -9,11 +8,6 @@ import {
   Brain,
   FlaskConical,
   Lightbulb,
-  Trophy,
-  CheckCircle2,
-  Home,
-  Sparkles,
-  RotateCcw,
 } from "lucide-react";
 
 export const categories = [
