@@ -33,6 +33,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   const [completed, setCompleted] = useState(getStoredCompleted);
   const [moonPhase, setMoonPhase] = useState(0);
   const [showReflection, setShowReflection] = useState(false);
+  const [rewardStatus, setRewardStatus] = useState(null);
 
   const recommendedLesson =
     ["rainbow", "cat-eyes", "sunflower", "moon-shape", "pipa-string"]
@@ -56,16 +57,36 @@ export default function ChildrenKnowledgeExplorerPrototype() {
     setActiveLesson(lesson);
     setSelectedAnswers({});
     setShowReflection(false);
+    setRewardStatus(null);
     setView("lesson");
   }
 
   function markCompleted() {
-    if (!completed.includes(activeLesson.id)) {
+    const alreadyCompleted = completed.includes(activeLesson.id);
+    if (!alreadyCompleted) {
       const next = [...completed, activeLesson.id];
       setCompleted(next);
       saveStoredCompleted(next);
     }
+    setRewardStatus(alreadyCompleted ? "repeat" : "new");
     setShowReflection(true);
+  }
+
+  function selectQuizAnswer(index, optionIndex) {
+    const nextAnswers = {
+      ...selectedAnswers,
+      [index]: optionIndex,
+    };
+
+    setSelectedAnswers(nextAnswers);
+
+    const nextPassed = activeLesson.quiz.every((item, quizIndex) => nextAnswers[quizIndex] === item.answer);
+    if (nextPassed) {
+      markCompleted();
+    } else {
+      setShowReflection(false);
+      setRewardStatus(null);
+    }
   }
 
   function resetProgress() {
@@ -415,30 +436,46 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                               const selected = selectedAnswers[index] === optionIndex;
                               const answered = selectedAnswers[index] !== undefined;
                               const isCorrect = item.answer === optionIndex;
+                              const selectedCorrect = selected && isCorrect;
+                              const selectedIncorrect = selected && !isCorrect;
                               return (
                                 <button
                                   key={option}
-                                  onClick={() =>
-                                    setSelectedAnswers((prev) => ({
-                                      ...prev,
-                                      [index]: optionIndex,
-                                    }))
-                                  }
+                                  onClick={() => selectQuizAnswer(index, optionIndex)}
                                   className={`rounded-2xl border px-4 py-3 text-left text-sm font-medium transition ${
-                                    selected && isCorrect
-                                      ? "border-green-300 bg-green-50 text-green-700"
-                                      : selected && !isCorrect
-                                      ? "border-red-300 bg-red-50 text-red-700"
+                                    selectedCorrect
+                                      ? "border-green-400 bg-green-50 text-green-700 ring-2 ring-green-100"
+                                      : selectedIncorrect
+                                      ? "border-red-300 bg-red-50 text-red-700 ring-2 ring-red-100"
                                       : answered && isCorrect
-                                      ? "border-green-200 bg-green-50 text-green-700"
+                                      ? "border-green-300 bg-green-50 text-green-700"
+                                      : answered
+                                      ? "border-slate-100 bg-slate-50 text-slate-400"
                                       : "border-slate-100 bg-slate-50 hover:bg-white"
                                   }`}
                                 >
-                                  {option}
+                                  <span>{option}</span>
+                                  {answered && isCorrect && <span className="ml-2 font-black">✓</span>}
                                 </button>
                               );
                             })}
                           </div>
+                          {selectedAnswers[index] !== undefined && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              className={`mt-3 rounded-2xl p-4 text-sm leading-6 ${
+                                selectedAnswers[index] === item.answer
+                                  ? "bg-green-50 text-green-700"
+                                  : "bg-amber-50 text-amber-700"
+                              }`}
+                            >
+                              <div className="font-black">
+                                {selectedAnswers[index] === item.answer ? "答对啦！" : "差一点点，再看看小提示。"}
+                              </div>
+                              <p className="mt-1">{item.explanation}</p>
+                            </motion.div>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -461,36 +498,45 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     </div>
                   </div>
 
+                  {passed && showReflection && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.96 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="rounded-[1.5rem] bg-gradient-to-br from-green-100 to-emerald-50 p-6 text-center shadow-sm"
+                    >
+                      <div className="text-6xl">🏅</div>
+                      <div className="mt-3 inline-flex rounded-full bg-white/80 px-4 py-2 text-sm font-black text-green-700 shadow-sm">
+                        徽章：{activeLesson.badge}
+                      </div>
+                      <h2 className="mt-4 text-2xl font-black">
+                        {rewardStatus === "repeat" ? "你已经获得过这个徽章啦" : "太棒了，徽章点亮啦！"}
+                      </h2>
+                      <p className="mx-auto mt-2 max-w-xl leading-7 text-slate-600">
+                        {rewardStatus === "repeat"
+                          ? "再复习一次也很厉害，知识会记得更牢。"
+                          : "三道题都答对了，你把今天的小秘密带回家啦。"}
+                      </p>
+                      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                        <button
+                          onClick={() => setView("library")}
+                          className="rounded-2xl bg-white px-5 py-3 font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                        >
+                          返回主题列表
+                        </button>
+                        <button
+                          onClick={() => setView("badges")}
+                          className="rounded-2xl bg-slate-900 px-5 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                        >
+                          查看徽章进度
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+
                   <div className="rounded-[1.5rem] bg-white p-5 shadow-sm ring-1 ring-slate-100">
                     <h2 className="mb-2 text-xl font-bold">讲给爸爸妈妈听</h2>
                     <p className="leading-7 text-slate-600">{activeLesson.parentPrompt}</p>
                   </div>
-
-                  <button
-                    disabled={!passed}
-                    onClick={markCompleted}
-                    className={`flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 text-lg font-bold transition ${
-                      passed
-                        ? "bg-slate-900 text-white hover:-translate-y-0.5 hover:shadow-md"
-                        : "cursor-not-allowed bg-slate-100 text-slate-400"
-                    }`}
-                  >
-                    <Trophy className="h-5 w-5" /> 领取徽章：{activeLesson.badge}
-                  </button>
-
-                  {showReflection && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.96 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="rounded-[1.5rem] bg-gradient-to-br from-green-100 to-emerald-50 p-5 text-center"
-                    >
-                      <div className="text-5xl">🏅</div>
-                      <h2 className="mt-3 text-2xl font-black">今日探索完成！</h2>
-                      <p className="mt-2 text-slate-600">
-                        今天获得了“{activeLesson.badge}”徽章。现在可以休息一下，或者把学到的内容讲给家人听。
-                      </p>
-                    </motion.div>
-                  )}
                 </div>
               </section>
             </motion.div>
