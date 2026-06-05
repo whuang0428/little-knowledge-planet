@@ -40,6 +40,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
       .map((id) => lessons.find((lesson) => lesson.id === id))
       .find(Boolean) || lessons[0];
   const recommendedCategory = categories.find((category) => category.id === recommendedLesson.category);
+  const activeCategory = categories.find((category) => category.id === activeLesson.category);
 
   const filteredLessons = useMemo(() => {
     if (selectedCategory === "all") return lessons;
@@ -398,6 +399,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
               <section className="overflow-hidden rounded-[2rem] bg-white shadow-sm">
                 <div className="bg-gradient-to-br from-amber-100 via-white to-sky-100 p-6 md:p-8">
                   <div className="mb-4 flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold shadow-sm">
+                      {activeCategory?.label || "百科主题"}
+                    </span>
                     <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold shadow-sm">{activeLesson.readingTime}</span>
                     <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold shadow-sm">{activeLesson.level}</span>
                     {completed.includes(activeLesson.id) && (
@@ -412,6 +416,13 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                 </div>
 
                 <div className="space-y-6 p-6 md:p-8">
+                  <div className="rounded-[1.5rem] bg-amber-50 p-5 shadow-sm ring-1 ring-amber-100">
+                    <div className="mb-2 text-sm font-black text-amber-700">今天的问题</div>
+                    <p className="text-2xl font-black leading-9 text-slate-800">
+                      {activeLesson.question || activeLesson.title}
+                    </p>
+                  </div>
+
                   <div className="rounded-[1.5rem] bg-slate-50 p-5">
                     <h2 className="mb-3 text-xl font-bold">简单解释</h2>
                     <p className="text-lg leading-9 text-slate-700">{activeLesson.content}</p>
@@ -422,6 +433,20 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     <p className="mb-4 text-slate-500">{activeLesson.interaction}</p>
                     <InteractiveDemo lesson={activeLesson} moonPhase={moonPhase} setMoonPhase={setMoonPhase} />
                   </div>
+
+                  {activeLesson.discovery && (
+                    <div className="rounded-[1.5rem] bg-green-50 p-5 shadow-sm ring-1 ring-green-100">
+                      <div className="mb-2 text-sm font-black text-green-700">我发现了什么</div>
+                      <p className="text-lg font-semibold leading-8 text-slate-700">{activeLesson.discovery}</p>
+                    </div>
+                  )}
+
+                  {activeLesson.funFact && (
+                    <div className="rounded-[1.5rem] bg-sky-50 p-5 shadow-sm ring-1 ring-sky-100">
+                      <div className="mb-2 text-sm font-black text-sky-700">趣味小知识</div>
+                      <p className="text-lg font-semibold leading-8 text-slate-700">{activeLesson.funFact}</p>
+                    </div>
+                  )}
 
                   <div className="rounded-[1.5rem] bg-amber-50 p-5">
                     <h2 className="mb-4 text-xl font-bold">三道小测验</h2>
@@ -498,6 +523,11 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     </div>
                   </div>
 
+                  <div className="rounded-[1.5rem] bg-white p-5 shadow-sm ring-1 ring-slate-100">
+                    <h2 className="mb-2 text-xl font-bold">讲给爸爸妈妈听</h2>
+                    <p className="leading-7 text-slate-600">{activeLesson.parentPrompt}</p>
+                  </div>
+
                   {passed && showReflection && (
                     <motion.div
                       initial={{ opacity: 0, scale: 0.96 }}
@@ -532,11 +562,6 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                       </div>
                     </motion.div>
                   )}
-
-                  <div className="rounded-[1.5rem] bg-white p-5 shadow-sm ring-1 ring-slate-100">
-                    <h2 className="mb-2 text-xl font-bold">讲给爸爸妈妈听</h2>
-                    <p className="leading-7 text-slate-600">{activeLesson.parentPrompt}</p>
-                  </div>
                 </div>
               </section>
             </motion.div>
