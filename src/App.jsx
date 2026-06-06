@@ -13,18 +13,177 @@ import {
   Home,
   Sparkles,
 } from "lucide-react";
-function getStoredCompleted() {
-  if (typeof window === "undefined") return [];
+
+const LEGACY_COMPLETED_STORAGE_KEY = "completedLessons";
+const PROGRESS_STORAGE_KEY = "littleKnowledgePlanet.progress";
+const PROGRESS_VERSION = 1;
+const validLessonIds = new Set(lessons.map((lesson) => lesson.id));
+
+function createEmptyProgress() {
+  return {
+    version: PROGRESS_VERSION,
+    completedLessons: [],
+    lastVisitedLessonId: null,
+    lessonStats: {},
+  };
+}
+
+function readStorageItem(key) {
+  if (typeof window === "undefined") return null;
   try {
-    return JSON.parse(window.localStorage.getItem("completedLessons") || "[]");
+    return window.localStorage.getItem(key);
   } catch {
-    return [];
+    return null;
   }
 }
 
-function saveStoredCompleted(ids) {
+function writeStorageItem(key, value) {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem("completedLessons", JSON.stringify(ids));
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    // Ignore storage failures so the app still works in private or restricted contexts.
+  }
+}
+
+function parseStorageJson(value) {
+  if (!value) return null;
+  try {
+    return JSON.parse(value);
+  } catch {
+    return null;
+  }
+}
+
+function normalizeLessonIds(ids) {
+  if (!Array.isArray(ids)) return [];
+  const seen = new Set();
+
+  return ids.filter((id) => {
+    if (typeof id !== "string" || !validLessonIds.has(id) || seen.has(id)) {
+      return false;
+    }
+
+    seen.add(id);
+    return true;
+  });
+}
+
+function normalizeLessonStats(rawStats) {
+  if (!rawStats || typeof rawStats !== "object" || Array.isArray(rawStats)) {
+    return {};
+  }
+
+  return Object.entries(rawStats).reduce((stats, [lessonId, rawStat]) => {
+    if (!validLessonIds.has(lessonId) || !rawStat || typeof rawStat !== "object" || Array.isArray(rawStat)) {
+      return stats;
+    }
+
+    const nextStat = {};
+
+    if (typeof rawStat.completedAt === "string") {
+      nextStat.completedAt = rawStat.completedAt;
+    }
+
+    if (typeof rawStat.lastVisitedAt === "string") {
+      nextStat.lastVisitedAt = rawStat.lastVisitedAt;
+    }
+
+    if (Number.isFinite(rawStat.bestScore)) {
+      nextStat.bestScore = rawStat.bestScore;
+    }
+
+    stats[lessonId] = nextStat;
+    return stats;
+  }, {});
+}
+
+function normalizeProgress(rawProgress) {
+  const emptyProgress = createEmptyProgress();
+
+  if (!rawProgress || typeof rawProgress !== "object" || Array.isArray(rawProgress)) {
+    return emptyProgress;
+  }
+
+  const completedLessons = normalizeLessonIds(rawProgress.completedLessons);
+  const lastVisitedLessonId = validLessonIds.has(rawProgress.lastVisitedLessonId)
+    ? rawProgress.lastVisitedLessonId
+    : null;
+
+  return {
+    version: PROGRESS_VERSION,
+    completedLessons,
+    lastVisitedLessonId,
+    lessonStats: normalizeLessonStats(rawProgress.lessonStats),
+  };
+}
+
+function migrateOldProgress() {
+  const oldCompleted = parseStorageJson(readStorageItem(LEGACY_COMPLETED_STORAGE_KEY));
+  return {
+    ...createEmptyProgress(),
+    completedLessons: normalizeLessonIds(oldCompleted),
+  };
+}
+
+function saveProgress(progress) {
+  const normalizedProgress = normalizeProgress(progress);
+  writeStorageItem(PROGRESS_STORAGE_KEY, JSON.stringify(normalizedProgress));
+  writeStorageItem(LEGACY_COMPLETED_STORAGE_KEY, JSON.stringify(normalizedProgress.completedLessons));
+  return normalizedProgress;
+}
+
+function loadProgress() {
+  const storedProgress = readStorageItem(PROGRESS_STORAGE_KEY);
+  const parsedProgress = parseStorageJson(storedProgress);
+  const canUseStoredProgress =
+    parsedProgress && typeof parsedProgress === "object" && !Array.isArray(parsedProgress);
+  const progress = canUseStoredProgress ? normalizeProgress(parsedProgress) : migrateOldProgress();
+  return saveProgress(progress);
+}
+
+function markLessonVisited(progress, lessonId) {
+  if (!validLessonIds.has(lessonId)) return progress;
+  const now = new Date().toISOString();
+  const lessonStats = {
+    ...progress.lessonStats,
+    [lessonId]: {
+      ...(progress.lessonStats[lessonId] || {}),
+      lastVisitedAt: now,
+    },
+  };
+
+  return saveProgress({
+    ...progress,
+    lastVisitedLessonId: lessonId,
+    lessonStats,
+  });
+}
+
+function markLessonCompleted(progress, lessonId, score) {
+  if (!validLessonIds.has(lessonId)) return progress;
+  const now = new Date().toISOString();
+  const existingStats = progress.lessonStats[lessonId] || {};
+  const bestScore = Number.isFinite(existingStats.bestScore)
+    ? Math.max(existingStats.bestScore, score)
+    : score;
+  const completedLessons = progress.completedLessons.includes(lessonId)
+    ? progress.completedLessons
+    : [...progress.completedLessons, lessonId];
+
+  return saveProgress({
+    ...progress,
+    completedLessons,
+    lessonStats: {
+      ...progress.lessonStats,
+      [lessonId]: {
+        ...existingStats,
+        completedAt: existingStats.completedAt || now,
+        lastVisitedAt: existingStats.lastVisitedAt || now,
+        bestScore,
+      },
+    },
+  });
 }
 
 export default function ChildrenKnowledgeExplorerPrototype() {
@@ -33,10 +192,11 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   const [view, setView] = useState("home");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [completed, setCompleted] = useState(getStoredCompleted);
+  const [progress, setProgress] = useState(loadProgress);
   const [moonPhase, setMoonPhase] = useState(0);
   const [showReflection, setShowReflection] = useState(false);
   const [rewardStatus, setRewardStatus] = useState(null);
+  const completed = progress.completedLessons;
 
   const recommendedLesson =
     ["rainbow", "cat-eyes", "sunflower", "moon-shape", "pipa-string"]
@@ -85,19 +245,16 @@ export default function ChildrenKnowledgeExplorerPrototype() {
 
   function openLesson(lesson) {
     setActiveLesson(lesson);
+    setProgress((currentProgress) => markLessonVisited(currentProgress, lesson.id));
     setSelectedAnswers({});
     setShowReflection(false);
     setRewardStatus(null);
     setView("lesson");
   }
 
-  function markCompleted() {
+  function completeActiveLesson(score) {
     const alreadyCompleted = completed.includes(activeLesson.id);
-    if (!alreadyCompleted) {
-      const next = [...completed, activeLesson.id];
-      setCompleted(next);
-      saveStoredCompleted(next);
-    }
+    setProgress((currentProgress) => markLessonCompleted(currentProgress, activeLesson.id, score));
     setRewardStatus(alreadyCompleted ? "repeat" : "new");
     setShowReflection(true);
   }
@@ -112,7 +269,10 @@ export default function ChildrenKnowledgeExplorerPrototype() {
 
     const nextPassed = activeLesson.quiz.every((item, quizIndex) => nextAnswers[quizIndex] === item.answer);
     if (nextPassed) {
-      markCompleted();
+      const nextScore = activeLesson.quiz.reduce((score, item, quizIndex) => {
+        return nextAnswers[quizIndex] === item.answer ? score + 1 : score;
+      }, 0);
+      completeActiveLesson(nextScore);
     } else {
       setShowReflection(false);
       setRewardStatus(null);
@@ -120,8 +280,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   }
 
   function resetProgress() {
-    setCompleted([]);
-    saveStoredCompleted([]);
+    setProgress(saveProgress(createEmptyProgress()));
   }
 
   const progressPercent = Math.round((completed.length / lessons.length) * 100);
