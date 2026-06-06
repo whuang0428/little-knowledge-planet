@@ -2,6 +2,8 @@ import { Fragment, useMemo, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
 import { lessons } from "./data/lessons";
 import { categories } from "./data/categories";
+import LessonCard from "./components/LessonCard";
+import ProgressSummary from "./components/ProgressSummary";
 import {
   BookOpen,
   Star,
@@ -9,7 +11,6 @@ import {
   CheckCircle2,
   Home,
   Sparkles,
-  RotateCcw,
 } from "lucide-react";
 function getStoredCompleted() {
   if (typeof window === "undefined") return [];
@@ -217,40 +218,12 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                   </div>
                 </div>
 
-                <div className="rounded-[2rem] bg-white p-6 shadow-sm">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h2 className="text-xl font-black">探索进度</h2>
-                      <p className="mt-1 text-sm text-slate-500">每完成一个主题，就点亮一个小徽章。</p>
-                    </div>
-                    <span className="rounded-full bg-amber-100 px-4 py-2 text-lg font-black">
-                      {progressPercent}%
-                    </span>
-                  </div>
-                  <div className="mt-5">
-                    <div className="flex items-end justify-between">
-                      <div className="text-4xl font-black">{completed.length}</div>
-                      <div className="pb-1 text-sm font-semibold text-slate-500">/ {lessons.length} 个主题</div>
-                    </div>
-                    <div className="mt-3 h-4 overflow-hidden rounded-full bg-slate-100">
-                      <div
-                        className="h-full rounded-full bg-slate-900 transition-all duration-700"
-                        style={{ width: `${progressPercent}%` }}
-                      />
-                    </div>
-                  </div>
-                  <div className="mt-5 grid grid-cols-3 gap-3">
-                    <StatCard label="主题" value={lessons.length} />
-                    <StatCard label="完成" value={completed.length} />
-                    <StatCard label="徽章" value={completed.length} />
-                  </div>
-                  <button
-                    onClick={resetProgress}
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-50 px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-slate-100"
-                  >
-                    <RotateCcw className="h-4 w-4" /> 重置原型进度
-                  </button>
-                </div>
+                <ProgressSummary
+                  completedCount={completed.length}
+                  totalCount={lessons.length}
+                  percentage={progressPercent}
+                  onReset={resetProgress}
+                />
               </section>
 
               <section className="rounded-[2rem] bg-white p-5 shadow-sm md:p-6">
@@ -316,7 +289,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                       <LessonCard
                         key={lesson.id}
                         lesson={lesson}
-                        completed={false}
+                        isCompleted={false}
                         onOpen={() => openLesson(lesson)}
                       />
                     ))}
@@ -449,7 +422,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     <LessonCard
                       key={lesson.id}
                       lesson={lesson}
-                      completed={completed.includes(lesson.id)}
+                      isCompleted={completed.includes(lesson.id)}
                       onOpen={() => openLesson(lesson)}
                     />
                   ))}
@@ -670,14 +643,20 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                         </div>
                       </div>
                       <div className="grid gap-4 md:grid-cols-3">
-                        {relatedLessonSuggestions.map((lesson) => (
-                          <RelatedLessonCard
-                            key={lesson.id}
-                            lesson={lesson}
-                            completed={completed.includes(lesson.id)}
-                            onOpen={() => openLesson(lesson)}
-                          />
-                        ))}
+                        {relatedLessonSuggestions.map((lesson) => {
+                          const relatedCategory = categories.find((item) => item.id === lesson.category);
+
+                          return (
+                            <LessonCard
+                              key={lesson.id}
+                              lesson={lesson}
+                              category={relatedCategory}
+                              isCompleted={completed.includes(lesson.id)}
+                              onOpen={() => openLesson(lesson)}
+                              variant="related"
+                            />
+                          );
+                        })}
                       </div>
                     </div>
                   )}
@@ -739,98 +718,6 @@ export default function ChildrenKnowledgeExplorerPrototype() {
         <MobileNavButton icon={Trophy} label="徽章" active={view === "badges"} onClick={() => setView("badges")} />
       </nav>
     </div>
-  );
-}
-
-function StatCard({ label, value }) {
-  return (
-    <div className="rounded-2xl bg-slate-50 p-4 text-center">
-      <div className="text-2xl font-black">{value}</div>
-      <div className="mt-1 text-xs text-slate-500">{label}</div>
-    </div>
-  );
-}
-
-
-function LessonCard({ lesson, completed, onOpen }) {
-  const visibleTags = (lesson.tags || []).slice(0, 3);
-
-  return (
-    <button
-      onClick={onOpen}
-      className="rounded-[1.5rem] bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-    >
-      <div className="mb-4 flex items-start justify-between gap-3">
-        <div className="text-5xl">{lesson.emoji}</div>
-        {completed ? (
-          <span className="flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
-            <CheckCircle2 className="h-3 w-3" /> 已完成
-          </span>
-        ) : (
-          <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
-            {lesson.readingTime}
-          </span>
-        )}
-      </div>
-      <h3 className="text-xl font-black leading-tight">{lesson.title}</h3>
-      <p className="mt-3 line-clamp-2 text-sm leading-6 text-slate-500">{lesson.intro}</p>
-      {visibleTags.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {visibleTags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-700"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-      <div className="mt-5 flex items-center justify-between text-sm font-semibold text-slate-500">
-        <span>{lesson.level}</span>
-        <span>打开 →</span>
-      </div>
-    </button>
-  );
-}
-
-function RelatedLessonCard({ lesson, completed, onOpen }) {
-  const visibleTags = (lesson.tags || []).slice(0, 3);
-  const category = categories.find((item) => item.id === lesson.category);
-
-  return (
-    <button
-      onClick={onOpen}
-      className="rounded-[1.25rem] bg-slate-50 p-4 text-left shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:bg-white hover:shadow-md"
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div className="text-4xl">{lesson.emoji}</div>
-        <span className={`rounded-full px-3 py-1 text-xs font-bold ${
-          completed ? "bg-green-100 text-green-700" : "bg-white text-slate-500"
-        }`}>
-          {completed ? "已完成" : lesson.readingTime}
-        </span>
-      </div>
-      <h3 className="mt-3 text-base font-black leading-6">{lesson.title}</h3>
-      <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-500">
-        {lesson.question || lesson.intro}
-      </p>
-      <div className="mt-3 text-xs font-semibold text-slate-400">
-        {category?.label || "百科主题"}
-      </div>
-      {visibleTags.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-2">
-          {visibleTags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-amber-700"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-    </button>
   );
 }
 
