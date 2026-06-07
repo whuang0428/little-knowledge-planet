@@ -31,6 +31,7 @@ export default function LessonCard({
         </p>
         <div className="mt-3 text-xs font-semibold text-slate-400">
           {category?.label || "百科主题"}
+          {lesson.ageRange ? ` · 适合 ${lesson.ageRange}` : ""}
         </div>
         {visibleTags.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-2">
@@ -79,8 +80,13 @@ export default function LessonCard({
           ))}
         </div>
       )}
-      <div className="mt-5 flex items-center justify-between text-sm font-semibold text-slate-500">
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-2 text-sm font-semibold text-slate-500">
         <span>{lesson.level}</span>
+        {lesson.ageRange && (
+          <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-bold text-sky-700">
+            适合 {lesson.ageRange}
+          </span>
+        )}
         <span>打开 →</span>
       </div>
     </button>

@@ -20,6 +20,7 @@ category
 title
 emoji
 readingTime
+ageRange
 level
 intro
 content
@@ -35,7 +36,7 @@ tags
 relatedLessons
 ```
 
-其中 `id`、`category`、`title`、`emoji`、`readingTime`、`level`、`intro`、`content`、`interaction`、`parentPrompt`、`badge`、`question`、`discovery`、`funFact` 都应是非空字符串。`parentGuide` 应是对象。
+其中 `id`、`category`、`title`、`emoji`、`readingTime`、`ageRange`、`level`、`intro`、`content`、`interaction`、`parentPrompt`、`badge`、`question`、`discovery`、`funFact` 都应是非空字符串。`parentGuide` 应是对象。
 
 ## 字段说明
 
@@ -44,6 +45,7 @@ relatedLessons
 - `title`：课程标题，通常是一个孩子会问的问题。
 - `emoji`：课程代表 emoji。
 - `readingTime`：阅读时间，例如 `5分钟`。
+- `ageRange`：适合年龄参考，例如 `6-8岁`，只作为家长判断的粗略参考。
 - `level`：难度或适读阶段，例如 `小学低年级`。
 - `intro`：进入课程前的短引导。
 - `content`：核心解释，语言要短、清楚、儿童友好。
@@ -125,6 +127,25 @@ parentGuide: {
 - 不鼓励孩子接触电、火、化学品、尖锐工具、交通、深水、野生动物或未知植物。
 - 需要户外观察时，要提醒有大人陪伴，并选择安全位置。
 
+## Age Range 要求
+
+每个 lesson 的 `ageRange` 必须使用以下值之一：
+
+```js
+"5-7岁"
+"6-8岁"
+"7-9岁"
+"8-10岁"
+```
+
+选择建议：
+- `5-7岁`：现象直观、生活里容易看到、互动简单。
+- `6-8岁`：需要一点比较或因果理解，但仍适合低年级。
+- `7-9岁`：概念稍抽象，需要家长一起解释或多看几步。
+- `8-10岁`：涉及更复杂的科学关系，只作为拓展探索。
+
+年龄范围是给家长的参考，不是严格规则。孩子如果感兴趣，可以由家长陪同一起阅读和讨论。
+
 ## 儿童友好写作规则
 
 - 一课只聚焦一个核心问题。
@@ -148,6 +169,7 @@ parentGuide: {
   title: "为什么会下雨？",
   emoji: "🌧️",
   readingTime: "5分钟",
+  ageRange: "6-8岁",
   level: "小学低年级",
   intro: "天空里的云为什么有时会落下雨点？",
   content: "云里有很多很小的水滴。水滴越聚越多，变重以后就会落下来，形成雨。",

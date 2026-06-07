@@ -1,12 +1,15 @@
 import { categories } from "../src/data/categories.js";
 import { lessons } from "../src/data/lessons.js";
 
+const ALLOWED_AGE_RANGES = ["5-7岁", "6-8岁", "7-9岁", "8-10岁"];
+
 const requiredFields = [
   "id",
   "category",
   "title",
   "emoji",
   "readingTime",
+  "ageRange",
   "level",
   "intro",
   "content",
@@ -100,6 +103,14 @@ lessonList.forEach((lesson, index) => {
 
   if ("category" in lesson && isNonEmptyString(lesson.category) && !categoryIds.has(lesson.category)) {
     addError(`${label}: category "${lesson.category}" does not exist in categories.js.`);
+  }
+
+  if (
+    "ageRange" in lesson &&
+    isNonEmptyString(lesson.ageRange) &&
+    !ALLOWED_AGE_RANGES.includes(lesson.ageRange)
+  ) {
+    addError(`${label}: ageRange "${lesson.ageRange}" must be one of: ${ALLOWED_AGE_RANGES.join(", ")}.`);
   }
 
   if (!isPlainObject(lesson.parentGuide)) {

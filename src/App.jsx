@@ -191,6 +191,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   const [activeLesson, setActiveLesson] = useState(lessons[0]);
   const [view, setView] = useState("home");
   const [searchQuery, setSearchQuery] = useState("");
+  const [completionFilter, setCompletionFilter] = useState("all");
+  const [levelFilter, setLevelFilter] = useState("all");
+  const [ageRangeFilter, setAgeRangeFilter] = useState("all");
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [progress, setProgress] = useState(loadProgress);
   const [moonPhase, setMoonPhase] = useState(0);
@@ -205,12 +208,30 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   const recommendedCategory = categories.find((category) => category.id === recommendedLesson.category);
   const activeCategory = categories.find((category) => category.id === activeLesson.category);
   const lessonById = useMemo(() => new Map(lessons.map((lesson) => [lesson.id, lesson])), []);
+  const levelOptions = useMemo(() => [...new Set(lessons.map((lesson) => lesson.level).filter(Boolean))], []);
+  const ageRangeOptions = useMemo(() => [...new Set(lessons.map((lesson) => lesson.ageRange).filter(Boolean))], []);
 
   const filteredLessons = useMemo(() => {
     const normalizedSearch = searchQuery.trim().toLocaleLowerCase();
 
     return lessons.filter((lesson) => {
       if (selectedCategory !== "all" && lesson.category !== selectedCategory) {
+        return false;
+      }
+
+      if (completionFilter === "completed" && !completed.includes(lesson.id)) {
+        return false;
+      }
+
+      if (completionFilter === "incomplete" && completed.includes(lesson.id)) {
+        return false;
+      }
+
+      if (levelFilter !== "all" && lesson.level !== levelFilter) {
+        return false;
+      }
+
+      if (ageRangeFilter !== "all" && lesson.ageRange !== ageRangeFilter) {
         return false;
       }
 
@@ -226,6 +247,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
         lesson.question,
         lesson.discovery,
         lesson.funFact,
+        lesson.ageRange,
         ...(lesson.tags || []),
       ]
         .filter(Boolean)
@@ -234,7 +256,13 @@ export default function ChildrenKnowledgeExplorerPrototype() {
 
       return searchableText.includes(normalizedSearch);
     });
-  }, [selectedCategory, searchQuery]);
+  }, [ageRangeFilter, completed, completionFilter, levelFilter, selectedCategory, searchQuery]);
+  const hasActiveLibraryFilters =
+    searchQuery.trim() ||
+    selectedCategory !== "all" ||
+    completionFilter !== "all" ||
+    levelFilter !== "all" ||
+    ageRangeFilter !== "all";
 
   const correctCount = activeLesson.quiz.reduce((count, item, index) => {
     return selectedAnswers[index] === item.answer ? count + 1 : count;
@@ -281,6 +309,14 @@ export default function ChildrenKnowledgeExplorerPrototype() {
 
   function resetProgress() {
     setProgress(saveProgress(createEmptyProgress()));
+  }
+
+  function clearLibraryFilters() {
+    setSearchQuery("");
+    setSelectedCategory("all");
+    setCompletionFilter("all");
+    setLevelFilter("all");
+    setAgeRangeFilter("all");
   }
 
   const progressPercent = Math.round((completed.length / lessons.length) * 100);
@@ -553,8 +589,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     </button>
                   )}
                 </div>
-                <div className="mt-3 text-sm font-semibold text-slate-500">
-                  找到 {filteredLessons.length} 个探索主题
+                <div className="mt-3 flex flex-col gap-2 text-sm font-semibold text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+                  <span>找到 {filteredLessons.length} 个探索主题</span>
+                  <span className="text-xs text-slate-400">年龄只是参考，家长可以一起读。</span>
                 </div>
               </div>
 
@@ -574,6 +611,66 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     </button>
                   );
                 })}
+              </div>
+
+              <div className="rounded-[1.5rem] bg-white p-4 shadow-sm">
+                <div className="grid gap-3 md:grid-cols-4">
+                  <label className="text-sm font-bold text-slate-600">
+                    完成状态
+                    <select
+                      value={completionFilter}
+                      onChange={(event) => setCompletionFilter(event.target.value)}
+                      className="mt-2 min-h-11 w-full rounded-2xl border border-slate-100 bg-slate-50 px-3 text-sm font-semibold outline-none transition focus:border-amber-200 focus:bg-white focus:ring-4 focus:ring-amber-100"
+                    >
+                      <option value="all">全部状态</option>
+                      <option value="incomplete">还没完成</option>
+                      <option value="completed">已经完成</option>
+                    </select>
+                  </label>
+
+                  <label className="text-sm font-bold text-slate-600">
+                    难度
+                    <select
+                      value={levelFilter}
+                      onChange={(event) => setLevelFilter(event.target.value)}
+                      className="mt-2 min-h-11 w-full rounded-2xl border border-slate-100 bg-slate-50 px-3 text-sm font-semibold outline-none transition focus:border-amber-200 focus:bg-white focus:ring-4 focus:ring-amber-100"
+                    >
+                      <option value="all">全部难度</option>
+                      {levelOptions.map((level) => (
+                        <option key={level} value={level}>
+                          {level}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+
+                  <label className="text-sm font-bold text-slate-600">
+                    年龄
+                    <select
+                      value={ageRangeFilter}
+                      onChange={(event) => setAgeRangeFilter(event.target.value)}
+                      className="mt-2 min-h-11 w-full rounded-2xl border border-slate-100 bg-slate-50 px-3 text-sm font-semibold outline-none transition focus:border-amber-200 focus:bg-white focus:ring-4 focus:ring-amber-100"
+                    >
+                      <option value="all">全部年龄</option>
+                      {ageRangeOptions.map((ageRange) => (
+                        <option key={ageRange} value={ageRange}>
+                          {ageRange}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+
+                  <div className="flex items-end">
+                    <button
+                      type="button"
+                      onClick={clearLibraryFilters}
+                      disabled={!hasActiveLibraryFilters}
+                      className="min-h-11 w-full rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400 disabled:shadow-none disabled:hover:translate-y-0"
+                    >
+                      清空筛选
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {filteredLessons.length > 0 ? (
@@ -596,10 +693,10 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                   </p>
                   <button
                     type="button"
-                    onClick={() => setSearchQuery("")}
+                    onClick={clearLibraryFilters}
                     className="mt-5 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                   >
-                    清空搜索
+                    清空筛选
                   </button>
                 </div>
               )}
@@ -630,6 +727,11 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     </span>
                     <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold shadow-sm">{activeLesson.readingTime}</span>
                     <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold shadow-sm">{activeLesson.level}</span>
+                    {activeLesson.ageRange && (
+                      <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold shadow-sm">
+                        适合 {activeLesson.ageRange}
+                      </span>
+                    )}
                     {completed.includes(activeLesson.id) && (
                       <span className="flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
                         <CheckCircle2 className="h-4 w-4" /> 已完成

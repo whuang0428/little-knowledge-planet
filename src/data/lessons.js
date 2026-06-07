@@ -62,7 +62,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么猫的眼睛在晚上会亮，先听听孩子自己的猜想。",
       "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
       "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "penguin-feet",
@@ -127,7 +128,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么企鹅站在冰上也不怕冷，先听听孩子自己的猜想。",
       "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
       "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "giraffe-neck",
@@ -192,7 +194,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：长颈鹿的脖子为什么那么长，先听听孩子自己的猜想。",
       "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
       "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "octopus-hearts",
@@ -257,7 +260,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：章鱼为什么有三个心脏，先听听孩子自己的猜想。",
       "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
       "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "bee-dance",
@@ -322,7 +326,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：蜜蜂为什么会跳舞，先听听孩子自己的猜想。",
       "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
       "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "sunflower",
@@ -387,7 +392,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：向日葵为什么喜欢朝着太阳，先听听孩子自己的猜想。",
       "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
       "safety": "只观察常见植物，不采摘、不入口未知植物。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "cactus-water",
@@ -452,7 +458,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：仙人掌为什么能在干燥地方生活，先听听孩子自己的猜想。",
       "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
       "safety": "只观察常见植物，不采摘、不入口未知植物。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "leaf-green",
@@ -517,7 +524,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：叶子为什么大多是绿色的，先听听孩子自己的猜想。",
       "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
       "safety": "只观察常见植物，不采摘、不入口未知植物。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "tree-rings",
@@ -582,7 +590,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：树干里一圈一圈的年轮是什么，先听听孩子自己的猜想。",
       "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
       "safety": "只观察常见植物，不采摘、不入口未知植物。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "seed-travel",
@@ -647,7 +656,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：植物不会走路，种子为什么会旅行，先听听孩子自己的猜想。",
       "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
       "safety": "只观察常见植物，不采摘、不入口未知植物。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "moon-shape",
@@ -712,7 +722,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：月亮为什么有时圆，有时弯，先听听孩子自己的猜想。",
       "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
       "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "day-night",
@@ -777,7 +788,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么会有白天和黑夜，先听听孩子自己的猜想。",
       "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
       "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "stars-day",
@@ -842,7 +854,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：白天为什么看不到星星，先听听孩子自己的猜想。",
       "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
       "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "rocket-fly",
@@ -907,7 +920,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：火箭为什么能飞上天，先听听孩子自己的猜想。",
       "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
       "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "planets-round",
@@ -972,7 +986,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么很多星球都是圆圆的，先听听孩子自己的猜想。",
       "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
       "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "rainbow",
@@ -1037,7 +1052,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：彩虹是怎么出现的，先听听孩子自己的猜想。",
       "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
       "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "thunder-lightning",
@@ -1102,7 +1118,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么先看到闪电，后听到雷声，先听听孩子自己的猜想。",
       "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
       "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
-    }
+    },
+    "ageRange": "8-10岁"
   },
   {
     "id": "volcano",
@@ -1167,7 +1184,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：火山为什么会喷发，先听听孩子自己的猜想。",
       "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
       "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "cloud-rain",
@@ -1232,7 +1250,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：云为什么会下雨，先听听孩子自己的猜想。",
       "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
       "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "desert-cold-night",
@@ -1297,7 +1316,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么沙漠白天热，晚上冷，先听听孩子自己的猜想。",
       "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
       "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "pipa-string",
@@ -1362,7 +1382,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么琴弦越短，声音越高，先听听孩子自己的猜想。",
       "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
       "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "sound-travel",
@@ -1427,7 +1448,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：声音是怎么传到耳朵里的，先听听孩子自己的猜想。",
       "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
       "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "echo",
@@ -1492,7 +1514,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么山谷里会有回声，先听听孩子自己的猜想。",
       "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
       "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "instrument-wood",
@@ -1557,7 +1580,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么很多乐器用木头做，先听听孩子自己的猜想。",
       "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
       "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "rhythm-heart",
@@ -1622,7 +1646,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：节奏为什么会让人想动起来，先听听孩子自己的猜想。",
       "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
       "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "heartbeat",
@@ -1687,7 +1712,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：心脏为什么一直在跳，先听听孩子自己的猜想。",
       "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
       "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "teeth-change",
@@ -1752,7 +1778,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：小朋友为什么会换牙，先听听孩子自己的猜想。",
       "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
       "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "brain-sleep",
@@ -1817,7 +1844,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：睡觉为什么能帮助大脑，先听听孩子自己的猜想。",
       "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
       "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "goosebumps",
@@ -1882,7 +1910,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：冷的时候为什么会起鸡皮疙瘩，先听听孩子自己的猜想。",
       "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
       "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "taste",
@@ -1947,7 +1976,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：舌头为什么能尝出味道，先听听孩子自己的猜想。",
       "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
       "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "magnet",
@@ -2012,7 +2042,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：磁铁为什么能吸住铁，先听听孩子自己的猜想。",
       "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
       "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "float-sink",
@@ -2077,7 +2108,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：为什么有些东西会浮，有些会沉，先听听孩子自己的猜想。",
       "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
       "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "shadow",
@@ -2142,7 +2174,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：影子为什么会变长变短，先听听孩子自己的猜想。",
       "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
       "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "ice-melt",
@@ -2207,7 +2240,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：冰为什么会融化成水，先听听孩子自己的猜想。",
       "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
       "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "static-electricity",
@@ -2272,7 +2306,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：脱毛衣时为什么会有小电火花，先听听孩子自己的猜想。",
       "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
       "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
-    }
+    },
+    "ageRange": "8-10岁"
   },
   {
     "id": "soap-clean",
@@ -2337,7 +2372,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：肥皂为什么能把手洗干净，先听听孩子自己的猜想。",
       "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
       "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "traffic-light",
@@ -2402,7 +2438,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：红绿灯为什么用红黄绿，先听听孩子自己的猜想。",
       "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
       "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "fridge",
@@ -2467,7 +2504,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：冰箱为什么能让食物保鲜，先听听孩子自己的猜想。",
       "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
       "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "umbrella",
@@ -2532,7 +2570,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：雨伞为什么能挡雨，先听听孩子自己的猜想。",
       "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
       "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "elevator",
@@ -2597,7 +2636,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：电梯为什么能上下移动，先听听孩子自己的猜想。",
       "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
       "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "turtle-slow",
@@ -2662,7 +2702,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：乌龟为什么走得慢，先听听孩子自己的猜想。",
       "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
       "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "autumn-leaves",
@@ -2727,7 +2768,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：秋天的树叶为什么会变黄变红，先听听孩子自己的猜想。",
       "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
       "safety": "只观察常见植物，不采摘、不入口未知植物。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "sky-blue",
@@ -2792,7 +2834,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：白天的天空为什么常常是蓝色，先听听孩子自己的猜想。",
       "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
       "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
-    }
+    },
+    "ageRange": "7-9岁"
   },
   {
     "id": "rain-soil-smell",
@@ -2857,7 +2900,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：下雨后为什么会闻到泥土味，先听听孩子自己的猜想。",
       "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
       "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "ears-hear-sound",
@@ -2922,7 +2966,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：耳朵为什么能听见声音，先听听孩子自己的猜想。",
       "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
       "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "brush-teeth-clean",
@@ -2987,7 +3032,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：牙齿为什么要每天刷干净，先听听孩子自己的猜想。",
       "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
       "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
-    }
+    },
+    "ageRange": "5-7岁"
   },
   {
     "id": "soap-bubble-round",
@@ -3052,7 +3098,8 @@ export const lessons = [
       "talkAbout": "可以聊一聊：肥皂泡为什么常常是圆圆的，先听听孩子自己的猜想。",
       "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
       "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
-    }
+    },
+    "ageRange": "6-8岁"
   },
   {
     "id": "clock-hands-turn",
@@ -3117,6 +3164,7 @@ export const lessons = [
       "talkAbout": "可以聊一聊：钟表的指针为什么会一圈一圈转，先听听孩子自己的猜想。",
       "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
       "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
-    }
+    },
+    "ageRange": "6-8岁"
   }
 ];
