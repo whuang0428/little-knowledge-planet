@@ -1,172 +1,146 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
-function CategoryVisual({ type, activeStep }) {
-  const activeClass = "scale-110 bg-slate-900 text-white shadow-md";
-  const quietClass = "bg-white/80 text-slate-500";
+const visualSteps = {
+  animals: [
+    { focus: "🐾", helper: "👀", label: "观察身体部分", detail: "脚印、眼睛、耳朵都可能是线索。", color: "orange" },
+    { focus: "🦴", helper: "🏃", label: "发现动作变化", detail: "动作变快、变慢或换方向。", color: "amber" },
+    { focus: "🛡️", helper: "🍃", label: "连接生存用途", detail: "这个特点怎样帮助它生活？", color: "emerald" },
+  ],
+  plants: [
+    { focus: "☀️", helper: "🌱", label: "找到阳光", detail: "光照亮，叶子开始工作。", color: "yellow" },
+    { focus: "💧", helper: "🌿", label: "补充水分", detail: "小水滴让植物更挺立。", color: "sky" },
+    { focus: "🌳", helper: "✨", label: "看见长大", detail: "阳光和水一起帮它长高。", color: "green" },
+  ],
+  space: [
+    { focus: "🔭", helper: "✨", label: "抬头观察", detail: "先找亮点和移动方向。", color: "indigo" },
+    { focus: "🌓", helper: "☀️", label: "比较明暗", detail: "亮面和暗面会改变样子。", color: "violet" },
+    { focus: "🪐", helper: "↻", label: "发现规律", detail: "位置变化会形成重复模式。", color: "blue" },
+  ],
+  earth: [
+    { focus: "💧", helper: "☁️", label: "观察水", detail: "水会变成雨、云、冰或水汽。", color: "sky" },
+    { focus: "💨", helper: "🍃", label: "看空气", detail: "空气流动会推动很多变化。", color: "cyan" },
+    { focus: "🌡️", helper: "🔥", label: "比较温度", detail: "冷和热会让现象不一样。", color: "rose" },
+  ],
+  music: [
+    { focus: "🎻", helper: "〰️", label: "触碰振动", detail: "先看哪里在轻轻颤动。", color: "pink" },
+    { focus: "🎵", helper: ")))", label: "声波传开", detail: "声音像波纹一样向外走。", color: "fuchsia" },
+    { focus: "👂", helper: "💗", label: "耳朵听见", detail: "耳朵接住振动带来的信息。", color: "rose" },
+  ],
+  body: [
+    { focus: "🧠", helper: "👀", label: "认识器官", detail: "先找到身体的小帮手。", color: "rose" },
+    { focus: "💓", helper: "〰️", label: "感受信号", detail: "跳动、冷热、味道都是信号。", color: "red" },
+    { focus: "🛡️", helper: "😊", label: "学会保护", detail: "照顾身体会让它更舒服。", color: "emerald" },
+  ],
+  science: [
+    { focus: "❓", helper: "💭", label: "先猜一猜", detail: "从一个问题开始观察。", color: "purple" },
+    { focus: "🧪", helper: "↔", label: "动手比较", detail: "只看一个明显变化。", color: "violet" },
+    { focus: "💡", helper: "✅", label: "说出原因", detail: "猜想和结果都能帮助发现。", color: "amber" },
+  ],
+  life: [
+    { focus: "🔎", helper: "?", label: "发现问题", detail: "先看生活里的小现象。", color: "amber" },
+    { focus: "⚙️", helper: "↔", label: "观察过程", detail: "它工作时发生了什么？", color: "orange" },
+    { focus: "✅", helper: "🧡", label: "安全使用", detail: "知道原理，也要用得安全。", color: "green" },
+  ],
+  default: [
+    { focus: "🔎", helper: "👀", label: "看一看", detail: "先找到最明显的地方。", color: "slate" },
+    { focus: "💭", helper: "↔", label: "想一想", detail: "再比较前后的变化。", color: "blue" },
+    { focus: "💡", helper: "✅", label: "说一说", detail: "最后试着解释原因。", color: "amber" },
+  ],
+};
 
-  if (type === "animals") {
-    return (
-      <div className="mt-4 flex gap-2 rounded-full bg-white/60 p-2">
-        {["🐾", "🏷️", "🛡️"].map((item, index) => (
-          <motion.div
-            key={item}
-            animate={{ y: activeStep === index ? -4 : 0 }}
-            className={`flex h-9 w-9 items-center justify-center rounded-full text-lg transition ${
-              activeStep === index ? activeClass : quietClass
-            }`}
-          >
-            {item}
-          </motion.div>
-        ))}
-      </div>
-    );
-  }
+const colorClasses = {
+  amber: "bg-amber-500 shadow-amber-200 ring-amber-100",
+  blue: "bg-blue-500 shadow-blue-200 ring-blue-100",
+  cyan: "bg-cyan-500 shadow-cyan-200 ring-cyan-100",
+  emerald: "bg-emerald-500 shadow-emerald-200 ring-emerald-100",
+  fuchsia: "bg-fuchsia-500 shadow-fuchsia-200 ring-fuchsia-100",
+  green: "bg-green-500 shadow-green-200 ring-green-100",
+  indigo: "bg-indigo-500 shadow-indigo-200 ring-indigo-100",
+  orange: "bg-orange-500 shadow-orange-200 ring-orange-100",
+  pink: "bg-pink-500 shadow-pink-200 ring-pink-100",
+  purple: "bg-purple-500 shadow-purple-200 ring-purple-100",
+  red: "bg-red-500 shadow-red-200 ring-red-100",
+  rose: "bg-rose-500 shadow-rose-200 ring-rose-100",
+  sky: "bg-sky-500 shadow-sky-200 ring-sky-100",
+  slate: "bg-slate-700 shadow-slate-200 ring-slate-100",
+  violet: "bg-violet-500 shadow-violet-200 ring-violet-100",
+  yellow: "bg-yellow-400 shadow-yellow-200 ring-yellow-100",
+};
 
-  if (type === "plants") {
-    return (
-      <div className="mt-4 w-36 rounded-2xl bg-white/70 p-3">
-        <div className="flex items-center justify-between text-lg">
-          <span>☀️</span>
-          <motion.span animate={{ y: activeStep === 1 ? [0, 4, 0] : 0 }} transition={{ repeat: activeStep === 1 ? Infinity : 0, duration: 1.2 }}>
-            💧
-          </motion.span>
-          <span>🌱</span>
-        </div>
-        <div className="mt-3 h-3 overflow-hidden rounded-full bg-green-100">
-          <motion.div
-            animate={{ width: `${34 + activeStep * 33}%` }}
-            className="h-full rounded-full bg-green-500"
-          />
-        </div>
-      </div>
-    );
-  }
+function getVisualSteps(type) {
+  return visualSteps[type] || visualSteps.default;
+}
 
-  if (type === "space") {
-    return (
-      <div className="relative mt-4 h-20 w-36 rounded-2xl bg-white/70">
-        <div className="absolute left-1/2 top-1/2 h-14 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-indigo-200" />
-        <div className="absolute left-1/2 top-1/2 text-lg -translate-x-1/2 -translate-y-1/2">☀️</div>
-        {[
-          "left-4 top-8",
-          "left-16 top-2",
-          "right-4 top-8",
-        ].map((position, index) => (
-          <motion.div
-            key={position}
-            animate={{ scale: activeStep === index ? 1.25 : 1 }}
-            className={`absolute ${position} h-4 w-4 rounded-full ${
-              activeStep === index ? "bg-indigo-600" : "bg-indigo-200"
-            }`}
-          />
-        ))}
-      </div>
-    );
-  }
-
-  if (type === "earth") {
-    return (
-      <div className="mt-4 flex gap-2 rounded-2xl bg-white/70 p-2">
-        {["💧", "💨", "🌡️"].map((item, index) => (
-          <motion.div
-            key={item}
-            animate={{ y: activeStep === index ? [0, -5, 0] : 0 }}
-            transition={{ repeat: activeStep === index ? Infinity : 0, duration: 1.3 }}
-            className={`flex h-10 w-10 items-center justify-center rounded-xl text-lg transition ${
-              activeStep === index ? activeClass : quietClass
-            }`}
-          >
-            {item}
-          </motion.div>
-        ))}
-      </div>
-    );
-  }
-
-  if (type === "music") {
-    return (
-      <div className="mt-4 flex h-16 w-36 items-center justify-center gap-2 rounded-2xl bg-white/70">
-        {[0, 1, 2, 3, 4].map((item) => (
-          <motion.div
-            key={item}
-            animate={{ height: activeStep === 0 ? [18, 38, 18] : activeStep === 1 ? [12, 30, 12] : 18 }}
-            transition={{ repeat: Infinity, duration: 0.9, delay: item * 0.08 }}
-            className={`w-2 rounded-full ${activeStep === 2 ? "bg-pink-300" : "bg-pink-500"}`}
-          />
-        ))}
-        <span className={`text-xl ${activeStep === 2 ? "scale-110" : ""}`}>👂</span>
-      </div>
-    );
-  }
-
-  if (type === "body") {
-    return (
-      <div className="mt-4 flex h-16 w-40 items-center gap-1 rounded-2xl bg-white/70 px-3">
-        <span className="mr-1 text-lg">❤️</span>
-        {[12, 22, 10, 34, 10, 24, 12].map((height, index) => (
-          <motion.div
-            key={`${height}-${index}`}
-            animate={{ height: activeStep === 1 ? [height, height + 10, height] : height }}
-            transition={{ repeat: activeStep === 1 ? Infinity : 0, duration: 0.9, delay: index * 0.05 }}
-            className={`w-2 rounded-full ${activeStep === 2 ? "bg-rose-300" : "bg-rose-500"}`}
-          />
-        ))}
-        <span className="ml-1 text-lg">{activeStep === 2 ? "🛡️" : "😊"}</span>
-      </div>
-    );
-  }
-
-  if (type === "science") {
-    return (
-      <div className="mt-4 grid w-40 grid-cols-3 gap-2">
-        {["猜", "试", "因"].map((item, index) => (
-          <motion.div
-            key={item}
-            animate={{ y: activeStep === index ? -5 : 0 }}
-            className={`rounded-xl px-2 py-3 text-center text-sm font-black transition ${
-              activeStep === index ? activeClass : quietClass
-            }`}
-          >
-            {item}
-          </motion.div>
-        ))}
-      </div>
-    );
-  }
-
-  if (type === "life") {
-    return (
-      <div className="mt-4 flex items-center gap-2 rounded-2xl bg-white/70 p-2 text-sm font-black">
-        {["问", "做", "安"].map((item, index) => (
-          <Fragment key={item}>
-            <motion.div
-              animate={{ scale: activeStep === index ? 1.12 : 1 }}
-              className={`flex h-9 w-9 items-center justify-center rounded-full transition ${
-                activeStep === index ? activeClass : quietClass
-              }`}
-            >
-              {item}
-            </motion.div>
-            {index < 2 && <span className="text-amber-500">→</span>}
-          </Fragment>
-        ))}
-      </div>
-    );
-  }
+function CategoryVisual({ type, activeStep, fallbackIcon }) {
+  const steps = getVisualSteps(type);
+  const currentVisual = steps[activeStep] || steps[0];
+  const activeColor = colorClasses[currentVisual.color] || colorClasses.slate;
 
   return (
-    <div className="mt-4 flex gap-2 rounded-full bg-white/70 p-2">
-      {["看", "想", "说"].map((item, index) => (
-        <div
-          key={item}
-          className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-black ${
-            activeStep === index ? activeClass : quietClass
-          }`}
+    <div className="mt-4 w-full max-w-sm rounded-[1.5rem] bg-white/80 p-4 shadow-sm ring-1 ring-white/80">
+      <div className="relative flex min-h-32 items-center justify-center overflow-hidden rounded-2xl bg-white">
+        <motion.div
+          key={`glow-${activeStep}`}
+          initial={{ opacity: 0.2, scale: 0.8 }}
+          animate={{ opacity: 0.95, scale: 1.18 }}
+          transition={{ duration: 0.45 }}
+          className={`absolute h-28 w-28 rounded-full blur-xl ${activeColor}`}
+        />
+        <motion.div
+          key={`helper-${activeStep}`}
+          initial={{ opacity: 0, x: -18, scale: 0.85 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          className="absolute left-6 top-5 rounded-full bg-white/85 px-3 py-2 text-2xl shadow-sm"
         >
-          {item}
-        </div>
-      ))}
+          {currentVisual.helper}
+        </motion.div>
+        <motion.div
+          key={`focus-${activeStep}`}
+          initial={{ y: 16, rotate: -8, scale: 0.75 }}
+          animate={{ y: 0, rotate: 0, scale: activeStep === 2 ? 1.15 : 1 }}
+          transition={{ type: "spring", stiffness: 220, damping: 16 }}
+          className="relative z-10 text-7xl"
+        >
+          {currentVisual.focus || fallbackIcon}
+        </motion.div>
+        <motion.div
+          key={`label-${activeStep}`}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute bottom-3 rounded-full bg-slate-900 px-4 py-1.5 text-xs font-black text-white shadow-sm"
+        >
+          {currentVisual.label}
+        </motion.div>
+      </div>
+
+      <div className="mt-3 grid grid-cols-3 gap-2">
+        {steps.map((step, index) => {
+          const isActive = activeStep === index;
+          return (
+            <div
+              key={step.label}
+              className={`rounded-2xl px-2 py-2 text-center text-xs font-black transition ${
+                isActive ? `${colorClasses[step.color]} text-white ring-4` : "bg-slate-100 text-slate-500"
+              }`}
+            >
+              {step.label}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="mt-3 h-3 overflow-hidden rounded-full bg-slate-100">
+        <motion.div
+          animate={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
+          transition={{ type: "spring", stiffness: 160, damping: 18 }}
+          className={`h-full rounded-full ${activeColor}`}
+        />
+      </div>
+
+      <p aria-live="polite" className="mt-3 text-center text-sm font-semibold leading-6 text-slate-600">
+        你正在观察：{currentVisual.detail}
+      </p>
     </div>
   );
 }
@@ -423,6 +397,8 @@ export default function CategoryExploreDemo({ lesson }) {
 
   const interactionStates = template.states;
   const currentState = interactionStates[activeStep];
+  const visualState = getVisualSteps(template.visualType)[activeStep] || getVisualSteps("default")[0];
+  const nextState = interactionStates[(activeStep + 1) % interactionStates.length];
 
   return (
     <div className={`min-h-48 rounded-2xl p-6 ${template.bg}`}>
@@ -435,15 +411,16 @@ export default function CategoryExploreDemo({ lesson }) {
             whileTap={{ scale: 0.9 }}
             animate={currentState.iconAnimation}
             transition={{ repeat: Infinity, duration: activeStep === 1 ? 1.5 : 2.2 }}
-            className="cursor-pointer rounded-full p-2 text-7xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/80"
+            className="flex cursor-pointer flex-col items-center rounded-[1.75rem] bg-white/90 px-6 py-4 text-center shadow-sm ring-1 ring-white/80 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/90"
           >
-            {template.mainIcon}
+            <span className="text-6xl">{visualState.focus || template.mainIcon}</span>
+            <span className="mt-2 text-xs font-black text-slate-500">点击进入下一步</span>
           </motion.button>
 
-          <CategoryVisual type={template.visualType} activeStep={activeStep} />
+          <CategoryVisual type={template.visualType} activeStep={activeStep} fallbackIcon={template.mainIcon} />
 
-          <div className="mt-3 rounded-full bg-white/80 px-4 py-2 text-sm font-bold shadow-sm">
-            点击进入下一步：{interactionStates[(activeStep + 1) % interactionStates.length].name}
+          <div className="mt-3 rounded-full bg-white/85 px-4 py-2 text-sm font-bold shadow-sm">
+            下一步：{nextState.name} - {nextState.step}
           </div>
         </div>
 
@@ -458,12 +435,17 @@ export default function CategoryExploreDemo({ lesson }) {
               const isActive = activeStep === index;
 
               return (
-                <motion.div
+                <motion.button
+                  type="button"
                   key={state.step}
+                  aria-pressed={isActive}
+                  onClick={() => setActiveStep(index)}
                   whileHover={{ y: -4 }}
                   whileTap={{ scale: 0.96 }}
-                  className={`rounded-2xl p-4 text-center shadow-sm transition ${
-                    isActive ? `${template.activeCard} text-white ring-4 ring-white/70` : "bg-white text-slate-800"
+                  className={`rounded-2xl p-4 text-center shadow-sm transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/80 ${
+                    isActive
+                      ? `${template.activeCard} text-white ring-4 ring-white/70 scale-[1.03]`
+                      : "bg-white text-slate-800 hover:bg-white/90"
                   }`}
                 >
                   <div
@@ -477,7 +459,7 @@ export default function CategoryExploreDemo({ lesson }) {
                   <div className={`mt-1 text-xs font-semibold ${isActive ? "text-white/75" : "text-slate-400"}`}>
                     {state.name}
                   </div>
-                </motion.div>
+                </motion.button>
               );
             })}
           </div>

@@ -98,6 +98,70 @@ function normalizeLessonStats(rawStats) {
   }, {});
 }
 
+function moveCorrectOptionToIndex(quizItem, targetIndex) {
+  if (quizItem.answer === targetIndex || targetIndex >= quizItem.options.length) {
+    return quizItem;
+  }
+
+  const optionEntries = quizItem.options.map((option, index) => ({
+    option,
+    isCorrect: index === quizItem.answer,
+  }));
+  const [correctOption] = optionEntries.splice(quizItem.answer, 1);
+  optionEntries.splice(targetIndex, 0, correctOption);
+
+  return {
+    ...quizItem,
+    options: optionEntries.map((entry) => entry.option),
+    answer: targetIndex,
+  };
+}
+
+function keepAnswerPositionsVaried(shuffledQuiz) {
+  if (shuffledQuiz.length < 2) {
+    return shuffledQuiz;
+  }
+
+  const answerPositions = shuffledQuiz.map((item) => item.answer);
+  const allSamePosition = answerPositions.every((position) => position === answerPositions[0]);
+  const hasAnswerAwayFromFirstOption = answerPositions.some((position) => position !== 0);
+
+  if (!allSamePosition && hasAnswerAwayFromFirstOption) {
+    return shuffledQuiz;
+  }
+
+  return shuffledQuiz.map((item, index) => {
+    if (item.options.length < 2) {
+      return item;
+    }
+
+    const targetIndex = (index + 1) % item.options.length;
+    return moveCorrectOptionToIndex(item, targetIndex);
+  });
+}
+
+function shuffleQuizOptions(quiz) {
+  const shuffledQuiz = quiz.map((item) => {
+    const optionEntries = item.options.map((option, originalIndex) => ({
+      option,
+      originalIndex,
+    }));
+
+    for (let index = optionEntries.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(Math.random() * (index + 1));
+      [optionEntries[index], optionEntries[swapIndex]] = [optionEntries[swapIndex], optionEntries[index]];
+    }
+
+    return {
+      ...item,
+      options: optionEntries.map((entry) => entry.option),
+      answer: optionEntries.findIndex((entry) => entry.originalIndex === item.answer),
+    };
+  });
+
+  return keepAnswerPositionsVaried(shuffledQuiz);
+}
+
 function normalizeProgress(rawProgress) {
   const emptyProgress = createEmptyProgress();
 
@@ -210,6 +274,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
   const lessonById = useMemo(() => new Map(lessons.map((lesson) => [lesson.id, lesson])), []);
   const levelOptions = useMemo(() => [...new Set(lessons.map((lesson) => lesson.level).filter(Boolean))], []);
   const ageRangeOptions = useMemo(() => [...new Set(lessons.map((lesson) => lesson.ageRange).filter(Boolean))], []);
+  const shuffledQuiz = useMemo(() => shuffleQuizOptions(activeLesson.quiz), [activeLesson]);
 
   const filteredLessons = useMemo(() => {
     const normalizedSearch = searchQuery.trim().toLocaleLowerCase();
@@ -264,12 +329,12 @@ export default function ChildrenKnowledgeExplorerPrototype() {
     levelFilter !== "all" ||
     ageRangeFilter !== "all";
 
-  const correctCount = activeLesson.quiz.reduce((count, item, index) => {
+  const correctCount = shuffledQuiz.reduce((count, item, index) => {
     return selectedAnswers[index] === item.answer ? count + 1 : count;
   }, 0);
 
-  const allAnswered = activeLesson.quiz.every((_, index) => selectedAnswers[index] !== undefined);
-  const passed = allAnswered && correctCount === activeLesson.quiz.length;
+  const allAnswered = shuffledQuiz.every((_, index) => selectedAnswers[index] !== undefined);
+  const passed = allAnswered && correctCount === shuffledQuiz.length;
 
   function openLesson(lesson) {
     setActiveLesson(lesson);
@@ -295,9 +360,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
 
     setSelectedAnswers(nextAnswers);
 
-    const nextPassed = activeLesson.quiz.every((item, quizIndex) => nextAnswers[quizIndex] === item.answer);
+    const nextPassed = shuffledQuiz.every((item, quizIndex) => nextAnswers[quizIndex] === item.answer);
     if (nextPassed) {
-      const nextScore = activeLesson.quiz.reduce((score, item, quizIndex) => {
+      const nextScore = shuffledQuiz.reduce((score, item, quizIndex) => {
         return nextAnswers[quizIndex] === item.answer ? score + 1 : score;
       }, 0);
       completeActiveLesson(nextScore);
@@ -794,7 +859,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                   <div className="rounded-[1.5rem] bg-amber-50 p-5">
                     <h2 className="mb-4 text-xl font-bold">三道小测验</h2>
                     <div className="space-y-5">
-                      {activeLesson.quiz.map((item, index) => (
+                      {shuffledQuiz.map((item, index) => (
                         <div key={item.question} className="rounded-2xl bg-white p-4 shadow-sm">
                           <div className="font-semibold">
                             {index + 1}. {item.question}
@@ -870,7 +935,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                       {allAnswered ? (
                         <div>
                           <div className="text-lg font-bold">
-                            答对 {correctCount}/{activeLesson.quiz.length} 题
+                            答对 {correctCount}/{shuffledQuiz.length} 题
                           </div>
                           {passed ? (
                             <p className="mt-1 text-sm text-green-600">太棒了，可以领取今天的徽章！</p>
