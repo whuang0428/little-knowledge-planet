@@ -1,190 +1,199 @@
 # AGENTS.md
 
+本文件是给后续 AI 代理和维护者看的项目协作说明。开始任何任务前，先读本文件、`README.md` 和与任务相关的源码文件；涉及课程内容时还要读 `docs/lesson-authoring-guide.md`。
+
 ## 项目概览
 
-`little-knowledge-planet` 是一个面向儿童的“小小百科星球”React 单页原型。项目已经不是默认 Vite 模板；当前项目说明在 `README.md`，课程维护规则在 `docs/lesson-authoring-guide.md`。
+`little-knowledge-planet` 是一个面向儿童的“小小百科星球”React 单页应用。它通过短阅读、互动演示、三题测验、亲子讨论和徽章奖励，帮助孩子从生活中可观察的问题出发探索百科知识。
 
-应用当前包含：
+当前项目根目录：
 
-- 首页：hero、今日推荐探索、继续探索、探索进度、徽章入口、分类入口。
-- 主题库：分类筛选、关键词搜索、结果数量、空搜索状态、课程标签展示。
-- 课程页：标题、分类/时长/难度、今天的问题、简单解释、互动 demo、我发现了什么、趣味小知识、三题测验、亲子讨论、完成奖励、继续发现相关推荐。
-- 徽章页：显示所有课程徽章和完成状态。
-- 本地进度：新版 key 为 `littleKnowledgePlanet.progress`，旧 key `completedLessons` 仍保留兼容，不要删除或破坏旧 key 迁移。
+```bash
+/Users/kw/Projects/little-knowledge-planet
+```
+
+GitHub Pages 部署使用 Vite base：
+
+```js
+"/little-knowledge-planet/"
+```
 
 ## 技术栈
 
 - React 19 + JavaScript/JSX，没有 TypeScript。
-- Vite 8，`vite.config.js` 配置 GitHub Pages base：`/little-knowledge-planet/`。
+- Vite 8。
 - Tailwind CSS 4，通过 `@tailwindcss/vite` 接入，无单独 Tailwind config。
 - Framer Motion 用于动画、拖拽和互动 demo。
 - Lucide React 用于 UI 图标。
 - ESLint flat config 在 `eslint.config.js`。
 
-不要引入 React Router、全局状态库或新依赖，除非用户明确要求且确有必要。
+除非用户明确要求且确有必要，不要新增 React Router、全局状态库、UI 框架、动画库或数据管理库。
 
 ## 关键文件
 
-- `src/App.jsx`：主 UI、所有 view 状态、课程打开逻辑、搜索、答题、完成奖励、进度存储、相关推荐。
-- `src/components/LessonCard.jsx`：普通课程卡片和 `variant="related"` 相关课程卡片。
+- `src/App.jsx`：主 UI、页面状态、分类/搜索/筛选、课程打开逻辑、答题、完成奖励、进度存储、相关推荐。
+- `src/components/LessonCard.jsx`：课程卡片，包含普通卡片和 `variant="related"` 相关课程卡片。
 - `src/components/ProgressSummary.jsx`：首页探索进度面板。
-- `src/components/demos/InteractiveDemo.jsx`：按 lesson id 分发特殊互动 demo，否则走通用分类 demo。
-- `src/components/demos/*.jsx`：已抽出的互动 demo 组件。
-- `src/data/lessons.js`：48 个课程的内容数据。
-- `src/data/categories.js`：分类数据，包含 `all` 和 8 个业务分类。
+- `src/components/demos/InteractiveDemo.jsx`：按 lesson id 分发特殊互动 demo；其他课程走通用分类 demo。
+- `src/components/demos/*.jsx`：互动 demo 组件。
+- `src/data/lessons.js`：课程内容数据。
+- `src/data/categories.js`：分类数据，包含 `all` 和业务分类。
 - `scripts/validateLessons.mjs`：课程数据校验脚本。
 - `docs/lesson-authoring-guide.md`：课程创作和维护规则。
 - `README.md`：项目说明、命令、部署和维护说明。
-- `.github/workflows/deploy.yml`：GitHub Pages 部署。
+- `.github/workflows/deploy.yml`：GitHub Pages 部署流程。
 
-不要编辑或提交 `node_modules`、`dist`、临时脚本、日志或生成产物。
+不要编辑或提交 `node_modules`、`dist`、临时缓存、日志或生成产物。
 
-## Git 工作流
+## 常用命令
 
-用户要求：后续任务只负责创建本地 commit，不要 push。
+在项目根目录运行：
 
-完成任务后：
-
-1. 运行验证。
-2. 只 `git add` 本任务实际修改的文件。
-3. 创建本地 commit。
-4. 最终回复给出 commit hash、当前分支、手动 push 命令。
-
-不要执行 `git push`。给用户的 push 命令格式：
-
-```powershell
-cd D:\react-projects\little-knowledge-planet
-git push origin HEAD
+```bash
+npm install
+npm run dev -- --host 127.0.0.1
+npm run validate:lessons
+npm run build
+npm run lint
+npm run preview
 ```
 
-## 当前 Git 状态参考
+说明：
 
-截至本次交接，最近提交包括：
+- Vite dev server 是长运行进程。
+- 开发地址通常是 `http://127.0.0.1:5173/little-knowledge-planet/`。
+- 如果 npm 访问官方 registry 失败，可先确认网络/DNS/代理；在中国大陆环境可以考虑临时使用镜像源。
+- 如果只是修改文档，通常不需要运行 build/lint；如果修改源码或课程数据，必须运行对应验证。
 
-- `d451d9f Add first batch of encyclopedia lessons`
-- `b464b0c Upgrade progress storage model`
-- `a4c7c4b Extract interactive demo components`
-- `c695447 Extract reusable UI components`
-- `9fc2ede Improve project documentation`
-- `5a393a6 Add lesson data validation script`
-- `9554618 Update agent handoff guide`
-- `ceb6f9c Add related lesson recommendations`
-
-如果新对话开始时 `AGENTS.md` 有未提交改动，先确认是否来自交接文档更新，不要误判为业务代码改动。
-
-## 课程数据结构
-
-`src/data/lessons.js` 当前共有 48 个课程。8 个业务分类各 6 个课程：
-
-- `animals`
-- `plants`
-- `space`
-- `earth`
-- `music`
-- `body`
-- `science`
-- `life`
-
-最新新增的 8 个课程：
-
-- `turtle-slow`：为什么乌龟走得慢？
-- `autumn-leaves`：为什么树叶秋天会变色？
-- `sky-blue`：为什么天空是蓝色的？
-- `rain-soil-smell`：为什么下雨后会有泥土味？
-- `ears-hear-sound`：为什么耳朵能听见声音？
-- `brush-teeth-clean`：为什么牙齿要刷干净？
-- `soap-bubble-round`：为什么肥皂泡是圆的？
-- `clock-hands-turn`：为什么钟表的指针会转？
-
-每个 lesson 必须包含：
-
-- `id`
-- `category`
-- `title`
-- `question`
-- `discovery`
-- `funFact`
-- `tags`
-- `relatedLessons`
-- `emoji`
-- `readingTime`
-- `level`
-- `intro`
-- `content`
-- `interaction`
-- `quiz`
-- `parentPrompt`
-- `badge`
-
-数据约束：
-
-- 每个 `id` 是唯一、非空、URL-safe 的字符串。
-- `category` 必须来自 `src/data/categories.js`，课程不要使用 `all`。
-- 每个 `quiz` 必须正好 3 题。
-- 每个 quiz item 包含 `question`、`options`、`answer`、`explanation`。
-- `answer` 是 `options` 下标。
-- 每个 lesson 的 `tags` 为 3-6 个短中文标签，课内不得重复。
-- 每个 lesson 的 `relatedLessons` 为 2-3 个有效 lesson id。
-- `relatedLessons` 不得包含当前 lesson 自己，不得重复，不得使用不存在的 id。
-- 不要重命名现有 lesson id 或 category id，除非用户明确要求并同步全部引用。
-
-新增或修改课程前先读 `docs/lesson-authoring-guide.md`。课程内容要儿童友好：短句、温和、聚焦一个核心问题，从可见现象讲到简单原因，不鼓励危险实验。
-
-## 数据验证
-
-课程数据校验命令：
-
-```powershell
-npm.cmd run validate:lessons
-```
-
-该命令会检查：
-
-- lesson id 是否存在、非空、唯一。
-- category 是否存在。
-- 必填字段是否存在。
-- 必填字符串是否非空。
-- `quiz` 是否正好 3 题。
-- quiz item 的 `question`、`options`、`answer`、`explanation` 是否有效。
-- `tags` 是否 3-6 个且无重复。
-- `relatedLessons` 是否 2-3 个、有效、无重复、无自引用。
+## 验证规则
 
 修改课程数据后必须运行：
 
-```powershell
-npm.cmd run validate:lessons
-npm.cmd run build
-npm.cmd run lint
+```bash
+npm run validate:lessons
+npm run build
+npm run lint
 ```
 
-## App 状态和行为
+修改 React 组件、样式或交互后至少运行：
 
-`ChildrenKnowledgeExplorerPrototype` 在 `src/App.jsx` 中维护：
+```bash
+npm run build
+npm run lint
+```
 
-- `selectedCategory`
-- `activeLesson`
-- `view`: `home`、`library`、`lesson`、`badges`
-- `searchQuery`
-- `selectedAnswers`
-- `progress`
-- `moonPhase`
-- `showReflection`
-- `rewardStatus`
+涉及课程页、互动 demo、quiz、进度或推荐逻辑时，还要手动检查相关页面行为：
 
-关键行为：
+- 首页推荐、继续探索、进度和徽章入口。
+- 主题库分类、年龄/难度/完成状态筛选和关键词搜索。
+- 搜索空状态。
+- 课程页内容、互动区、quiz 正误反馈和解释。
+- 三题全对后的完成奖励。
+- 徽章/进度更新。
+- “继续发现”不推荐当前课程，点击能打开新课程。
+- 移动端底部导航可用，按钮和标签不溢出。
 
-- `openLesson(lesson)` 会设置当前课程、记录最近访问、重置 quiz 答案和奖励状态，并进入 `lesson` view。
-- `selectQuizAnswer(index, optionIndex)` 会即时显示正误反馈和解释。
-- 三题全对时自动调用完成逻辑，显示完成奖励。
-- 已完成课程再次答对时显示“你已经获得过这个徽章啦”语义。
-- 移动端底部导航仍使用 `home`、`library`、`badges` 三个入口。
+## 课程数据规则
+
+新增或修改课程前，先读 `docs/lesson-authoring-guide.md`。
+
+每个 lesson 必须包含：
+
+```text
+id
+category
+title
+emoji
+readingTime
+ageRange
+level
+intro
+content
+interaction
+quiz
+parentPrompt
+parentGuide
+badge
+question
+discovery
+funFact
+tags
+relatedLessons
+```
+
+数据约束：
+
+- `id` 必须唯一、非空、稳定，使用英文短横线格式；不要随意重命名已有 id。
+- `category` 必须来自 `src/data/categories.js`，课程不要使用 `all`。
+- `ageRange` 只能使用 `5-7岁`、`6-8岁`、`7-9岁`、`8-10岁`。
+- `parentGuide` 必须包含 `talkAbout`、`tryThis`、`safety` 三个非空中文字段。
+- 每课 `quiz` 必须正好 3 题。
+- 每个 quiz item 必须包含 `question`、`options`、`answer`、`explanation`。
+- `answer` 是 `options` 的数字下标，从 `0` 开始。
+- `tags` 为 3-6 个短中文标签，同一课内不得重复。
+- `relatedLessons` 为 2-3 个有效 lesson id，不得包含自己、重复项或不存在的 id。
+
+内容风格：
+
+- 儿童友好，短句，温和，聚焦一个核心问题。
+- 从看得见的现象讲到简单原因。
+- 不吓唬、不评判、不制造焦虑。
+- 不鼓励孩子独自接触电、火、化学品、尖锐工具、交通、深水、野生动物或未知植物。
+- 亲子活动必须安全、日常、适合家长陪同。
+
+## 分类与搜索
+
+业务分类 id：
+
+```text
+animals
+plants
+space
+earth
+music
+body
+science
+life
+```
+
+`all` 只用于 UI 筛选，不作为课程分类。
+
+主题库搜索会匹配课程标题、引导、分类、标签、问题、发现和趣味知识。处理标签时保持容错，例如使用 `lesson.tags || []`，避免旧数据或异常数据导致页面崩溃。
+
+## 相关推荐
+
+课程页底部有“继续发现”区域。推荐逻辑应保持这些原则：
+
+1. 优先使用 `activeLesson.relatedLessons`。
+2. 过滤无效 id、当前课程 id 和重复项。
+3. 不足 3 个时补同分类课程。
+4. 再不足时补未完成课程。
+5. 如果都完成了，仍从其他课程补足用于复习。
+6. 最多显示 3 个。
+
+相关课程卡片由 `LessonCard` 的 `variant="related"` 支持。不要为了相关推荐引入路由；点击应直接调用现有课程打开逻辑。
+
+## 互动 Demo
+
+“动一动，看一看”区域必须有真实可见反馈。文案写“点击”就要点击后有变化；文案写“拖动”就要拖动后有变化。
+
+当前特殊 demo 分发：
+
+- `cat-eyes` -> `CatEyesDemo`
+- `penguin-feet` -> `PenguinFeetDemo`
+- `sunflower` -> `SunflowerDemo`
+- `moon-shape` -> `MoonShapeDemo`
+- `rainbow` -> `RainbowDemo`
+- `pipa-string` -> `PipaStringDemo`
+
+其他课程走 `CategoryExploreDemo` 通用分类互动。不要新增特殊 demo，除非任务明确要求或现有通用 demo 无法满足内容表达。
 
 ## 本地进度存储
 
-新版进度 key：
+新版 key：
 
 ```js
-littleKnowledgePlanet.progress
+"littleKnowledgePlanet.progress"
 ```
 
 当前结构：
@@ -207,220 +216,48 @@ littleKnowledgePlanet.progress
 旧 key：
 
 ```js
-completedLessons
+"completedLessons"
 ```
 
 兼容规则：
 
 - 加载时优先读 `littleKnowledgePlanet.progress`。
 - 新 key 缺失或不可用时，从旧 key `completedLessons` 迁移有效 lesson id。
-- 不要删除旧 key。
-- 保存新版 progress 时，旧 key 也会同步写入 completed lesson id 数组，用于兼容。
-- localStorage 不可用、JSON 损坏、id 失效时，应用必须继续工作。
-
-## 搜索和标签
-
-主题库搜索匹配：
-
-- lesson title
-- intro
-- category label
-- tags
-- question
-- discovery
-- funFact
-
-搜索和分类筛选同时生效。缺少 `tags` 时必须用 `lesson.tags || []`，避免崩溃。
-
-## 相关推荐
-
-课程页底部有“继续发现”区域。
-
-推荐逻辑：
-
-1. 优先使用 `activeLesson.relatedLessons`。
-2. 过滤无效 id、当前课程 id、重复项。
-3. 不足 3 个时补同分类课程。
-4. 再不足时补未完成课程。
-5. 如果都完成了，仍从其他课程补足用于复习。
-6. 最多显示 3 个。
-
-相关课程卡片现在由 `LessonCard` 的 `variant="related"` 支持。不要引入路由，点击直接调用 `openLesson(lesson)`。
-
-## 互动规则
-
-“动一动，看一看”区域必须有真实可见反馈。
-
-当前特殊 demo：
-
-- `cat-eyes` -> `CatEyesDemo`
-- `penguin-feet` -> `PenguinFeetDemo`
-- `sunflower` -> `SunflowerDemo`
-- `moon-shape` -> `MoonShapeDemo`
-- `rainbow` -> `RainbowDemo`
-- `pipa-string` -> `PipaStringDemo`
-
-其他课程走 `CategoryExploreDemo` 通用分类互动。
-
-互动 demo 文件在：
-
-```text
-src/components/demos/
-```
-
-规则：
-
-- 文案写“点击”，点击后必须有可见变化。
-- 文案写“拖动”，拖动后必须有可见变化。
-- 不要让文案描述变化，但 UI 静止。
-- 不要新增 demo 组件，除非用户明确要求。
-- `SimpleExploreDemo` 是未接线的旧静态 demo，为避免 lint 问题当前有注释保留。除非明确做清理任务，否则不要围绕它新增功能。
+- 保存新版 progress 时，同步写入旧 key 的 completed lesson id 数组。
+- 不要删除旧 key 兼容。
+- localStorage 不可用、JSON 损坏或 id 失效时，应用必须继续工作。
 
 ## 样式和 UX 约定
 
-- 保持柔和、圆角、儿童友好的视觉风格。
+- 保持柔和、明亮、儿童友好的视觉风格。
 - 主要样式写在 JSX 的 Tailwind class 中。
-- 继续使用现有卡片半径、浅色背景、轻阴影。
+- 继续使用现有卡片、浅色背景、轻阴影和圆角体系。
 - 使用 Lucide React 图标，不新增图标库。
-- 动画/拖拽继续用 Framer Motion，不新增动画库。
+- 动画和拖拽继续使用 Framer Motion。
 - 移动端和桌面端都要检查按钮、卡片、quiz 选项、标签 pill 不溢出。
-- 不要引入 React Router 或全局状态库。
-- 不要做大重构；除非用户明确要求，否则保持改动聚焦。
+- 不要做大重构；除非任务明确要求，否则保持改动聚焦。
 
-## 编码注意事项
+## Git 工作流
 
-项目包含大量中文和 emoji，按 UTF-8 处理。
+- 默认只做本地修改，不要自动 push。
+- 提交前运行适合改动范围的验证命令。
+- 只 stage 当前任务实际修改的文件。
+- 不要提交 `node_modules`、`dist`、缓存目录、日志或临时文件。
+- 如果工作区已有与当前任务无关的改动，不要回滚；先判断是否需要避开或与用户确认。
 
-PowerShell 如出现中文乱码，先设置：
+提交前建议检查：
 
-```powershell
-$OutputEncoding = [System.Text.UTF8Encoding]::new()
-[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
-```
-
-不要基于乱码终端输出修改中文文案。
-
-## 常用命令
-
-```powershell
-npm.cmd install
-npm.cmd run dev -- --host 127.0.0.1
-npm.cmd run validate:lessons
-npm.cmd run build
-npm.cmd run lint
-npm.cmd run preview
-```
-
-说明：
-
-- Vite dev server 是长运行进程。
-- 默认本地地址通常是 `http://127.0.0.1:5173/little-knowledge-planet/`。
-- 本环境浏览器插件可能拒绝访问 localhost/127.0.0.1。若浏览器自动化被安全策略阻止，不要绕过策略；可用 `npm.cmd run build`、`npm.cmd run lint`、`npm.cmd run validate:lessons` 和 Vite HTTP 200 检查作为替代，并在最终回复中说明限制。
-
-## 验证清单
-
-修改代码或数据后至少运行：
-
-```powershell
-npm.cmd run validate:lessons
-npm.cmd run build
-npm.cmd run lint
-```
-
-根据改动范围检查：
-
-- 首页是否正常。
-- 主题库分类和搜索是否正常。
-- 搜索空状态是否正常。
-- 课程页结构卡片是否正常。
-- 互动 demo 是否仍有真实反馈。
-- quiz 正误反馈和解释是否正常。
-- 三题全对后完成奖励是否正常。
-- 徽章/进度是否更新。
-- “继续发现”相关课程不包含当前课程，点击能打开新课程。
-- 移动端底部导航仍可用。
-- 新增课程是否可被搜索命中，`tags` 和 `relatedLessons` 是否合理。
-
-## 提交前检查
-
-```powershell
-git status
+```bash
+git status --short
 git diff
-npm.cmd run validate:lessons
-npm.cmd run build
-npm.cmd run lint
+npm run validate:lessons
+npm run build
+npm run lint
 ```
 
-只在 validation、build 和 lint 都通过后 commit。提交后运行：
+需要发布时，由维护者手动执行：
 
-```powershell
-git status
-git log --oneline -1
-git branch --show-current
-```
-
-最终回复应包含：
-
-- changed files
-- validation/build/lint 结果
-- commit hash
-- 当前分支
-- 用户手动 push 命令
-- 未提交但有意排除的文件或验证限制
-
-## Latest Handoff Notes
-
-Current branch: `main`.
-
-Recent local commits:
-- `2f74148 Improve accessibility and mobile usability`
-- `f64e0dd Add age range metadata and filtering`
-- `282dbb1 Add parent guidance to lessons`
-
-The accessibility/mobile usability task is complete and committed locally in
-`2f74148 Improve accessibility and mobile usability`. Validation was run twice
-before that commit:
-
-```powershell
-npm.cmd run validate:lessons
-npm.cmd run build
-npm.cmd run lint
-```
-
-All three passed. Browser automation was intentionally not run for that task
-because the user explicitly said not to install or run Playwright and not to
-retry browser automation.
-
-Files changed by commit `2f74148`:
-- `src/App.jsx`
-- `src/components/LessonCard.jsx`
-- `src/components/ProgressSummary.jsx`
-- `src/components/demos/CatEyesDemo.jsx`
-- `src/components/demos/CategoryExploreDemo.jsx`
-- `src/components/demos/MoonShapeDemo.jsx`
-- `src/components/demos/PipaStringDemo.jsx`
-- `src/components/demos/RainbowDemo.jsx`
-- `src/components/demos/SunflowerDemo.jsx`
-
-Important current working-tree note: after commit `2f74148`, there are still
-uncommitted demo-related changes from an earlier task. They were deliberately
-excluded from the accessibility/mobile usability commit:
-
-```text
- M src/components/demos/InteractiveDemo.jsx
- M src/data/lessons.js
-?? src/components/demos/MagnetAttractDemo.jsx
-?? src/components/demos/SkyBlueDemo.jsx
-?? src/components/demos/SoapBubbleDemo.jsx
-```
-
-Do not assume those files belong to a new task. Inspect them before staging or
-committing. If a future task is only about unrelated app behavior, leave these
-demo files unstaged.
-
-Manual push command for the user remains:
-
-```powershell
-cd D:\react-projects\little-knowledge-planet
+```bash
 git push origin HEAD
 ```
+
