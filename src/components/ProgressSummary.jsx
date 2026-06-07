@@ -31,7 +31,14 @@ export default function ProgressSummary({
           <div className="text-4xl font-black">{completedCount}</div>
           <div className="pb-1 text-sm font-semibold text-slate-500">/ {totalCount} 个主题</div>
         </div>
-        <div className="mt-3 h-4 overflow-hidden rounded-full bg-slate-100">
+        <div
+          role="progressbar"
+          aria-label="探索进度"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={percentage}
+          className="mt-3 h-4 overflow-hidden rounded-full bg-slate-100"
+        >
           <div
             className="h-full rounded-full bg-slate-900 transition-all duration-700"
             style={{ width: `${percentage}%` }}
@@ -44,8 +51,10 @@ export default function ProgressSummary({
         <StatCard label="徽章" value={completedCount} />
       </div>
       <button
+        type="button"
+        aria-label="重置学习进度"
         onClick={onReset}
-        className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-50 px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-slate-100"
+        className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-50 px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
       >
         <RotateCcw className="h-4 w-4" /> 重置原型进度
       </button>

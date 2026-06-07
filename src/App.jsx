@@ -350,8 +350,10 @@ export default function ChildrenKnowledgeExplorerPrototype() {
       <header className="sticky top-0 z-40 border-b border-white/70 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <button
+            type="button"
+            aria-label="返回首页"
             onClick={() => setView("home")}
-            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition hover:bg-amber-50"
+            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition hover:bg-amber-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
           >
             <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-200 shadow-sm">
               <Sparkles className="h-5 w-5" />
@@ -367,8 +369,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
               已完成 {completed.length}/{lessons.length}
             </div>
             <button
+              type="button"
               onClick={() => setView("badges")}
-              className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm shadow-sm transition hover:bg-amber-50"
+              className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm shadow-sm transition hover:bg-amber-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
             >
               <Trophy className="h-4 w-4" /> 我的徽章
             </button>
@@ -400,14 +403,16 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                   </p>
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                     <button
+                      type="button"
                       onClick={() => setView("library")}
-                      className="flex items-center justify-center gap-2 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                      className="flex items-center justify-center gap-2 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                     >
                       <BookOpen className="h-5 w-5" /> 去探索主题
                     </button>
                     <button
+                      type="button"
                       onClick={() => setView("badges")}
-                      className="flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                      className="flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                     >
                       <Trophy className="h-5 w-5" /> 看我的徽章
                     </button>
@@ -453,8 +458,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                       这个主题有真实互动，可以边玩边观察一个小现象。
                     </p>
                     <button
+                      type="button"
                       onClick={() => openLesson(recommendedLesson)}
-                      className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                      className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                     >
                       开始这个探索
                     </button>
@@ -472,8 +478,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                   </div>
                   {incompleteLessons.length === 0 && (
                     <button
+                      type="button"
                       onClick={() => setView("badges")}
-                      className="hidden rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm md:block"
+                      className="hidden rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200 md:block"
                     >
                       查看徽章
                     </button>
@@ -496,8 +503,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     <h3 className="mt-3 text-2xl font-black">你已经点亮整颗星球！</h3>
                     <p className="mt-2 text-slate-600">去徽章页看看自己的探索成果吧。</p>
                     <button
+                      type="button"
                       onClick={() => setView("badges")}
-                      className="mt-5 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                      className="mt-5 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                     >
                       查看我的徽章
                     </button>
@@ -512,8 +520,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     <p className="mt-1 text-sm text-slate-500">从动物、植物、宇宙、自然、音乐、人体、科学实验和生活发现开始。</p>
                   </div>
                   <button
+                    type="button"
                     onClick={() => setView("library")}
-                    className="hidden rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm md:block"
+                    className="hidden rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200 md:block"
                   >
                     全部打开
                   </button>
@@ -524,12 +533,14 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     const count = lessons.filter((lesson) => lesson.category === category.id).length;
                     return (
                       <button
+                        type="button"
+                        aria-label={`打开${category.label}分类`}
                         key={category.id}
                         onClick={() => {
                           setSelectedCategory(category.id);
                           setView("library");
                         }}
-                        className="rounded-[1.5rem] bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                        className="rounded-[1.5rem] bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                       >
                         <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl ${category.color}`}>
                           <Icon className="h-6 w-6" />
@@ -556,8 +567,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
               <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
                 <div>
                   <button
+                    type="button"
                     onClick={() => setView("home")}
-                    className="mb-3 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm"
+                    className="mb-3 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                   >
                     <Home className="h-4 w-4" /> 返回首页
                   </button>
@@ -583,7 +595,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     <button
                       type="button"
                       onClick={() => setSearchQuery("")}
-                      className="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                      className="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                     >
                       清空搜索
                     </button>
@@ -601,9 +613,11 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                   const active = selectedCategory === category.id;
                   return (
                     <button
+                      type="button"
+                      aria-pressed={active}
                       key={category.id}
                       onClick={() => setSelectedCategory(category.id)}
-                      className={`flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition ${
+                      className={`flex min-h-11 shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200 ${
                         active ? "bg-slate-900 text-white" : "bg-white text-slate-600 shadow-sm hover:bg-slate-50"
                       }`}
                     >
@@ -665,7 +679,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                       type="button"
                       onClick={clearLibraryFilters}
                       disabled={!hasActiveLibraryFilters}
-                      className="min-h-11 w-full rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400 disabled:shadow-none disabled:hover:translate-y-0"
+                      className="min-h-11 w-full rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400 disabled:shadow-none disabled:hover:translate-y-0"
                     >
                       清空筛选
                     </button>
@@ -694,7 +708,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                   <button
                     type="button"
                     onClick={clearLibraryFilters}
-                    className="mt-5 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                    className="mt-5 rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                   >
                     清空筛选
                   </button>
@@ -713,8 +727,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
               className="mx-auto max-w-4xl space-y-5"
             >
               <button
+                type="button"
                 onClick={() => setView("library")}
-                className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm"
+                className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
               >
                 <Home className="h-4 w-4" /> 返回主题列表
               </button>
@@ -791,11 +806,22 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                               const isCorrect = item.answer === optionIndex;
                               const selectedCorrect = selected && isCorrect;
                               const selectedIncorrect = selected && !isCorrect;
+                              const optionStatus = selectedCorrect
+                                ? "正确"
+                                : selectedIncorrect
+                                ? "再想想"
+                                : answered && isCorrect
+                                ? "正确答案"
+                                : selected
+                                ? "已选"
+                                : "";
                               return (
                                 <button
+                                  type="button"
                                   key={option}
+                                  aria-pressed={selected}
                                   onClick={() => selectQuizAnswer(index, optionIndex)}
-                                  className={`rounded-2xl border px-4 py-3 text-left text-sm font-medium transition ${
+                                  className={`flex min-h-12 items-center justify-between gap-3 rounded-2xl border px-4 py-3 text-left text-sm font-medium transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200 ${
                                     selectedCorrect
                                       ? "border-green-400 bg-green-50 text-green-700 ring-2 ring-green-100"
                                       : selectedIncorrect
@@ -808,6 +834,11 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                                   }`}
                                 >
                                   <span>{option}</span>
+                                  {optionStatus && (
+                                    <span className="shrink-0 rounded-full bg-white/75 px-2 py-0.5 text-xs font-black">
+                                      {optionStatus}
+                                    </span>
+                                  )}
                                   {answered && isCorrect && <span className="ml-2 font-black">✓</span>}
                                 </button>
                               );
@@ -815,6 +846,8 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                           </div>
                           {selectedAnswers[index] !== undefined && (
                             <motion.div
+                              role="status"
+                              aria-live="polite"
                               initial={{ opacity: 0, y: 6 }}
                               animate={{ opacity: 1, y: 0 }}
                               className={`mt-3 rounded-2xl p-4 text-sm leading-6 ${
@@ -833,7 +866,7 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                       ))}
                     </div>
 
-                    <div className="mt-5 rounded-2xl bg-white p-4 text-center shadow-sm">
+                    <div aria-live="polite" className="mt-5 rounded-2xl bg-white p-4 text-center shadow-sm">
                       {allAnswered ? (
                         <div>
                           <div className="text-lg font-bold">
@@ -895,6 +928,8 @@ export default function ChildrenKnowledgeExplorerPrototype() {
 
                   {passed && showReflection && (
                     <motion.div
+                      role="status"
+                      aria-live="polite"
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
                       className="rounded-[1.5rem] bg-gradient-to-br from-green-100 to-emerald-50 p-6 text-center shadow-sm"
@@ -916,14 +951,16 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                       </p>
                       <div className="mt-5 grid gap-3 sm:grid-cols-2">
                         <button
+                          type="button"
                           onClick={() => setView("library")}
-                          className="rounded-2xl bg-white px-5 py-3 font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                          className="rounded-2xl bg-white px-5 py-3 font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                         >
                           返回主题列表
                         </button>
                         <button
+                          type="button"
                           onClick={() => setView("badges")}
-                          className="rounded-2xl bg-slate-900 px-5 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                          className="rounded-2xl bg-slate-900 px-5 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
                         >
                           查看徽章进度
                         </button>
@@ -974,8 +1011,9 @@ export default function ChildrenKnowledgeExplorerPrototype() {
               className="space-y-6"
             >
               <button
+                type="button"
                 onClick={() => setView("home")}
-                className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm"
+                className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
               >
                 <Home className="h-4 w-4" /> 返回首页
               </button>
@@ -1263,8 +1301,10 @@ function SimpleExploreDemo({ lessonId }) {
 function MobileNavButton({ icon: Icon, label, active, onClick }) {
   return (
     <button
+      type="button"
+      aria-current={active ? "page" : undefined}
       onClick={onClick}
-      className={`flex flex-col items-center gap-1 rounded-full px-4 py-2 text-xs font-semibold ${
+      className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-full px-4 py-2 text-xs font-semibold focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200 ${
         active ? "bg-slate-900 text-white" : "text-slate-500"
       }`}
     >

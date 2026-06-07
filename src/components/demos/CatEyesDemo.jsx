@@ -12,10 +12,11 @@ export default function CatEyesDemo() {
       />
       <motion.button
         type="button"
+        aria-label="切换猫眼反光"
         aria-pressed={showReflection}
         onClick={() => setShowReflection((value) => !value)}
         whileTap={{ scale: 0.92 }}
-        className="relative flex cursor-pointer gap-6 rounded-full bg-slate-800 px-8 py-6 transition hover:bg-slate-700"
+        className="relative flex cursor-pointer gap-6 rounded-full bg-slate-800 px-8 py-6 transition hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
       >
         {[0, 1].map((eye) => (
           <motion.div
@@ -31,7 +32,7 @@ export default function CatEyesDemo() {
           />
         ))}
       </motion.button>
-      <p className="mt-4 text-sm text-slate-300">
+      <p aria-live="polite" className="mt-4 text-sm text-slate-300">
         {showReflection ? "光照过来后，猫眼把光反射回来，亮得更明显。" : "点击小猫眼睛，打开一束小光看看反射。"}
       </p>
     </div>

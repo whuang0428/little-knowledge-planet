@@ -12,8 +12,10 @@ export default function LessonCard({
   if (variant === "related") {
     return (
       <button
+        type="button"
+        aria-label={`打开课程：${lesson.title}`}
         onClick={onOpen}
-        className="rounded-[1.25rem] bg-slate-50 p-4 text-left shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:bg-white hover:shadow-md"
+        className="rounded-[1.25rem] bg-slate-50 p-4 text-left shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
       >
         <div className="flex items-start justify-between gap-3">
           <div className="text-4xl">{lesson.emoji}</div>
@@ -51,8 +53,10 @@ export default function LessonCard({
 
   return (
     <button
+      type="button"
+      aria-label={`打开课程：${lesson.title}`}
       onClick={onOpen}
-      className="rounded-[1.5rem] bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+      className="rounded-[1.5rem] bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200"
     >
       <div className="mb-4 flex items-start justify-between gap-3">
         <div className="text-5xl">{lesson.emoji}</div>

@@ -5,7 +5,12 @@ function StringLine({ label, width, active, onClick }) {
   return (
     <div>
       <div className="mb-2 text-sm font-semibold text-slate-600">{label}</div>
-      <button type="button" onClick={onClick} className="block w-full rounded-full py-2 text-left">
+      <button
+        type="button"
+        aria-pressed={active}
+        onClick={onClick}
+        className="block w-full rounded-full py-2 text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-pink-200"
+      >
         <motion.div
           whileTap={{ scaleY: 1.8 }}
           animate={{ scaleY: active ? [1, 1.6, 1] : 1, x: active ? [0, 3, -3, 0] : 0 }}
@@ -37,7 +42,7 @@ export default function PipaStringDemo() {
           onClick={() => setActiveString("short")}
         />
       </div>
-      <p className="mt-5 text-sm text-slate-500">
+      <p aria-live="polite" className="mt-5 text-sm text-slate-500">
         {isLong ? "现在选中长弦：它振动得比较慢，声音通常比较低。" : "现在选中短弦：它振动得更快，声音通常比较高。"}
       </p>
     </div>

@@ -23,12 +23,13 @@ export default function RainbowDemo() {
 
         <motion.button
           type="button"
+          aria-label="切换白光分色"
           aria-pressed={splitLight}
           onClick={() => setSplitLight((value) => !value)}
           whileTap={{ scale: 0.9 }}
           animate={{ y: splitLight ? [0, -4, 0] : 0 }}
           transition={{ repeat: splitLight ? Infinity : 0, duration: 1.8 }}
-          className="cursor-pointer rounded-full bg-white/70 p-2 text-7xl shadow-sm transition hover:bg-white"
+          className="cursor-pointer rounded-full bg-white/70 p-2 text-7xl shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky-200"
         >
           💧
         </motion.button>
@@ -54,7 +55,7 @@ export default function RainbowDemo() {
         ))}
       </div>
 
-      <p className="mt-4 text-center text-sm leading-6 text-slate-500">
+      <p aria-live="polite" className="mt-4 text-center text-sm leading-6 text-slate-500">
         {splitLight
           ? "看，白光穿过水滴后分成了红、橙、黄、绿、蓝、靛、紫。再点水滴可以合回去。"
           : "点击水滴，让这束白光分成不同颜色。"}

@@ -428,24 +428,17 @@ export default function CategoryExploreDemo({ lesson }) {
     <div className={`min-h-48 rounded-2xl p-6 ${template.bg}`}>
       <div className="grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-center">
         <div className="flex flex-col items-center justify-center">
-          <motion.div
-            role="button"
-            tabIndex={0}
+          <motion.button
+            type="button"
             aria-label="切换观察步骤"
             onClick={() => setActiveStep((step) => (step + 1) % interactionStates.length)}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                setActiveStep((step) => (step + 1) % interactionStates.length);
-              }
-            }}
             whileTap={{ scale: 0.9 }}
             animate={currentState.iconAnimation}
             transition={{ repeat: Infinity, duration: activeStep === 1 ? 1.5 : 2.2 }}
-            className="cursor-pointer text-7xl"
+            className="cursor-pointer rounded-full p-2 text-7xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/80"
           >
             {template.mainIcon}
-          </motion.div>
+          </motion.button>
 
           <CategoryVisual type={template.visualType} activeStep={activeStep} />
 
