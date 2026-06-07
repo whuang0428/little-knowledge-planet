@@ -749,9 +749,46 @@ export default function ChildrenKnowledgeExplorerPrototype() {
                     </div>
                   </div>
 
-                  <div className="rounded-[1.5rem] bg-white p-5 shadow-sm ring-1 ring-slate-100">
-                    <h2 className="mb-2 text-xl font-bold">讲给爸爸妈妈听</h2>
-                    <p className="leading-7 text-slate-600">{activeLesson.parentPrompt}</p>
+                  <div className="rounded-[1.5rem] bg-orange-50/80 p-5 shadow-sm ring-1 ring-orange-100">
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-wide text-orange-500">Parent guide</p>
+                        <h2 className="text-xl font-bold text-slate-900">给家长的小提示</h2>
+                      </div>
+                      <div className="rounded-full bg-white/80 px-3 py-1 text-xs font-bold text-orange-600 shadow-sm">
+                        一起聊一聊
+                      </div>
+                    </div>
+
+                    <p className="mt-3 leading-7 text-slate-600">{activeLesson.parentPrompt}</p>
+
+                    <div className="mt-4 grid gap-3 md:grid-cols-3">
+                      {[
+                        {
+                          label: "可以聊一聊",
+                          text:
+                            activeLesson.parentGuide?.talkAbout ||
+                            "可以先听听孩子自己的猜想，再一起回到课程里找线索。",
+                        },
+                        {
+                          label: "可以试一试",
+                          text:
+                            activeLesson.parentGuide?.tryThis ||
+                            "可以一起观察生活里的相似现象，只描述看到的变化。",
+                        },
+                        {
+                          label: "安全提醒",
+                          text:
+                            activeLesson.parentGuide?.safety ||
+                            "在大人陪伴下观察就好，不做危险实验。",
+                        },
+                      ].map((item) => (
+                        <div key={item.label} className="rounded-2xl bg-white/85 p-4 shadow-sm">
+                          <div className="text-sm font-black text-orange-700">{item.label}</div>
+                          <p className="mt-2 text-sm leading-6 text-slate-600">{item.text}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   {passed && showReflection && (

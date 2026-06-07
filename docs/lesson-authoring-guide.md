@@ -26,6 +26,7 @@ content
 interaction
 quiz
 parentPrompt
+parentGuide
 badge
 question
 discovery
@@ -34,7 +35,7 @@ tags
 relatedLessons
 ```
 
-其中 `id`、`category`、`title`、`emoji`、`readingTime`、`level`、`intro`、`content`、`interaction`、`parentPrompt`、`badge`、`question`、`discovery`、`funFact` 都应是非空字符串。
+其中 `id`、`category`、`title`、`emoji`、`readingTime`、`level`、`intro`、`content`、`interaction`、`parentPrompt`、`badge`、`question`、`discovery`、`funFact` 都应是非空字符串。`parentGuide` 应是对象。
 
 ## 字段说明
 
@@ -49,6 +50,7 @@ relatedLessons
 - `interaction`：互动区提示，要和实际 UI 行为匹配。
 - `quiz`：三题小测验。
 - `parentPrompt`：给家长的讨论提示。
+- `parentGuide`：给家长的结构化陪伴建议，包含讨论、观察活动和安全提醒。
 - `badge`：完成课程后获得的徽章名称。
 - `question`：课程页“今天的问题”。
 - `discovery`：孩子学完后可以说出的发现。
@@ -100,6 +102,29 @@ tags: ["动物", "夜晚", "眼睛", "反光", "猫"]
 - 孩子可能自然产生的下一个问题。
 - 从一个现象延伸到另一个现象的好奇路径。
 
+## Parent Guide 要求
+
+每个 lesson 的 `parentGuide` 必须是一个对象，并包含：
+
+- `talkAbout`：一个亲子讨论方向，鼓励先听孩子猜想。
+- `tryThis`：一个安全、日常、容易观察的小活动。
+- `safety`：一个安全提醒；如果没有特殊风险，也要写温和的通用提醒。
+
+示例：
+```js
+parentGuide: {
+  talkAbout: "可以聊一聊：云为什么会变成雨，先听听孩子自己的猜想。",
+  tryThis: "可以在安全的窗边观察云的颜色和形状变化。",
+  safety: "下雨或打雷时待在安全室内观察，不去积水或高处。"
+}
+```
+
+写作规则：
+- 每项保持短句，适合家长快速阅读。
+- 只建议观察、讨论或安全的日常活动。
+- 不鼓励孩子接触电、火、化学品、尖锐工具、交通、深水、野生动物或未知植物。
+- 需要户外观察时，要提醒有大人陪伴，并选择安全位置。
+
 ## 儿童友好写作规则
 
 - 一课只聚焦一个核心问题。
@@ -148,6 +173,11 @@ tags: ["动物", "夜晚", "眼睛", "反光", "猫"]
     }
   ],
   parentPrompt: "可以和孩子聊聊：雨后地面和植物有什么变化？",
+  parentGuide: {
+    talkAbout: "可以聊一聊：云为什么会变成雨，先听听孩子自己的猜想。",
+    tryThis: "可以在安全的窗边观察云的颜色和形状变化。",
+    safety: "下雨或打雷时待在安全室内观察，不去积水或高处。"
+  },
   badge: "小小雨滴观察员",
   question: "为什么云会变成雨？",
   discovery: "原来云里的小水滴变多变重后，就会落下来。",

@@ -13,6 +13,7 @@ const requiredFields = [
   "interaction",
   "quiz",
   "parentPrompt",
+  "parentGuide",
   "badge",
   "question",
   "discovery",
@@ -22,7 +23,7 @@ const requiredFields = [
 ];
 
 const requiredStringFields = requiredFields.filter(
-  (field) => !["quiz", "tags", "relatedLessons"].includes(field),
+  (field) => !["quiz", "tags", "relatedLessons", "parentGuide"].includes(field),
 );
 
 const errors = [];
@@ -39,6 +40,7 @@ const describeLesson = (lesson, index) => {
 };
 
 const isNonEmptyString = (value) => typeof value === "string" && value.trim().length > 0;
+const isPlainObject = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
 
 const addError = (message) => {
   errors.push(message);
@@ -98,6 +100,18 @@ lessonList.forEach((lesson, index) => {
 
   if ("category" in lesson && isNonEmptyString(lesson.category) && !categoryIds.has(lesson.category)) {
     addError(`${label}: category "${lesson.category}" does not exist in categories.js.`);
+  }
+
+  if (!isPlainObject(lesson.parentGuide)) {
+    addError(`${label}: "parentGuide" must be an object.`);
+  } else {
+    for (const field of ["talkAbout", "tryThis", "safety"]) {
+      if (!(field in lesson.parentGuide)) {
+        addError(`${label}: parentGuide missing required field "${field}".`);
+      } else if (!isNonEmptyString(lesson.parentGuide[field])) {
+        addError(`${label}: parentGuide "${field}" must be a non-empty string.`);
+      }
+    }
   }
 
   if (!Array.isArray(lesson.quiz)) {

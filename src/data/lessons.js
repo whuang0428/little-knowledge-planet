@@ -6,8 +6,18 @@ export const lessons = [
     "question": "为什么猫的眼睛在晚上会亮？",
     "discovery": "原来猫眼睛后面有会反光的结构，能帮助它在暗处看得更清楚。",
     "funFact": "很多夜行动物的眼睛在灯光下都会反光，比如猫头鹰和狐狸。",
-    "tags": ["动物", "夜晚", "眼睛", "反光", "猫"],
-    "relatedLessons": ["penguin-feet", "moon-shape", "stars-day"],
+    "tags": [
+      "动物",
+      "夜晚",
+      "眼睛",
+      "反光",
+      "猫"
+    ],
+    "relatedLessons": [
+      "penguin-feet",
+      "moon-shape",
+      "stars-day"
+    ],
     "emoji": "🐱",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -17,25 +27,42 @@ export const lessons = [
     "quiz": [
       {
         "question": "猫的眼睛是真的自己发光吗？",
-        "options": ["不是，它是在反射光", "是，它里面有灯", "只有白猫会发光"],
+        "options": [
+          "不是，它是在反射光",
+          "是，它里面有灯",
+          "只有白猫会发光"
+        ],
         "answer": 0,
         "explanation": "猫眼睛不会自己发光，是把外面的光反射回来。"
       },
       {
         "question": "猫眼睛里的“像镜子一样”的结构有什么用？",
-        "options": ["帮助反射光", "帮助猫唱歌", "让猫跑得更快"],
+        "options": [
+          "帮助反射光",
+          "帮助猫唱歌",
+          "让猫跑得更快"
+        ],
         "answer": 0,
         "explanation": "这层小镜子能把光送回去，让眼睛看起来亮亮的。"
       },
       {
         "question": "这个能力对猫有什么帮助？",
-        "options": ["晚上看得更清楚", "不用睡觉", "变成老虎"],
+        "options": [
+          "晚上看得更清楚",
+          "不用睡觉",
+          "变成老虎"
+        ],
         "answer": 0,
         "explanation": "反射回来的光能帮助猫在暗处看得更清楚。"
       }
     ],
     "parentPrompt": "你可以问孩子：如果人在黑暗中也有猫一样的眼睛，会发生什么有趣的事？",
-    "badge": "夜晚观察员"
+    "badge": "夜晚观察员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么猫的眼睛在晚上会亮，先听听孩子自己的猜想。",
+      "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
+      "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
+    }
   },
   {
     "id": "penguin-feet",
@@ -44,8 +71,18 @@ export const lessons = [
     "question": "为什么企鹅站在冰上也不怕冷？",
     "discovery": "原来企鹅会控制脚上的热量，减少从冰面流走的热。",
     "funFact": "企鹅还会挤在一起轮流取暖，像排队抱成一个暖暖的圈。",
-    "tags": ["动物", "冰雪", "企鹅", "保暖", "脚"],
-    "relatedLessons": ["cat-eyes", "desert-cold-night", "goosebumps"],
+    "tags": [
+      "动物",
+      "冰雪",
+      "企鹅",
+      "保暖",
+      "脚"
+    ],
+    "relatedLessons": [
+      "cat-eyes",
+      "desert-cold-night",
+      "goosebumps"
+    ],
     "emoji": "🐧",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -53,15 +90,44 @@ export const lessons = [
     "content": "企鹅的身体有厚厚的羽毛和脂肪来保暖。它的脚虽然接触冰面，但身体会很聪明地控制流到脚上的热量，不让太多热从脚上跑走。企鹅还会把脚藏在身体下面，或者一群企鹅挤在一起取暖。",
     "interaction": "观察企鹅：身体像大棉袄，脚像小温度调节器。",
     "quiz": [
-      { "question": "企鹅主要靠什么保暖？", "options": ["厚羽毛和脂肪", "戴帽子", "一直跑步"], "answer": 0,
-        "explanation": "厚羽毛和脂肪像保暖衣，能保护企鹅的身体。" },
-      { "question": "企鹅会怎么减少脚上的热量流失？", "options": ["控制流到脚的热量", "把脚变成石头", "让脚发光"], "answer": 0,
-        "explanation": "少让热量跑到脚上，就能少从冰面散走热。" },
-      { "question": "企鹅挤在一起有什么用？", "options": ["一起取暖", "一起写作业", "一起变颜色"], "answer": 0,
-        "explanation": "挤在一起时，企鹅们可以互相挡风保暖。" }
+      {
+        "question": "企鹅主要靠什么保暖？",
+        "options": [
+          "厚羽毛和脂肪",
+          "戴帽子",
+          "一直跑步"
+        ],
+        "answer": 0,
+        "explanation": "厚羽毛和脂肪像保暖衣，能保护企鹅的身体。"
+      },
+      {
+        "question": "企鹅会怎么减少脚上的热量流失？",
+        "options": [
+          "控制流到脚的热量",
+          "把脚变成石头",
+          "让脚发光"
+        ],
+        "answer": 0,
+        "explanation": "少让热量跑到脚上，就能少从冰面散走热。"
+      },
+      {
+        "question": "企鹅挤在一起有什么用？",
+        "options": [
+          "一起取暖",
+          "一起写作业",
+          "一起变颜色"
+        ],
+        "answer": 0,
+        "explanation": "挤在一起时，企鹅们可以互相挡风保暖。"
+      }
     ],
     "parentPrompt": "你可以让孩子摸一摸自己的手，再想一想：冬天为什么要戴手套？",
-    "badge": "冰雪小专家"
+    "badge": "冰雪小专家",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么企鹅站在冰上也不怕冷，先听听孩子自己的猜想。",
+      "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
+      "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
+    }
   },
   {
     "id": "giraffe-neck",
@@ -70,8 +136,18 @@ export const lessons = [
     "question": "长颈鹿的脖子为什么那么长？",
     "discovery": "原来长脖子能帮助长颈鹿吃到高处树叶，也能看得更远。",
     "funFact": "长颈鹿喝水时要把腿分开，才方便低头够到水面。",
-    "tags": ["动物", "长颈鹿", "脖子", "树叶", "观察"],
-    "relatedLessons": ["leaf-green", "tree-rings", "seed-travel"],
+    "tags": [
+      "动物",
+      "长颈鹿",
+      "脖子",
+      "树叶",
+      "观察"
+    ],
+    "relatedLessons": [
+      "leaf-green",
+      "tree-rings",
+      "seed-travel"
+    ],
     "emoji": "🦒",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -79,15 +155,44 @@ export const lessons = [
     "content": "长颈鹿的长脖子可以帮助它吃到高处的树叶。很多动物够不到那些叶子，但长颈鹿可以轻松吃到。长脖子也能帮助它看远一点，更早发现周围有没有危险。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "长颈鹿的长脖子可以帮助它做什么？", "options": ["吃到高处的树叶", "变成大树", "在水里游泳"], "answer": 0,
-        "explanation": "长脖子让长颈鹿够到高处鲜嫩的树叶。" },
-      { "question": "长脖子还可能帮助长颈鹿什么？", "options": ["看得更远", "不用睡觉", "发出音乐"], "answer": 0,
-        "explanation": "站得高看得远，也能更早发现危险。" },
-      { "question": "很多动物够不到的叶子，长颈鹿为什么能吃到？", "options": ["因为它脖子长", "因为它会飞", "因为叶子会掉下来"], "answer": 0,
-        "explanation": "脖子长就像带了高高的梯子，能吃到别人够不到的叶子。" }
+      {
+        "question": "长颈鹿的长脖子可以帮助它做什么？",
+        "options": [
+          "吃到高处的树叶",
+          "变成大树",
+          "在水里游泳"
+        ],
+        "answer": 0,
+        "explanation": "长脖子让长颈鹿够到高处鲜嫩的树叶。"
+      },
+      {
+        "question": "长脖子还可能帮助长颈鹿什么？",
+        "options": [
+          "看得更远",
+          "不用睡觉",
+          "发出音乐"
+        ],
+        "answer": 0,
+        "explanation": "站得高看得远，也能更早发现危险。"
+      },
+      {
+        "question": "很多动物够不到的叶子，长颈鹿为什么能吃到？",
+        "options": [
+          "因为它脖子长",
+          "因为它会飞",
+          "因为叶子会掉下来"
+        ],
+        "answer": 0,
+        "explanation": "脖子长就像带了高高的梯子，能吃到别人够不到的叶子。"
+      }
     ],
     "parentPrompt": "可以问孩子：如果你有长颈鹿一样的脖子，你最想看到什么？",
-    "badge": "高树叶发现者"
+    "badge": "高树叶发现者",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：长颈鹿的脖子为什么那么长，先听听孩子自己的猜想。",
+      "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
+      "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
+    }
   },
   {
     "id": "octopus-hearts",
@@ -96,8 +201,18 @@ export const lessons = [
     "question": "章鱼为什么有三个心脏？",
     "discovery": "原来章鱼的心脏分工合作，帮助血液经过鳃和身体各处。",
     "funFact": "章鱼身体很柔软，可以钻进很小的缝里躲藏。",
-    "tags": ["动物", "海洋", "章鱼", "心脏", "柔软"],
-    "relatedLessons": ["heartbeat", "sound-travel", "taste"],
+    "tags": [
+      "动物",
+      "海洋",
+      "章鱼",
+      "心脏",
+      "柔软"
+    ],
+    "relatedLessons": [
+      "heartbeat",
+      "sound-travel",
+      "taste"
+    ],
     "emoji": "🐙",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -105,15 +220,44 @@ export const lessons = [
     "content": "章鱼生活在水里，需要把血液送到身体各处。它有两个心脏主要帮助血液流过鳃，另一个心脏帮助血液流到身体其他地方。章鱼的身体很柔软，也很会隐藏自己，是海洋里的聪明动物。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "章鱼有几个心脏？", "options": ["三个", "一个", "八个"], "answer": 0,
-        "explanation": "章鱼有三个心脏，能帮血液在水中更好地流动。" },
-      { "question": "章鱼生活在哪里？", "options": ["水里", "沙漠里", "树洞里"], "answer": 0,
-        "explanation": "章鱼用鳃在水里呼吸，所以它生活在水中。" },
-      { "question": "章鱼身体的特点是什么？", "options": ["很柔软", "像石头一样硬", "长满羽毛"], "answer": 0,
-        "explanation": "柔软的身体让章鱼可以钻进很小的地方躲藏。" }
+      {
+        "question": "章鱼有几个心脏？",
+        "options": [
+          "三个",
+          "一个",
+          "八个"
+        ],
+        "answer": 0,
+        "explanation": "章鱼有三个心脏，能帮血液在水中更好地流动。"
+      },
+      {
+        "question": "章鱼生活在哪里？",
+        "options": [
+          "水里",
+          "沙漠里",
+          "树洞里"
+        ],
+        "answer": 0,
+        "explanation": "章鱼用鳃在水里呼吸，所以它生活在水中。"
+      },
+      {
+        "question": "章鱼身体的特点是什么？",
+        "options": [
+          "很柔软",
+          "像石头一样硬",
+          "长满羽毛"
+        ],
+        "answer": 0,
+        "explanation": "柔软的身体让章鱼可以钻进很小的地方躲藏。"
+      }
     ],
     "parentPrompt": "可以问孩子：章鱼如果参加捉迷藏，为什么可能很厉害？",
-    "badge": "海洋小侦探"
+    "badge": "海洋小侦探",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：章鱼为什么有三个心脏，先听听孩子自己的猜想。",
+      "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
+      "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
+    }
   },
   {
     "id": "bee-dance",
@@ -122,8 +266,18 @@ export const lessons = [
     "question": "蜜蜂为什么会跳舞？",
     "discovery": "原来蜜蜂跳舞是在告诉同伴花蜜的大概方向和距离。",
     "funFact": "蜜蜂回到蜂巢后，会用特别的舞步分享找到花的消息。",
-    "tags": ["动物", "蜜蜂", "花蜜", "舞蹈", "交流"],
-    "relatedLessons": ["seed-travel", "sunflower", "rhythm-heart"],
+    "tags": [
+      "动物",
+      "蜜蜂",
+      "花蜜",
+      "舞蹈",
+      "交流"
+    ],
+    "relatedLessons": [
+      "seed-travel",
+      "sunflower",
+      "rhythm-heart"
+    ],
     "emoji": "🐝",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -131,15 +285,44 @@ export const lessons = [
     "content": "蜜蜂的舞蹈不是为了表演，而是在告诉同伴花蜜在哪里。它会用身体的方向和动作，传递大概的位置和距离。这样其他蜜蜂就可以一起去找花，采回更多花蜜。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "蜜蜂跳舞主要是为了什么？", "options": ["告诉同伴花蜜在哪里", "开演唱会", "睡觉前运动"], "answer": 0,
-        "explanation": "蜜蜂跳舞是在给同伴传递花蜜的位置。" },
-      { "question": "蜜蜂可以用舞蹈传递什么？", "options": ["方向和距离", "电话号码", "天气密码"], "answer": 0,
-        "explanation": "舞蹈的方向和动作能告诉同伴大概往哪里飞。" },
-      { "question": "其他蜜蜂知道位置后会做什么？", "options": ["去找花蜜", "去上学", "去堆雪人"], "answer": 0,
-        "explanation": "知道位置后，同伴就能一起去采更多花蜜。" }
+      {
+        "question": "蜜蜂跳舞主要是为了什么？",
+        "options": [
+          "告诉同伴花蜜在哪里",
+          "开演唱会",
+          "睡觉前运动"
+        ],
+        "answer": 0,
+        "explanation": "蜜蜂跳舞是在给同伴传递花蜜的位置。"
+      },
+      {
+        "question": "蜜蜂可以用舞蹈传递什么？",
+        "options": [
+          "方向和距离",
+          "电话号码",
+          "天气密码"
+        ],
+        "answer": 0,
+        "explanation": "舞蹈的方向和动作能告诉同伴大概往哪里飞。"
+      },
+      {
+        "question": "其他蜜蜂知道位置后会做什么？",
+        "options": [
+          "去找花蜜",
+          "去上学",
+          "去堆雪人"
+        ],
+        "answer": 0,
+        "explanation": "知道位置后，同伴就能一起去采更多花蜜。"
+      }
     ],
     "parentPrompt": "可以问孩子：如果不能说话，你会用什么动作告诉别人“那里有好吃的”？",
-    "badge": "花蜜信使"
+    "badge": "花蜜信使",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：蜜蜂为什么会跳舞，先听听孩子自己的猜想。",
+      "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
+      "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
+    }
   },
   {
     "id": "sunflower",
@@ -148,8 +331,18 @@ export const lessons = [
     "question": "向日葵为什么喜欢朝着太阳？",
     "discovery": "原来小向日葵会朝光多的方向转，得到更多阳光来生长。",
     "funFact": "成熟的向日葵常常固定朝向一个方向，不一定每天追着太阳转。",
-    "tags": ["植物", "向日葵", "太阳", "阳光", "生长"],
-    "relatedLessons": ["leaf-green", "seed-travel", "rainbow"],
+    "tags": [
+      "植物",
+      "向日葵",
+      "太阳",
+      "阳光",
+      "生长"
+    ],
+    "relatedLessons": [
+      "leaf-green",
+      "seed-travel",
+      "rainbow"
+    ],
     "emoji": "🌻",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -157,15 +350,44 @@ export const lessons = [
     "content": "小向日葵在生长时，会慢慢转向阳光更多的方向。阳光可以帮助植物制造食物，就像给植物充电一样。不过，成熟后的向日葵不一定每天都追着太阳转，它们常常会固定朝着一个方向。",
     "interaction": "拖动小太阳，想象植物会往光多的地方长。",
     "quiz": [
-      { "question": "阳光对植物有什么帮助？", "options": ["帮助植物制造食物", "帮助植物说话", "帮助植物走路"], "answer": 0,
-        "explanation": "阳光像植物的能量，帮助它制造食物。" },
-      { "question": "小向日葵为什么会朝向阳光？", "options": ["因为那里光更多", "因为太阳叫它", "因为它在跳舞"], "answer": 0,
-        "explanation": "小向日葵会朝光多的地方转，得到更多阳光。" },
-      { "question": "成熟后的向日葵一定每天追太阳吗？", "options": ["不一定", "一定", "它会飞起来追"], "answer": 0,
-        "explanation": "长大后的向日葵常会固定方向，不一定每天追太阳。" }
+      {
+        "question": "阳光对植物有什么帮助？",
+        "options": [
+          "帮助植物制造食物",
+          "帮助植物说话",
+          "帮助植物走路"
+        ],
+        "answer": 0,
+        "explanation": "阳光像植物的能量，帮助它制造食物。"
+      },
+      {
+        "question": "小向日葵为什么会朝向阳光？",
+        "options": [
+          "因为那里光更多",
+          "因为太阳叫它",
+          "因为它在跳舞"
+        ],
+        "answer": 0,
+        "explanation": "小向日葵会朝光多的地方转，得到更多阳光。"
+      },
+      {
+        "question": "成熟后的向日葵一定每天追太阳吗？",
+        "options": [
+          "不一定",
+          "一定",
+          "它会飞起来追"
+        ],
+        "answer": 0,
+        "explanation": "长大后的向日葵常会固定方向，不一定每天追太阳。"
+      }
     ],
     "parentPrompt": "可以和孩子一起观察家里的植物：它是不是往窗户那边长？",
-    "badge": "阳光植物师"
+    "badge": "阳光植物师",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：向日葵为什么喜欢朝着太阳，先听听孩子自己的猜想。",
+      "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
+      "safety": "只观察常见植物，不采摘、不入口未知植物。"
+    }
   },
   {
     "id": "cactus-water",
@@ -174,8 +396,18 @@ export const lessons = [
     "question": "仙人掌为什么能在干燥地方生活？",
     "discovery": "原来仙人掌会储存水分，刺也能帮助它少流失水。",
     "funFact": "仙人掌的刺其实是变化后的叶子，能帮它保护自己。",
-    "tags": ["植物", "仙人掌", "沙漠", "水分", "刺"],
-    "relatedLessons": ["desert-cold-night", "leaf-green", "seed-travel"],
+    "tags": [
+      "植物",
+      "仙人掌",
+      "沙漠",
+      "水分",
+      "刺"
+    ],
+    "relatedLessons": [
+      "desert-cold-night",
+      "leaf-green",
+      "seed-travel"
+    ],
     "emoji": "🌵",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -183,15 +415,44 @@ export const lessons = [
     "content": "仙人掌的身体可以储存水分，就像一个小水库。它的叶子变成了刺，可以减少水分流失，也能保护自己。它厚厚的表皮也能帮助保水，所以仙人掌比较适合干燥的地方。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "仙人掌身体像什么？", "options": ["小水库", "小风扇", "小鼓"], "answer": 0,
-        "explanation": "仙人掌的身体能存水，像沙漠里的小水库。" },
-      { "question": "仙人掌的刺可以帮助什么？", "options": ["减少水分流失", "变出糖果", "吸住月亮"], "answer": 0,
-        "explanation": "刺能减少水分跑掉，也能保护仙人掌。" },
-      { "question": "仙人掌适合生活在哪里？", "options": ["干燥的地方", "冰箱里", "海底"], "answer": 0,
-        "explanation": "干燥地方水少，仙人掌的本领正好能帮它生活。" }
+      {
+        "question": "仙人掌身体像什么？",
+        "options": [
+          "小水库",
+          "小风扇",
+          "小鼓"
+        ],
+        "answer": 0,
+        "explanation": "仙人掌的身体能存水，像沙漠里的小水库。"
+      },
+      {
+        "question": "仙人掌的刺可以帮助什么？",
+        "options": [
+          "减少水分流失",
+          "变出糖果",
+          "吸住月亮"
+        ],
+        "answer": 0,
+        "explanation": "刺能减少水分跑掉，也能保护仙人掌。"
+      },
+      {
+        "question": "仙人掌适合生活在哪里？",
+        "options": [
+          "干燥的地方",
+          "冰箱里",
+          "海底"
+        ],
+        "answer": 0,
+        "explanation": "干燥地方水少，仙人掌的本领正好能帮它生活。"
+      }
     ],
     "parentPrompt": "可以问孩子：如果你是一株沙漠植物，你会怎样保护水分？",
-    "badge": "沙漠植物守护者"
+    "badge": "沙漠植物守护者",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：仙人掌为什么能在干燥地方生活，先听听孩子自己的猜想。",
+      "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
+      "safety": "只观察常见植物，不采摘、不入口未知植物。"
+    }
   },
   {
     "id": "leaf-green",
@@ -200,8 +461,18 @@ export const lessons = [
     "question": "叶子为什么大多是绿色的？",
     "discovery": "原来叶子里有叶绿素，能帮植物利用阳光制造食物。",
     "funFact": "秋天有些叶子会变色，是因为绿色慢慢退下来了。",
-    "tags": ["植物", "叶子", "绿色", "叶绿素", "阳光"],
-    "relatedLessons": ["sunflower", "cactus-water", "tree-rings"],
+    "tags": [
+      "植物",
+      "叶子",
+      "绿色",
+      "叶绿素",
+      "阳光"
+    ],
+    "relatedLessons": [
+      "sunflower",
+      "cactus-water",
+      "tree-rings"
+    ],
     "emoji": "🍃",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -209,15 +480,44 @@ export const lessons = [
     "content": "叶子里有一种叫叶绿素的东西，它能帮助植物利用阳光制造食物。叶绿素看起来是绿色的，所以很多叶子也呈现绿色。植物就像小小的食物工厂，阳光、水和空气都是它们的重要材料。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "叶子大多是绿色，和什么有关？", "options": ["叶绿素", "月亮", "沙子"], "answer": 0,
-        "explanation": "叶绿素看起来是绿色的，所以很多叶子也是绿色。" },
-      { "question": "叶绿素可以帮助植物做什么？", "options": ["利用阳光制造食物", "写字", "跑步"], "answer": 0,
-        "explanation": "叶绿素能帮植物接住阳光，制造自己需要的食物。" },
-      { "question": "植物制造食物需要什么？", "options": ["阳光、水和空气", "电视和遥控器", "铅笔和橡皮"], "answer": 0,
-        "explanation": "阳光、水和空气一起帮植物这个小工厂工作。" }
+      {
+        "question": "叶子大多是绿色，和什么有关？",
+        "options": [
+          "叶绿素",
+          "月亮",
+          "沙子"
+        ],
+        "answer": 0,
+        "explanation": "叶绿素看起来是绿色的，所以很多叶子也是绿色。"
+      },
+      {
+        "question": "叶绿素可以帮助植物做什么？",
+        "options": [
+          "利用阳光制造食物",
+          "写字",
+          "跑步"
+        ],
+        "answer": 0,
+        "explanation": "叶绿素能帮植物接住阳光，制造自己需要的食物。"
+      },
+      {
+        "question": "植物制造食物需要什么？",
+        "options": [
+          "阳光、水和空气",
+          "电视和遥控器",
+          "铅笔和橡皮"
+        ],
+        "answer": 0,
+        "explanation": "阳光、水和空气一起帮植物这个小工厂工作。"
+      }
     ],
     "parentPrompt": "可以问孩子：如果植物是小工厂，它的“能源”是什么？",
-    "badge": "绿色小工厂长"
+    "badge": "绿色小工厂长",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：叶子为什么大多是绿色的，先听听孩子自己的猜想。",
+      "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
+      "safety": "只观察常见植物，不采摘、不入口未知植物。"
+    }
   },
   {
     "id": "tree-rings",
@@ -226,8 +526,18 @@ export const lessons = [
     "question": "树干里一圈一圈的年轮是什么？",
     "discovery": "原来年轮是树木一年一年长大时留下的记录。",
     "funFact": "年轮有宽有窄，有时能看出那一年树长得快不快。",
-    "tags": ["植物", "树木", "年轮", "时间", "成长"],
-    "relatedLessons": ["leaf-green", "seed-travel", "cactus-water"],
+    "tags": [
+      "植物",
+      "树木",
+      "年轮",
+      "时间",
+      "成长"
+    ],
+    "relatedLessons": [
+      "leaf-green",
+      "seed-travel",
+      "cactus-water"
+    ],
     "emoji": "🌳",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -235,15 +545,44 @@ export const lessons = [
     "content": "树木一年一年长大，树干里会留下像圆圈一样的痕迹，这些圆圈叫年轮。年轮可以帮助我们了解树的大概年龄，也能告诉我们某些年份树长得快还是慢。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "树干里一圈一圈的纹路叫什么？", "options": ["年轮", "音符", "云朵"], "answer": 0,
-        "explanation": "年轮是一圈圈成长痕迹，记录树长大的时间。" },
-      { "question": "年轮可以帮助我们了解什么？", "options": ["树的大概年龄", "树会不会唱歌", "树想吃什么"], "answer": 0,
-        "explanation": "数一数年轮，能大概知道树长了多少年。" },
-      { "question": "树长得快慢会不会影响年轮？", "options": ["会", "不会", "只有晚上会"], "answer": 0,
-        "explanation": "长得快或慢时，年轮的宽窄也可能不一样。" }
+      {
+        "question": "树干里一圈一圈的纹路叫什么？",
+        "options": [
+          "年轮",
+          "音符",
+          "云朵"
+        ],
+        "answer": 0,
+        "explanation": "年轮是一圈圈成长痕迹，记录树长大的时间。"
+      },
+      {
+        "question": "年轮可以帮助我们了解什么？",
+        "options": [
+          "树的大概年龄",
+          "树会不会唱歌",
+          "树想吃什么"
+        ],
+        "answer": 0,
+        "explanation": "数一数年轮，能大概知道树长了多少年。"
+      },
+      {
+        "question": "树长得快慢会不会影响年轮？",
+        "options": [
+          "会",
+          "不会",
+          "只有晚上会"
+        ],
+        "answer": 0,
+        "explanation": "长得快或慢时，年轮的宽窄也可能不一样。"
+      }
     ],
     "parentPrompt": "可以问孩子：如果人也有年轮，你觉得它会长在哪里？",
-    "badge": "树木时间记录员"
+    "badge": "树木时间记录员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：树干里一圈一圈的年轮是什么，先听听孩子自己的猜想。",
+      "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
+      "safety": "只观察常见植物，不采摘、不入口未知植物。"
+    }
   },
   {
     "id": "seed-travel",
@@ -252,8 +591,18 @@ export const lessons = [
     "question": "植物不会走路，种子为什么会旅行？",
     "discovery": "原来种子会借助风、动物或果实去新的地方生长。",
     "funFact": "蒲公英种子像小伞，风一吹就能飘到远处。",
-    "tags": ["植物", "种子", "旅行", "风", "生长"],
-    "relatedLessons": ["bee-dance", "sunflower", "tree-rings"],
+    "tags": [
+      "植物",
+      "种子",
+      "旅行",
+      "风",
+      "生长"
+    ],
+    "relatedLessons": [
+      "bee-dance",
+      "sunflower",
+      "tree-rings"
+    ],
     "emoji": "🌱",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -261,15 +610,44 @@ export const lessons = [
     "content": "很多植物会用特别的方法传播种子。有的种子很轻，可以被风吹走；有的种子会粘在动物身上；还有的种子藏在果实里，被动物吃掉后又被带到别处。这样植物就能在新的地方生长。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "种子为什么要传播到别的地方？", "options": ["为了在新地方生长", "为了去旅游拍照", "为了找玩具"], "answer": 0,
-        "explanation": "种子去新地方，植物宝宝才有更多空间长大。" },
-      { "question": "很轻的种子可以靠什么移动？", "options": ["风", "闹钟", "书包"], "answer": 0,
-        "explanation": "轻轻的种子能被风带到远一点的地方。" },
-      { "question": "有些种子会粘在哪里？", "options": ["动物身上", "月亮上", "电视里"], "answer": 0,
-        "explanation": "有些种子粘在动物身上，就能搭一段顺风车。" }
+      {
+        "question": "种子为什么要传播到别的地方？",
+        "options": [
+          "为了在新地方生长",
+          "为了去旅游拍照",
+          "为了找玩具"
+        ],
+        "answer": 0,
+        "explanation": "种子去新地方，植物宝宝才有更多空间长大。"
+      },
+      {
+        "question": "很轻的种子可以靠什么移动？",
+        "options": [
+          "风",
+          "闹钟",
+          "书包"
+        ],
+        "answer": 0,
+        "explanation": "轻轻的种子能被风带到远一点的地方。"
+      },
+      {
+        "question": "有些种子会粘在哪里？",
+        "options": [
+          "动物身上",
+          "月亮上",
+          "电视里"
+        ],
+        "answer": 0,
+        "explanation": "有些种子粘在动物身上，就能搭一段顺风车。"
+      }
     ],
     "parentPrompt": "可以带孩子观察路边植物：它的种子可能是怎么旅行的？",
-    "badge": "种子旅行家"
+    "badge": "种子旅行家",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：植物不会走路，种子为什么会旅行，先听听孩子自己的猜想。",
+      "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
+      "safety": "只观察常见植物，不采摘、不入口未知植物。"
+    }
   },
   {
     "id": "moon-shape",
@@ -278,8 +656,18 @@ export const lessons = [
     "question": "月亮为什么有时圆，有时弯？",
     "discovery": "原来月亮反射太阳光，我们看到的亮面会随着位置变化。",
     "funFact": "月亮大约一个月会经历一轮从弯到圆再变弯的变化。",
-    "tags": ["宇宙", "月亮", "形状", "夜空", "反光"],
-    "relatedLessons": ["day-night", "stars-day", "planets-round"],
+    "tags": [
+      "宇宙",
+      "月亮",
+      "形状",
+      "夜空",
+      "反光"
+    ],
+    "relatedLessons": [
+      "day-night",
+      "stars-day",
+      "planets-round"
+    ],
     "emoji": "🌙",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -287,15 +675,44 @@ export const lessons = [
     "content": "月亮自己不会发光，它是反射太阳的光。我们在地球上看到的月亮形状，会因为太阳、地球、月亮的位置不同而变化。有时候我们看到亮的一大块，就是圆圆的月亮；有时候只看到一小部分亮的地方，就像弯弯的小船。",
     "interaction": "点击月亮，看看它从弯月慢慢变成圆月。",
     "quiz": [
-      { "question": "月亮自己会发光吗？", "options": ["不会，它反射太阳光", "会，它是灯", "只有晚上会"], "answer": 0,
-        "explanation": "月亮不是小灯，它把太阳光反射给我们看。" },
-      { "question": "我们看到月亮形状变化，主要和什么有关？", "options": ["太阳、地球、月亮的位置", "月亮心情", "天气预报"], "answer": 0,
-        "explanation": "位置变了，我们看到的亮面大小也会变。" },
-      { "question": "弯月像什么？", "options": ["小船", "书包", "铅笔盒"], "answer": 0,
-        "explanation": "弯月像小船，是因为我们只看到一小部分亮面。" }
+      {
+        "question": "月亮自己会发光吗？",
+        "options": [
+          "不会，它反射太阳光",
+          "会，它是灯",
+          "只有晚上会"
+        ],
+        "answer": 0,
+        "explanation": "月亮不是小灯，它把太阳光反射给我们看。"
+      },
+      {
+        "question": "我们看到月亮形状变化，主要和什么有关？",
+        "options": [
+          "太阳、地球、月亮的位置",
+          "月亮心情",
+          "天气预报"
+        ],
+        "answer": 0,
+        "explanation": "位置变了，我们看到的亮面大小也会变。"
+      },
+      {
+        "question": "弯月像什么？",
+        "options": [
+          "小船",
+          "书包",
+          "铅笔盒"
+        ],
+        "answer": 0,
+        "explanation": "弯月像小船，是因为我们只看到一小部分亮面。"
+      }
     ],
     "parentPrompt": "晚上可以带孩子看月亮，让她画下今天月亮的形状。",
-    "badge": "月亮记录员"
+    "badge": "月亮记录员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：月亮为什么有时圆，有时弯，先听听孩子自己的猜想。",
+      "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
+      "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
+    }
   },
   {
     "id": "day-night",
@@ -304,8 +721,18 @@ export const lessons = [
     "question": "为什么会有白天和黑夜？",
     "discovery": "原来地球一直在转，朝向太阳的一面就是白天。",
     "funFact": "地球转一圈大约需要一天，所以我们每天都会经历白天和黑夜。",
-    "tags": ["宇宙", "地球", "白天", "黑夜", "自转"],
-    "relatedLessons": ["moon-shape", "stars-day", "shadow"],
+    "tags": [
+      "宇宙",
+      "地球",
+      "白天",
+      "黑夜",
+      "自转"
+    ],
+    "relatedLessons": [
+      "moon-shape",
+      "stars-day",
+      "shadow"
+    ],
     "emoji": "🌍",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -313,15 +740,44 @@ export const lessons = [
     "content": "地球一直在自己转动。当我们所在的一面转向太阳时，就是白天；转到背对太阳的一面时，就是黑夜。太阳看起来像是在天空中移动，其实和地球自转有很大关系。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "白天和黑夜主要和什么有关？", "options": ["地球自转", "云朵唱歌", "月亮睡觉"], "answer": 0,
-        "explanation": "地球自己转动，让不同地方轮流面向太阳。" },
-      { "question": "我们这一面朝向太阳时是什么？", "options": ["白天", "黑夜", "冬天"], "answer": 0,
-        "explanation": "转向太阳的一面被照亮，所以我们看到白天。" },
-      { "question": "背对太阳的一面通常是什么？", "options": ["黑夜", "彩虹", "早饭"], "answer": 0,
-        "explanation": "背对太阳时阳光照不到，就变成黑夜。" }
+      {
+        "question": "白天和黑夜主要和什么有关？",
+        "options": [
+          "地球自转",
+          "云朵唱歌",
+          "月亮睡觉"
+        ],
+        "answer": 0,
+        "explanation": "地球自己转动，让不同地方轮流面向太阳。"
+      },
+      {
+        "question": "我们这一面朝向太阳时是什么？",
+        "options": [
+          "白天",
+          "黑夜",
+          "冬天"
+        ],
+        "answer": 0,
+        "explanation": "转向太阳的一面被照亮，所以我们看到白天。"
+      },
+      {
+        "question": "背对太阳的一面通常是什么？",
+        "options": [
+          "黑夜",
+          "彩虹",
+          "早饭"
+        ],
+        "answer": 0,
+        "explanation": "背对太阳时阳光照不到，就变成黑夜。"
+      }
     ],
     "parentPrompt": "可以用球和台灯做一个小实验，让孩子指出哪里是白天。",
-    "badge": "地球小观察员"
+    "badge": "地球小观察员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么会有白天和黑夜，先听听孩子自己的猜想。",
+      "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
+      "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
+    }
   },
   {
     "id": "stars-day",
@@ -330,8 +786,18 @@ export const lessons = [
     "question": "白天为什么看不到星星？",
     "discovery": "原来星星白天还在，只是太阳光太亮，把星光盖住了。",
     "funFact": "在很黑、灯光少的地方，晚上能看到更多星星。",
-    "tags": ["宇宙", "星星", "白天", "太阳", "天空"],
-    "relatedLessons": ["moon-shape", "day-night", "planets-round"],
+    "tags": [
+      "宇宙",
+      "星星",
+      "白天",
+      "太阳",
+      "天空"
+    ],
+    "relatedLessons": [
+      "moon-shape",
+      "day-night",
+      "planets-round"
+    ],
     "emoji": "⭐",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -339,15 +805,44 @@ export const lessons = [
     "content": "星星白天没有消失，只是太阳光太亮了。强烈的阳光照亮天空，让很远很暗的星光不容易被我们看到。到了晚上，太阳不在我们的天空中，天空变暗，星星就更容易出现。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "白天星星会消失吗？", "options": ["不会", "会全部回家", "会变成云"], "answer": 0,
-        "explanation": "白天星星还在天上，只是我们不容易看见。" },
-      { "question": "为什么白天不容易看到星星？", "options": ["太阳光太亮", "星星睡着了", "眼睛变小了"], "answer": 0,
-        "explanation": "太阳太亮时，微弱的星光会被亮天空盖住。" },
-      { "question": "什么时候更容易看到星星？", "options": ["晚上天空变暗时", "中午阳光最强时", "写作业时"], "answer": 0,
-        "explanation": "晚上天空暗下来，星光就更容易被眼睛发现。" }
+      {
+        "question": "白天星星会消失吗？",
+        "options": [
+          "不会",
+          "会全部回家",
+          "会变成云"
+        ],
+        "answer": 0,
+        "explanation": "白天星星还在天上，只是我们不容易看见。"
+      },
+      {
+        "question": "为什么白天不容易看到星星？",
+        "options": [
+          "太阳光太亮",
+          "星星睡着了",
+          "眼睛变小了"
+        ],
+        "answer": 0,
+        "explanation": "太阳太亮时，微弱的星光会被亮天空盖住。"
+      },
+      {
+        "question": "什么时候更容易看到星星？",
+        "options": [
+          "晚上天空变暗时",
+          "中午阳光最强时",
+          "写作业时"
+        ],
+        "answer": 0,
+        "explanation": "晚上天空暗下来，星光就更容易被眼睛发现。"
+      }
     ],
     "parentPrompt": "可以问孩子：如果城市灯光太亮，晚上看星星会更容易还是更难？",
-    "badge": "星空寻找者"
+    "badge": "星空寻找者",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：白天为什么看不到星星，先听听孩子自己的猜想。",
+      "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
+      "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
+    }
   },
   {
     "id": "rocket-fly",
@@ -356,8 +851,18 @@ export const lessons = [
     "question": "火箭为什么能飞上天？",
     "discovery": "原来火箭向下喷出强气体，就会被推着向上飞。",
     "funFact": "放开的气球乱飞，也和空气向后喷、气球向前跑有关。",
-    "tags": ["宇宙", "火箭", "飞行", "气体", "推力"],
-    "relatedLessons": ["planets-round", "day-night", "static-electricity"],
+    "tags": [
+      "宇宙",
+      "火箭",
+      "飞行",
+      "气体",
+      "推力"
+    ],
+    "relatedLessons": [
+      "planets-round",
+      "day-night",
+      "static-electricity"
+    ],
     "emoji": "🚀",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -365,15 +870,44 @@ export const lessons = [
     "content": "火箭会把燃料快速燃烧，产生很强的气体向下喷出去。气体向下冲，火箭就会被推着向上飞。就像气球放开后，空气从后面跑出去，气球会往前乱飞一样。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "火箭向上飞，和什么力量有关？", "options": ["向下喷出的气体", "云朵拉它", "星星吸它"], "answer": 0,
-        "explanation": "气体向下用力喷，火箭就被推着向上飞。" },
-      { "question": "气球放开后会乱飞，是因为？", "options": ["空气从后面跑出去", "它在跳舞", "它变轻了"], "answer": 0,
-        "explanation": "气球里的空气往后跑，气球就会被反方向推走。" },
-      { "question": "火箭需要什么产生强大的推力？", "options": ["燃料", "糖果", "雨伞"], "answer": 0,
-        "explanation": "燃料燃烧会产生强大的气体，给火箭很大的推力。" }
+      {
+        "question": "火箭向上飞，和什么力量有关？",
+        "options": [
+          "向下喷出的气体",
+          "云朵拉它",
+          "星星吸它"
+        ],
+        "answer": 0,
+        "explanation": "气体向下用力喷，火箭就被推着向上飞。"
+      },
+      {
+        "question": "气球放开后会乱飞，是因为？",
+        "options": [
+          "空气从后面跑出去",
+          "它在跳舞",
+          "它变轻了"
+        ],
+        "answer": 0,
+        "explanation": "气球里的空气往后跑，气球就会被反方向推走。"
+      },
+      {
+        "question": "火箭需要什么产生强大的推力？",
+        "options": [
+          "燃料",
+          "糖果",
+          "雨伞"
+        ],
+        "answer": 0,
+        "explanation": "燃料燃烧会产生强大的气体，给火箭很大的推力。"
+      }
     ],
     "parentPrompt": "可以问孩子：气球实验和火箭发射有什么相似的地方？",
-    "badge": "小小火箭工程师"
+    "badge": "小小火箭工程师",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：火箭为什么能飞上天，先听听孩子自己的猜想。",
+      "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
+      "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
+    }
   },
   {
     "id": "planets-round",
@@ -382,8 +916,18 @@ export const lessons = [
     "question": "为什么很多星球都是圆圆的？",
     "discovery": "原来引力会把物质往中心拉，大星球就容易变成圆球。",
     "funFact": "小石头可以有很多形状，但很大的星球更容易被引力拉圆。",
-    "tags": ["宇宙", "星球", "圆形", "引力", "行星"],
-    "relatedLessons": ["moon-shape", "rocket-fly", "day-night"],
+    "tags": [
+      "宇宙",
+      "星球",
+      "圆形",
+      "引力",
+      "行星"
+    ],
+    "relatedLessons": [
+      "moon-shape",
+      "rocket-fly",
+      "day-night"
+    ],
     "emoji": "🪐",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -391,15 +935,44 @@ export const lessons = [
     "content": "很大的星球有很强的引力。引力会把物质从各个方向往中心拉。拉来拉去，最容易形成接近圆球的形状。所以地球、月亮和很多行星看起来都比较圆。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "星球变圆和什么有关？", "options": ["引力", "铅笔", "花瓣"], "answer": 0,
-        "explanation": "引力会从四面八方把物质往中间拉。" },
-      { "question": "引力会把物质往哪里拉？", "options": ["中心", "书包里", "窗户外"], "answer": 0,
-        "explanation": "都往中心拉时，星球最容易变得圆圆的。" },
-      { "question": "很多行星看起来是什么形状？", "options": ["接近圆球", "方块", "长条"], "answer": 0,
-        "explanation": "很多大星球被引力整理成接近圆球的样子。" }
+      {
+        "question": "星球变圆和什么有关？",
+        "options": [
+          "引力",
+          "铅笔",
+          "花瓣"
+        ],
+        "answer": 0,
+        "explanation": "引力会从四面八方把物质往中间拉。"
+      },
+      {
+        "question": "引力会把物质往哪里拉？",
+        "options": [
+          "中心",
+          "书包里",
+          "窗户外"
+        ],
+        "answer": 0,
+        "explanation": "都往中心拉时，星球最容易变得圆圆的。"
+      },
+      {
+        "question": "很多行星看起来是什么形状？",
+        "options": [
+          "接近圆球",
+          "方块",
+          "长条"
+        ],
+        "answer": 0,
+        "explanation": "很多大星球被引力整理成接近圆球的样子。"
+      }
     ],
     "parentPrompt": "可以问孩子：如果地球是方的，海水可能会怎么流？",
-    "badge": "圆圆星球守护者"
+    "badge": "圆圆星球守护者",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么很多星球都是圆圆的，先听听孩子自己的猜想。",
+      "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
+      "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
+    }
   },
   {
     "id": "rainbow",
@@ -408,8 +981,18 @@ export const lessons = [
     "question": "彩虹是怎么出现的？",
     "discovery": "原来阳光穿过小水滴时，不同颜色会分开。",
     "funFact": "彩虹的颜色顺序常常是红、橙、黄、绿、蓝、靛、紫。",
-    "tags": ["自然", "彩虹", "颜色", "雨后", "水滴"],
-    "relatedLessons": ["cloud-rain", "thunder-lightning", "sunflower"],
+    "tags": [
+      "自然",
+      "彩虹",
+      "颜色",
+      "雨后",
+      "水滴"
+    ],
+    "relatedLessons": [
+      "cloud-rain",
+      "thunder-lightning",
+      "sunflower"
+    ],
     "emoji": "🌈",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -417,15 +1000,44 @@ export const lessons = [
     "content": "彩虹常常出现在雨后，因为空气里有很多小水滴。太阳光看起来是白色的，但里面其实藏着很多颜色。当阳光进入小水滴，又从水滴里出来时，不同颜色会分开，我们就可能看到红、橙、黄、绿、蓝、靛、紫这些颜色。",
     "interaction": "点击水滴，让白光分成不同颜色。",
     "quiz": [
-      { "question": "彩虹常常出现在什么时候？", "options": ["雨后有阳光时", "晚上睡觉时", "写作业时"], "answer": 0,
-        "explanation": "雨后有阳光和小水滴时，彩虹更容易出现。" },
-      { "question": "太阳光里面藏着什么？", "options": ["很多颜色", "糖果", "小鱼"], "answer": 0,
-        "explanation": "白色阳光里藏着许多颜色，只是平时混在一起。" },
-      { "question": "小水滴在彩虹形成中像什么？", "options": ["帮颜色分开的工具", "小石头", "小鼓"], "answer": 0,
-        "explanation": "小水滴会让不同颜色分开，像帮阳光做分类。" }
+      {
+        "question": "彩虹常常出现在什么时候？",
+        "options": [
+          "雨后有阳光时",
+          "晚上睡觉时",
+          "写作业时"
+        ],
+        "answer": 0,
+        "explanation": "雨后有阳光和小水滴时，彩虹更容易出现。"
+      },
+      {
+        "question": "太阳光里面藏着什么？",
+        "options": [
+          "很多颜色",
+          "糖果",
+          "小鱼"
+        ],
+        "answer": 0,
+        "explanation": "白色阳光里藏着许多颜色，只是平时混在一起。"
+      },
+      {
+        "question": "小水滴在彩虹形成中像什么？",
+        "options": [
+          "帮颜色分开的工具",
+          "小石头",
+          "小鼓"
+        ],
+        "answer": 0,
+        "explanation": "小水滴会让不同颜色分开，像帮阳光做分类。"
+      }
     ],
     "parentPrompt": "可以问孩子：如果你给彩虹起一个名字，你会叫它什么？",
-    "badge": "彩虹发现者"
+    "badge": "彩虹发现者",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：彩虹是怎么出现的，先听听孩子自己的猜想。",
+      "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
+      "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
+    }
   },
   {
     "id": "thunder-lightning",
@@ -434,8 +1046,18 @@ export const lessons = [
     "question": "为什么先看到闪电，后听到雷声？",
     "discovery": "原来光跑得比声音快，所以闪电先被看到。",
     "funFact": "闪电和雷声间隔越久，通常说明它离我们越远。",
-    "tags": ["自然", "闪电", "雷声", "声音", "光"],
-    "relatedLessons": ["rainbow", "cloud-rain", "sound-travel"],
+    "tags": [
+      "自然",
+      "闪电",
+      "雷声",
+      "声音",
+      "光"
+    ],
+    "relatedLessons": [
+      "rainbow",
+      "cloud-rain",
+      "sound-travel"
+    ],
     "emoji": "⚡",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -443,15 +1065,44 @@ export const lessons = [
     "content": "闪电和雷声几乎同时发生，但光跑得比声音快得多。所以我们会先看到闪电，再听到雷声。如果闪电和雷声中间隔了很久，说明闪电发生的地方离我们比较远。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "为什么先看到闪电？", "options": ["光比声音快", "雷声在睡觉", "云朵挡住声音"], "answer": 0,
-        "explanation": "光跑得比声音快，所以闪电先到眼睛。" },
-      { "question": "闪电和雷声间隔越久，通常说明什么？", "options": ["离我们比较远", "离我们很近", "没有下雨"], "answer": 0,
-        "explanation": "间隔越久，声音走来的路越长，说明闪电更远。" },
-      { "question": "雷声是什么？", "options": ["和闪电有关的声音", "太阳的声音", "树叶的声音"], "answer": 0,
-        "explanation": "雷声是闪电让空气剧烈变化后传来的声音。" }
+      {
+        "question": "为什么先看到闪电？",
+        "options": [
+          "光比声音快",
+          "雷声在睡觉",
+          "云朵挡住声音"
+        ],
+        "answer": 0,
+        "explanation": "光跑得比声音快，所以闪电先到眼睛。"
+      },
+      {
+        "question": "闪电和雷声间隔越久，通常说明什么？",
+        "options": [
+          "离我们比较远",
+          "离我们很近",
+          "没有下雨"
+        ],
+        "answer": 0,
+        "explanation": "间隔越久，声音走来的路越长，说明闪电更远。"
+      },
+      {
+        "question": "雷声是什么？",
+        "options": [
+          "和闪电有关的声音",
+          "太阳的声音",
+          "树叶的声音"
+        ],
+        "answer": 0,
+        "explanation": "雷声是闪电让空气剧烈变化后传来的声音。"
+      }
     ],
     "parentPrompt": "可以提醒孩子：打雷时要远离窗边和高大的树。",
-    "badge": "雷雨安全小卫士"
+    "badge": "雷雨安全小卫士",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么先看到闪电，后听到雷声，先听听孩子自己的猜想。",
+      "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
+      "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
+    }
   },
   {
     "id": "volcano",
@@ -460,8 +1111,18 @@ export const lessons = [
     "question": "火山为什么会喷发？",
     "discovery": "原来地球内部有热岩浆和气体，可能从薄弱地方冲出来。",
     "funFact": "有些火山很久才活动一次，科学家会认真观察它们的变化。",
-    "tags": ["自然", "火山", "岩浆", "地球", "热量"],
-    "relatedLessons": ["desert-cold-night", "ice-melt", "planets-round"],
+    "tags": [
+      "自然",
+      "火山",
+      "岩浆",
+      "地球",
+      "热量"
+    ],
+    "relatedLessons": [
+      "desert-cold-night",
+      "ice-melt",
+      "planets-round"
+    ],
     "emoji": "🌋",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -469,15 +1130,44 @@ export const lessons = [
     "content": "地球内部有非常热的物质，叫岩浆。有时候岩浆和气体会从地壳比较薄弱的地方往外冲，就形成火山喷发。火山看起来很可怕，但它也是地球变化的一部分。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "火山喷出的红热物质叫什么？", "options": ["岩浆", "雪花", "牛奶"], "answer": 0,
-        "explanation": "岩浆是地球里面非常热的熔化岩石。" },
-      { "question": "岩浆常从哪里冲出来？", "options": ["地壳薄弱的地方", "书本里面", "云朵上"], "answer": 0,
-        "explanation": "地壳薄弱处像小出口，岩浆和气体可能冲出来。" },
-      { "question": "火山喷发说明地球是什么样的？", "options": ["内部有热量和变化", "完全不动", "是空心玩具"], "answer": 0,
-        "explanation": "火山提醒我们，地球里面一直有热量和变化。" }
+      {
+        "question": "火山喷出的红热物质叫什么？",
+        "options": [
+          "岩浆",
+          "雪花",
+          "牛奶"
+        ],
+        "answer": 0,
+        "explanation": "岩浆是地球里面非常热的熔化岩石。"
+      },
+      {
+        "question": "岩浆常从哪里冲出来？",
+        "options": [
+          "地壳薄弱的地方",
+          "书本里面",
+          "云朵上"
+        ],
+        "answer": 0,
+        "explanation": "地壳薄弱处像小出口，岩浆和气体可能冲出来。"
+      },
+      {
+        "question": "火山喷发说明地球是什么样的？",
+        "options": [
+          "内部有热量和变化",
+          "完全不动",
+          "是空心玩具"
+        ],
+        "answer": 0,
+        "explanation": "火山提醒我们，地球里面一直有热量和变化。"
+      }
     ],
     "parentPrompt": "可以问孩子：火山虽然危险，但火山灰后来可能会对土地有什么帮助？",
-    "badge": "火山观察员"
+    "badge": "火山观察员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：火山为什么会喷发，先听听孩子自己的猜想。",
+      "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
+      "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
+    }
   },
   {
     "id": "cloud-rain",
@@ -486,8 +1176,18 @@ export const lessons = [
     "question": "云为什么会下雨？",
     "discovery": "原来云里的小水滴聚在一起变重后，就会落下来变成雨。",
     "funFact": "云看起来轻轻的，其实里面可能有很多很小的水滴。",
-    "tags": ["自然", "云", "下雨", "水滴", "天气"],
-    "relatedLessons": ["rainbow", "thunder-lightning", "ice-melt"],
+    "tags": [
+      "自然",
+      "云",
+      "下雨",
+      "水滴",
+      "天气"
+    ],
+    "relatedLessons": [
+      "rainbow",
+      "thunder-lightning",
+      "ice-melt"
+    ],
     "emoji": "☁️",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -495,15 +1195,44 @@ export const lessons = [
     "content": "空气里的水蒸气遇到冷空气后，会变成很小很小的水滴，许多小水滴聚在一起就形成云。当小水滴越聚越多，变得太重时，就会从云里掉下来，变成雨。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "云里有什么？", "options": ["很多小水滴", "很多铅笔", "很多玩具车"], "answer": 0,
-        "explanation": "云里藏着许多很小很小的水滴。" },
-      { "question": "小水滴越来越多、越来越重后会怎样？", "options": ["落下来变成雨", "变成书包", "飞到月亮"], "answer": 0,
-        "explanation": "水滴聚在一起变重，就会从云里落下来。" },
-      { "question": "水蒸气遇冷后可能变成什么？", "options": ["小水滴", "石头", "火花"], "answer": 0,
-        "explanation": "水蒸气遇冷会变成小水滴，云和雨都和它有关。" }
+      {
+        "question": "云里有什么？",
+        "options": [
+          "很多小水滴",
+          "很多铅笔",
+          "很多玩具车"
+        ],
+        "answer": 0,
+        "explanation": "云里藏着许多很小很小的水滴。"
+      },
+      {
+        "question": "小水滴越来越多、越来越重后会怎样？",
+        "options": [
+          "落下来变成雨",
+          "变成书包",
+          "飞到月亮"
+        ],
+        "answer": 0,
+        "explanation": "水滴聚在一起变重，就会从云里落下来。"
+      },
+      {
+        "question": "水蒸气遇冷后可能变成什么？",
+        "options": [
+          "小水滴",
+          "石头",
+          "火花"
+        ],
+        "answer": 0,
+        "explanation": "水蒸气遇冷会变成小水滴，云和雨都和它有关。"
+      }
     ],
     "parentPrompt": "可以和孩子观察天气：今天的云像薄纱还是厚棉被？",
-    "badge": "小小天气员"
+    "badge": "小小天气员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：云为什么会下雨，先听听孩子自己的猜想。",
+      "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
+      "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
+    }
   },
   {
     "id": "desert-cold-night",
@@ -512,8 +1241,18 @@ export const lessons = [
     "question": "为什么沙漠白天热，晚上冷？",
     "discovery": "原来沙漠水分少，白天升温快，晚上散热也快。",
     "funFact": "沙漠不只有沙子，有些沙漠也有石头、植物和小动物。",
-    "tags": ["自然", "沙漠", "白天", "夜晚", "温差"],
-    "relatedLessons": ["cactus-water", "volcano", "penguin-feet"],
+    "tags": [
+      "自然",
+      "沙漠",
+      "白天",
+      "夜晚",
+      "温差"
+    ],
+    "relatedLessons": [
+      "cactus-water",
+      "volcano",
+      "penguin-feet"
+    ],
     "emoji": "🏜️",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -521,15 +1260,44 @@ export const lessons = [
     "content": "沙漠里水分少，白天太阳一晒，地面很快变热。到了晚上，地面又很快把热量散出去，所以温度下降很快。水可以帮助保存热量，而沙漠缺少水，所以温差很大。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "沙漠白天为什么容易热？", "options": ["太阳把地面很快晒热", "月亮加热", "沙子会唱歌"], "answer": 0,
-        "explanation": "沙漠地面白天很快吸收阳光，所以升温快。" },
-      { "question": "沙漠晚上为什么容易冷？", "options": ["热量很快散走", "太阳变冷了", "沙子消失了"], "answer": 0,
-        "explanation": "晚上没有阳光，沙漠地面的热也很快散掉。" },
-      { "question": "沙漠温差大，和什么少有关？", "options": ["水分", "星星", "影子"], "answer": 0,
-        "explanation": "水分能帮环境保温，沙漠水少所以温差大。" }
+      {
+        "question": "沙漠白天为什么容易热？",
+        "options": [
+          "太阳把地面很快晒热",
+          "月亮加热",
+          "沙子会唱歌"
+        ],
+        "answer": 0,
+        "explanation": "沙漠地面白天很快吸收阳光，所以升温快。"
+      },
+      {
+        "question": "沙漠晚上为什么容易冷？",
+        "options": [
+          "热量很快散走",
+          "太阳变冷了",
+          "沙子消失了"
+        ],
+        "answer": 0,
+        "explanation": "晚上没有阳光，沙漠地面的热也很快散掉。"
+      },
+      {
+        "question": "沙漠温差大，和什么少有关？",
+        "options": [
+          "水分",
+          "星星",
+          "影子"
+        ],
+        "answer": 0,
+        "explanation": "水分能帮环境保温，沙漠水少所以温差大。"
+      }
     ],
     "parentPrompt": "可以问孩子：为什么海边的白天和晚上温度变化没那么夸张？",
-    "badge": "沙漠温度侦探"
+    "badge": "沙漠温度侦探",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么沙漠白天热，晚上冷，先听听孩子自己的猜想。",
+      "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
+      "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
+    }
   },
   {
     "id": "pipa-string",
@@ -538,8 +1306,18 @@ export const lessons = [
     "question": "为什么琴弦越短，声音越高？",
     "discovery": "原来短弦通常振动更快，声音听起来就更高。",
     "funFact": "弹琵琶时，手指按住不同位置，就能改变琴弦的长短。",
-    "tags": ["音乐", "琵琶", "琴弦", "声音", "振动"],
-    "relatedLessons": ["sound-travel", "instrument-wood", "rhythm-heart"],
+    "tags": [
+      "音乐",
+      "琵琶",
+      "琴弦",
+      "声音",
+      "振动"
+    ],
+    "relatedLessons": [
+      "sound-travel",
+      "instrument-wood",
+      "rhythm-heart"
+    ],
     "emoji": "🎵",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -547,15 +1325,44 @@ export const lessons = [
     "content": "声音来自振动。琴弦被拨动后会快速来回动，这种振动传到空气里，我们就听到了声音。一般来说，琴弦可以振动的部分越短，振动得越快，声音就越高。琴弦越长，振动比较慢，声音就比较低。",
     "interaction": "点击长弦和短弦，比较谁的声音更高。",
     "quiz": [
-      { "question": "声音通常来自什么？", "options": ["振动", "颜色", "味道"], "answer": 0,
-        "explanation": "声音来自物体振动，琴弦也要振动才会响。" },
-      { "question": "琴弦越短，通常声音会怎样？", "options": ["更高", "更低", "没有声音"], "answer": 0,
-        "explanation": "短弦通常振动更快，所以声音听起来更高。" },
-      { "question": "琴弦越长，振动通常会怎样？", "options": ["比较慢", "变成植物", "完全不动"], "answer": 0,
-        "explanation": "长弦振动慢一些，声音常常会比较低。" }
+      {
+        "question": "声音通常来自什么？",
+        "options": [
+          "振动",
+          "颜色",
+          "味道"
+        ],
+        "answer": 0,
+        "explanation": "声音来自物体振动，琴弦也要振动才会响。"
+      },
+      {
+        "question": "琴弦越短，通常声音会怎样？",
+        "options": [
+          "更高",
+          "更低",
+          "没有声音"
+        ],
+        "answer": 0,
+        "explanation": "短弦通常振动更快，所以声音听起来更高。"
+      },
+      {
+        "question": "琴弦越长，振动通常会怎样？",
+        "options": [
+          "比较慢",
+          "变成植物",
+          "完全不动"
+        ],
+        "answer": 0,
+        "explanation": "长弦振动慢一些，声音常常会比较低。"
+      }
     ],
     "parentPrompt": "练琴后可以让孩子试着说：今天我按住琴弦哪里，声音变高了？",
-    "badge": "小小声音学家"
+    "badge": "小小声音学家",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么琴弦越短，声音越高，先听听孩子自己的猜想。",
+      "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
+      "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
+    }
   },
   {
     "id": "sound-travel",
@@ -564,8 +1371,18 @@ export const lessons = [
     "question": "声音是怎么传到耳朵里的？",
     "discovery": "原来声音会让空气振动，再一路传到我们的耳朵。",
     "funFact": "在安静房间里轻轻拍手，也能感受到声音向外传开。",
-    "tags": ["音乐", "声音", "耳朵", "空气", "振动"],
-    "relatedLessons": ["echo", "pipa-string", "instrument-wood"],
+    "tags": [
+      "音乐",
+      "声音",
+      "耳朵",
+      "空气",
+      "振动"
+    ],
+    "relatedLessons": [
+      "echo",
+      "pipa-string",
+      "instrument-wood"
+    ],
     "emoji": "👂",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -573,15 +1390,44 @@ export const lessons = [
     "content": "声音会让空气产生很小的振动，这些振动像波浪一样向外传播。当声音传到我们的耳朵时，耳朵里面的结构会感受到振动，大脑就能知道我们听到了什么。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "声音传播和什么有关？", "options": ["振动", "颜色", "影子"], "answer": 0,
-        "explanation": "声音是振动传开的结果，不是自己突然出现的。" },
-      { "question": "声音可以通过什么传播到耳朵？", "options": ["空气", "铅笔盒", "月亮"], "answer": 0,
-        "explanation": "空气会把振动一层层传到我们的耳朵。" },
-      { "question": "谁帮助我们理解听到的内容？", "options": ["大脑", "鞋子", "云朵"], "answer": 0,
-        "explanation": "大脑会帮我们认出听到的是说话、音乐还是声音。" }
+      {
+        "question": "声音传播和什么有关？",
+        "options": [
+          "振动",
+          "颜色",
+          "影子"
+        ],
+        "answer": 0,
+        "explanation": "声音是振动传开的结果，不是自己突然出现的。"
+      },
+      {
+        "question": "声音可以通过什么传播到耳朵？",
+        "options": [
+          "空气",
+          "铅笔盒",
+          "月亮"
+        ],
+        "answer": 0,
+        "explanation": "空气会把振动一层层传到我们的耳朵。"
+      },
+      {
+        "question": "谁帮助我们理解听到的内容？",
+        "options": [
+          "大脑",
+          "鞋子",
+          "云朵"
+        ],
+        "answer": 0,
+        "explanation": "大脑会帮我们认出听到的是说话、音乐还是声音。"
+      }
     ],
     "parentPrompt": "可以问孩子：为什么隔着门也能听到一些声音？",
-    "badge": "声音旅行家"
+    "badge": "声音旅行家",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：声音是怎么传到耳朵里的，先听听孩子自己的猜想。",
+      "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
+      "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
+    }
   },
   {
     "id": "echo",
@@ -590,8 +1436,18 @@ export const lessons = [
     "question": "为什么山谷里会有回声？",
     "discovery": "原来声音碰到山壁或墙壁后，可能会反射回来。",
     "funFact": "空旷的大房间也可能有回声，因为声音会碰到墙再回来。",
-    "tags": ["音乐", "回声", "山谷", "声音", "反射"],
-    "relatedLessons": ["sound-travel", "thunder-lightning", "instrument-wood"],
+    "tags": [
+      "音乐",
+      "回声",
+      "山谷",
+      "声音",
+      "反射"
+    ],
+    "relatedLessons": [
+      "sound-travel",
+      "thunder-lightning",
+      "instrument-wood"
+    ],
     "emoji": "🏔️",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -599,15 +1455,44 @@ export const lessons = [
     "content": "声音遇到山壁、墙壁等硬的东西时，可能会被反射回来。我们听到反射回来的声音，就叫回声。空旷的地方、山谷或者大房间里，有时更容易听到回声。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "回声是什么？", "options": ["反射回来的声音", "星星的声音", "植物的声音"], "answer": 0,
-        "explanation": "回声是声音碰到硬地方后又弹回来的声音。" },
-      { "question": "声音遇到什么可能会反射？", "options": ["山壁或墙壁", "棉花糖", "空气中的香味"], "answer": 0,
-        "explanation": "山壁和墙壁比较硬，声音碰到后可能会反射。" },
-      { "question": "哪里更容易有回声？", "options": ["山谷或大房间", "小枕头里", "水杯里的水"], "answer": 0,
-        "explanation": "大空间里声音有路可以来回跑，所以更容易听见回声。" }
+      {
+        "question": "回声是什么？",
+        "options": [
+          "反射回来的声音",
+          "星星的声音",
+          "植物的声音"
+        ],
+        "answer": 0,
+        "explanation": "回声是声音碰到硬地方后又弹回来的声音。"
+      },
+      {
+        "question": "声音遇到什么可能会反射？",
+        "options": [
+          "山壁或墙壁",
+          "棉花糖",
+          "空气中的香味"
+        ],
+        "answer": 0,
+        "explanation": "山壁和墙壁比较硬，声音碰到后可能会反射。"
+      },
+      {
+        "question": "哪里更容易有回声？",
+        "options": [
+          "山谷或大房间",
+          "小枕头里",
+          "水杯里的水"
+        ],
+        "answer": 0,
+        "explanation": "大空间里声音有路可以来回跑，所以更容易听见回声。"
+      }
     ],
     "parentPrompt": "可以问孩子：为什么电影院和音乐厅要特别设计墙面？",
-    "badge": "回声探索员"
+    "badge": "回声探索员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么山谷里会有回声，先听听孩子自己的猜想。",
+      "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
+      "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
+    }
   },
   {
     "id": "instrument-wood",
@@ -616,8 +1501,18 @@ export const lessons = [
     "question": "为什么很多乐器用木头做？",
     "discovery": "原来木头能传递和放大振动，让声音更响、更温暖。",
     "funFact": "同样的琴弦，配上不同形状的琴身，声音也可能不一样。",
-    "tags": ["音乐", "乐器", "木头", "振动", "材料"],
-    "relatedLessons": ["pipa-string", "sound-travel", "rhythm-heart"],
+    "tags": [
+      "音乐",
+      "乐器",
+      "木头",
+      "振动",
+      "材料"
+    ],
+    "relatedLessons": [
+      "pipa-string",
+      "sound-travel",
+      "rhythm-heart"
+    ],
     "emoji": "🪵",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -625,15 +1520,44 @@ export const lessons = [
     "content": "木头比较轻，也可以很好地传递和放大振动。很多弦乐器拨动或拉动琴弦后，琴身会一起振动，让声音更响、更温暖。不同木头和形状，也会让声音听起来不一样。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "很多乐器用木头，是因为木头可以帮助什么？", "options": ["传递和放大振动", "变出彩虹", "吸走声音"], "answer": 0,
-        "explanation": "木头能把琴弦的振动传开，让声音更容易被听见。" },
-      { "question": "琴身一起振动后，声音可能会怎样？", "options": ["更响、更丰满", "完全消失", "变成颜色"], "answer": 0,
-        "explanation": "琴身一起振动时，声音会变得更响也更圆润。" },
-      { "question": "不同材料的声音会一样吗？", "options": ["不一定", "一定完全一样", "只有周末不一样"], "answer": 0,
-        "explanation": "材料和形状不同，传出来的声音也会有差别。" }
+      {
+        "question": "很多乐器用木头，是因为木头可以帮助什么？",
+        "options": [
+          "传递和放大振动",
+          "变出彩虹",
+          "吸走声音"
+        ],
+        "answer": 0,
+        "explanation": "木头能把琴弦的振动传开，让声音更容易被听见。"
+      },
+      {
+        "question": "琴身一起振动后，声音可能会怎样？",
+        "options": [
+          "更响、更丰满",
+          "完全消失",
+          "变成颜色"
+        ],
+        "answer": 0,
+        "explanation": "琴身一起振动时，声音会变得更响也更圆润。"
+      },
+      {
+        "question": "不同材料的声音会一样吗？",
+        "options": [
+          "不一定",
+          "一定完全一样",
+          "只有周末不一样"
+        ],
+        "answer": 0,
+        "explanation": "材料和形状不同，传出来的声音也会有差别。"
+      }
     ],
     "parentPrompt": "可以让孩子轻轻比较木桌、塑料盒、金属勺的声音。",
-    "badge": "乐器材料小专家"
+    "badge": "乐器材料小专家",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么很多乐器用木头做，先听听孩子自己的猜想。",
+      "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
+      "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
+    }
   },
   {
     "id": "rhythm-heart",
@@ -642,8 +1566,18 @@ export const lessons = [
     "question": "节奏为什么会让人想动起来？",
     "discovery": "原来大脑很容易抓住规律，身体就想跟着节奏动。",
     "funFact": "走路、拍手和心跳里，都藏着一下一下的规律。",
-    "tags": ["音乐", "节奏", "身体", "心跳", "规律"],
-    "relatedLessons": ["heartbeat", "pipa-string", "sound-travel"],
+    "tags": [
+      "音乐",
+      "节奏",
+      "身体",
+      "心跳",
+      "规律"
+    ],
+    "relatedLessons": [
+      "heartbeat",
+      "pipa-string",
+      "sound-travel"
+    ],
     "emoji": "🥁",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -651,15 +1585,44 @@ export const lessons = [
     "content": "节奏是一种有规律的声音变化。我们的身体也有很多规律，比如心跳、走路的步子。听到明显的节奏时，大脑会很容易抓住规律，所以我们会想拍手、点头或者跳舞。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "节奏是什么？", "options": ["有规律的声音变化", "没有规律的乱声", "一种颜色"], "answer": 0,
-        "explanation": "节奏是一下一下有规律的声音变化。" },
-      { "question": "听到节奏时，大脑容易抓住什么？", "options": ["规律", "铅笔", "云朵"], "answer": 0,
-        "explanation": "大脑喜欢找规律，听到节奏就容易跟上拍子。" },
-      { "question": "身体里也有什么有规律的例子？", "options": ["心跳", "彩虹", "石头"], "answer": 0,
-        "explanation": "心跳也有规律，所以身体很熟悉这种一下一下的感觉。" }
+      {
+        "question": "节奏是什么？",
+        "options": [
+          "有规律的声音变化",
+          "没有规律的乱声",
+          "一种颜色"
+        ],
+        "answer": 0,
+        "explanation": "节奏是一下一下有规律的声音变化。"
+      },
+      {
+        "question": "听到节奏时，大脑容易抓住什么？",
+        "options": [
+          "规律",
+          "铅笔",
+          "云朵"
+        ],
+        "answer": 0,
+        "explanation": "大脑喜欢找规律，听到节奏就容易跟上拍子。"
+      },
+      {
+        "question": "身体里也有什么有规律的例子？",
+        "options": [
+          "心跳",
+          "彩虹",
+          "石头"
+        ],
+        "answer": 0,
+        "explanation": "心跳也有规律，所以身体很熟悉这种一下一下的感觉。"
+      }
     ],
     "parentPrompt": "练琵琶时可以让孩子先拍节奏，再弹音。",
-    "badge": "节奏小指挥"
+    "badge": "节奏小指挥",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：节奏为什么会让人想动起来，先听听孩子自己的猜想。",
+      "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
+      "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
+    }
   },
   {
     "id": "heartbeat",
@@ -668,8 +1631,18 @@ export const lessons = [
     "question": "心脏为什么一直在跳？",
     "discovery": "原来心脏像小水泵，把血液送到身体各处。",
     "funFact": "运动后心跳会变快，因为身体需要更多氧气和能量。",
-    "tags": ["身体", "心脏", "血液", "健康", "跳动"],
-    "relatedLessons": ["rhythm-heart", "brain-sleep", "goosebumps"],
+    "tags": [
+      "身体",
+      "心脏",
+      "血液",
+      "健康",
+      "跳动"
+    ],
+    "relatedLessons": [
+      "rhythm-heart",
+      "brain-sleep",
+      "goosebumps"
+    ],
     "emoji": "❤️",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -677,15 +1650,44 @@ export const lessons = [
     "content": "心脏就像身体里的小水泵。它不停地跳动，把血液送到身体各处。血液会带着氧气和营养，帮助大脑、肌肉和其他器官工作。所以就算我们坐着不动，心脏也要认真工作。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "心脏像什么？", "options": ["小水泵", "小铅笔", "小云朵"], "answer": 0,
-        "explanation": "心脏像小水泵，一直把血液推向全身。" },
-      { "question": "心脏把什么送到身体各处？", "options": ["血液", "沙子", "糖纸"], "answer": 0,
-        "explanation": "血液送到各处，身体里的小帮手才能工作。" },
-      { "question": "血液可以带着什么？", "options": ["氧气和营养", "电视节目", "星星"], "answer": 0,
-        "explanation": "血液带着氧气和营养，帮助身体保持活力。" }
+      {
+        "question": "心脏像什么？",
+        "options": [
+          "小水泵",
+          "小铅笔",
+          "小云朵"
+        ],
+        "answer": 0,
+        "explanation": "心脏像小水泵，一直把血液推向全身。"
+      },
+      {
+        "question": "心脏把什么送到身体各处？",
+        "options": [
+          "血液",
+          "沙子",
+          "糖纸"
+        ],
+        "answer": 0,
+        "explanation": "血液送到各处，身体里的小帮手才能工作。"
+      },
+      {
+        "question": "血液可以带着什么？",
+        "options": [
+          "氧气和营养",
+          "电视节目",
+          "星星"
+        ],
+        "answer": 0,
+        "explanation": "血液带着氧气和营养，帮助身体保持活力。"
+      }
     ],
     "parentPrompt": "可以让孩子运动前后摸脉搏，比较心跳有没有变化。",
-    "badge": "心跳观察员"
+    "badge": "心跳观察员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：心脏为什么一直在跳，先听听孩子自己的猜想。",
+      "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
+      "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
+    }
   },
   {
     "id": "teeth-change",
@@ -694,8 +1696,18 @@ export const lessons = [
     "question": "小朋友为什么会换牙？",
     "discovery": "原来身体长大后，需要更结实的恒牙来咬食物。",
     "funFact": "新牙长出来后，更需要认真刷牙来保护它。",
-    "tags": ["身体", "牙齿", "换牙", "成长", "健康"],
-    "relatedLessons": ["soap-clean", "taste", "brain-sleep"],
+    "tags": [
+      "身体",
+      "牙齿",
+      "换牙",
+      "成长",
+      "健康"
+    ],
+    "relatedLessons": [
+      "soap-clean",
+      "taste",
+      "brain-sleep"
+    ],
     "emoji": "🦷",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -703,15 +1715,44 @@ export const lessons = [
     "content": "小朋友小时候的牙叫乳牙。随着身体长大，嘴巴和下巴也会变大，需要更结实的牙齿来咬食物。乳牙慢慢松动掉下来，恒牙就会长出来。换牙是长大的一个正常过程。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "小朋友小时候的牙叫什么？", "options": ["乳牙", "木牙", "星牙"], "answer": 0,
-        "explanation": "乳牙是小时候先长出来的一套小牙齿。" },
-      { "question": "长大后会长出的牙叫什么？", "options": ["恒牙", "云牙", "纸牙"], "answer": 0,
-        "explanation": "恒牙更结实，会陪伴我们更久。" },
-      { "question": "换牙是正常的吗？", "options": ["正常", "不正常", "只有猫会换"], "answer": 0,
-        "explanation": "换牙说明身体在长大，是正常的成长过程。" }
+      {
+        "question": "小朋友小时候的牙叫什么？",
+        "options": [
+          "乳牙",
+          "木牙",
+          "星牙"
+        ],
+        "answer": 0,
+        "explanation": "乳牙是小时候先长出来的一套小牙齿。"
+      },
+      {
+        "question": "长大后会长出的牙叫什么？",
+        "options": [
+          "恒牙",
+          "云牙",
+          "纸牙"
+        ],
+        "answer": 0,
+        "explanation": "恒牙更结实，会陪伴我们更久。"
+      },
+      {
+        "question": "换牙是正常的吗？",
+        "options": [
+          "正常",
+          "不正常",
+          "只有猫会换"
+        ],
+        "answer": 0,
+        "explanation": "换牙说明身体在长大，是正常的成长过程。"
+      }
     ],
     "parentPrompt": "可以提醒孩子：新牙长出来后，更要认真刷牙保护它。",
-    "badge": "护牙小卫士"
+    "badge": "护牙小卫士",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：小朋友为什么会换牙，先听听孩子自己的猜想。",
+      "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
+      "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
+    }
   },
   {
     "id": "brain-sleep",
@@ -720,8 +1761,18 @@ export const lessons = [
     "question": "睡觉为什么能帮助大脑？",
     "discovery": "原来睡觉时大脑会整理白天学到的东西。",
     "funFact": "固定的睡前流程能帮助身体知道：该准备休息啦。",
-    "tags": ["身体", "大脑", "睡觉", "记忆", "健康"],
-    "relatedLessons": ["heartbeat", "rhythm-heart", "teeth-change"],
+    "tags": [
+      "身体",
+      "大脑",
+      "睡觉",
+      "记忆",
+      "健康"
+    ],
+    "relatedLessons": [
+      "heartbeat",
+      "rhythm-heart",
+      "teeth-change"
+    ],
     "emoji": "🧠",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -729,15 +1780,44 @@ export const lessons = [
     "content": "睡觉时，身体在休息，大脑也在整理白天学到的东西。好的睡眠可以帮助我们记得更牢、心情更稳定、第二天更有精神。小朋友正在长身体，所以更需要足够的睡眠。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "睡觉时大脑在做什么？", "options": ["整理学到的东西", "完全消失", "变成电视"], "answer": 0,
-        "explanation": "睡觉时大脑会整理白天学到的东西。" },
-      { "question": "好的睡眠可以帮助什么？", "options": ["记得更牢、精神更好", "不用吃饭", "立刻长翅膀"], "answer": 0,
-        "explanation": "睡得好，大脑更容易记住知识，心情也更稳。" },
-      { "question": "小朋友为什么更需要睡眠？", "options": ["正在长身体和学习", "因为床会说话", "因为月亮要求"], "answer": 0,
-        "explanation": "小朋友在长身体和学习，所以睡眠特别重要。" }
+      {
+        "question": "睡觉时大脑在做什么？",
+        "options": [
+          "整理学到的东西",
+          "完全消失",
+          "变成电视"
+        ],
+        "answer": 0,
+        "explanation": "睡觉时大脑会整理白天学到的东西。"
+      },
+      {
+        "question": "好的睡眠可以帮助什么？",
+        "options": [
+          "记得更牢、精神更好",
+          "不用吃饭",
+          "立刻长翅膀"
+        ],
+        "answer": 0,
+        "explanation": "睡得好，大脑更容易记住知识，心情也更稳。"
+      },
+      {
+        "question": "小朋友为什么更需要睡眠？",
+        "options": [
+          "正在长身体和学习",
+          "因为床会说话",
+          "因为月亮要求"
+        ],
+        "answer": 0,
+        "explanation": "小朋友在长身体和学习，所以睡眠特别重要。"
+      }
     ],
     "parentPrompt": "可以和孩子一起设定固定睡前流程，比如阅读、洗漱、关灯。",
-    "badge": "大脑充电员"
+    "badge": "大脑充电员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：睡觉为什么能帮助大脑，先听听孩子自己的猜想。",
+      "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
+      "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
+    }
   },
   {
     "id": "goosebumps",
@@ -746,8 +1826,18 @@ export const lessons = [
     "question": "冷的时候为什么会起鸡皮疙瘩？",
     "discovery": "原来这是身体留下来的自动反应，曾经能帮忙保暖。",
     "funFact": "害怕或听到特别感动的声音时，有些人也会起鸡皮疙瘩。",
-    "tags": ["身体", "皮肤", "寒冷", "反应", "保暖"],
-    "relatedLessons": ["penguin-feet", "heartbeat", "desert-cold-night"],
+    "tags": [
+      "身体",
+      "皮肤",
+      "寒冷",
+      "反应",
+      "保暖"
+    ],
+    "relatedLessons": [
+      "penguin-feet",
+      "heartbeat",
+      "desert-cold-night"
+    ],
     "emoji": "🧥",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -755,15 +1845,44 @@ export const lessons = [
     "content": "起鸡皮疙瘩是身体的一种反应。很久以前，人类身上的毛比现在多，冷的时候毛会立起来，帮助留住一点热空气。现在我们身上的毛少了，但这个反应还保留下来。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "鸡皮疙瘩常在什么时候出现？", "options": ["冷或害怕时", "吃饭时一定出现", "写字时一定出现"], "answer": 0,
-        "explanation": "冷或害怕时，身体会自动做出保护反应。" },
-      { "question": "很久以前，毛立起来可能帮助什么？", "options": ["留住一点热空气", "变成翅膀", "发出音乐"], "answer": 0,
-        "explanation": "毛立起来能留住一点热空气，像小小保暖层。" },
-      { "question": "这个反应现在还在吗？", "options": ["还在", "完全没有", "只有植物有"], "answer": 0,
-        "explanation": "虽然现在毛少了，这个老反应还留在身体里。" }
+      {
+        "question": "鸡皮疙瘩常在什么时候出现？",
+        "options": [
+          "冷或害怕时",
+          "吃饭时一定出现",
+          "写字时一定出现"
+        ],
+        "answer": 0,
+        "explanation": "冷或害怕时，身体会自动做出保护反应。"
+      },
+      {
+        "question": "很久以前，毛立起来可能帮助什么？",
+        "options": [
+          "留住一点热空气",
+          "变成翅膀",
+          "发出音乐"
+        ],
+        "answer": 0,
+        "explanation": "毛立起来能留住一点热空气，像小小保暖层。"
+      },
+      {
+        "question": "这个反应现在还在吗？",
+        "options": [
+          "还在",
+          "完全没有",
+          "只有植物有"
+        ],
+        "answer": 0,
+        "explanation": "虽然现在毛少了，这个老反应还留在身体里。"
+      }
     ],
     "parentPrompt": "可以问孩子：冷的时候除了起鸡皮疙瘩，身体还会有什么反应？",
-    "badge": "身体反应小侦探"
+    "badge": "身体反应小侦探",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：冷的时候为什么会起鸡皮疙瘩，先听听孩子自己的猜想。",
+      "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
+      "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
+    }
   },
   {
     "id": "taste",
@@ -772,8 +1891,18 @@ export const lessons = [
     "question": "舌头为什么能尝出味道？",
     "discovery": "原来舌头上的味觉感受器会把味道消息传给大脑。",
     "funFact": "闻气味也会影响吃东西的感觉，所以香味很重要。",
-    "tags": ["身体", "舌头", "味道", "大脑", "食物"],
-    "relatedLessons": ["soap-clean", "teeth-change", "brain-sleep"],
+    "tags": [
+      "身体",
+      "舌头",
+      "味道",
+      "大脑",
+      "食物"
+    ],
+    "relatedLessons": [
+      "soap-clean",
+      "teeth-change",
+      "brain-sleep"
+    ],
     "emoji": "👅",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -781,15 +1910,44 @@ export const lessons = [
     "content": "舌头上有很多小小的味觉感受器，它们可以帮助我们感觉甜、酸、咸、苦等味道。味道信息会传到大脑，大脑再告诉我们：这个是甜的，那个是酸的。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "舌头上帮助尝味道的是什么？", "options": ["味觉感受器", "小镜子", "小轮子"], "answer": 0,
-        "explanation": "味觉感受器像小探测员，帮舌头分辨味道。" },
-      { "question": "味道信息最后会传到哪里？", "options": ["大脑", "鞋子", "书包"], "answer": 0,
-        "explanation": "味道信息传到大脑后，我们才知道吃到了什么味。" },
-      { "question": "柠檬通常是什么味道？", "options": ["酸", "甜得像糖", "像木头"], "answer": 0,
-        "explanation": "柠檬里有酸味物质，所以舌头会觉得酸酸的。" }
+      {
+        "question": "舌头上帮助尝味道的是什么？",
+        "options": [
+          "味觉感受器",
+          "小镜子",
+          "小轮子"
+        ],
+        "answer": 0,
+        "explanation": "味觉感受器像小探测员，帮舌头分辨味道。"
+      },
+      {
+        "question": "味道信息最后会传到哪里？",
+        "options": [
+          "大脑",
+          "鞋子",
+          "书包"
+        ],
+        "answer": 0,
+        "explanation": "味道信息传到大脑后，我们才知道吃到了什么味。"
+      },
+      {
+        "question": "柠檬通常是什么味道？",
+        "options": [
+          "酸",
+          "甜得像糖",
+          "像木头"
+        ],
+        "answer": 0,
+        "explanation": "柠檬里有酸味物质，所以舌头会觉得酸酸的。"
+      }
     ],
     "parentPrompt": "可以做安全小实验：闻一闻食物，再尝一小口，说出感觉。",
-    "badge": "味道小专家"
+    "badge": "味道小专家",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：舌头为什么能尝出味道，先听听孩子自己的猜想。",
+      "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
+      "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
+    }
   },
   {
     "id": "magnet",
@@ -798,8 +1956,18 @@ export const lessons = [
     "question": "磁铁为什么能吸住铁？",
     "discovery": "原来磁铁周围有看不见的磁力，能吸引一些金属。",
     "funFact": "不是所有金属都会被普通磁铁吸住，材料不同结果也不同。",
-    "tags": ["科学", "磁铁", "铁", "磁力", "实验"],
-    "relatedLessons": ["float-sink", "static-electricity", "shadow"],
+    "tags": [
+      "科学",
+      "磁铁",
+      "铁",
+      "磁力",
+      "实验"
+    ],
+    "relatedLessons": [
+      "float-sink",
+      "static-electricity",
+      "shadow"
+    ],
     "emoji": "🧲",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -807,15 +1975,44 @@ export const lessons = [
     "content": "磁铁周围有看不见的磁力。它可以吸引铁、镍等一些材料，但不是所有东西都会被磁铁吸住。比如木头、纸和塑料通常不会被普通磁铁吸住。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "磁铁周围有什么看不见的力量？", "options": ["磁力", "香味", "彩虹力"], "answer": 0,
-        "explanation": "磁力看不见，却能让合适的金属靠近磁铁。" },
-      { "question": "磁铁通常可以吸住什么？", "options": ["铁制物品", "纸巾", "木头"], "answer": 0,
-        "explanation": "铁制物品容易被磁铁吸住，纸和木头通常不会。" },
-      { "question": "所有东西都会被磁铁吸住吗？", "options": ["不会", "会", "只有晚上会"], "answer": 0,
-        "explanation": "磁铁只吸一些材料，不是所有东西都能被吸住。" }
+      {
+        "question": "磁铁周围有什么看不见的力量？",
+        "options": [
+          "磁力",
+          "香味",
+          "彩虹力"
+        ],
+        "answer": 0,
+        "explanation": "磁力看不见，却能让合适的金属靠近磁铁。"
+      },
+      {
+        "question": "磁铁通常可以吸住什么？",
+        "options": [
+          "铁制物品",
+          "纸巾",
+          "木头"
+        ],
+        "answer": 0,
+        "explanation": "铁制物品容易被磁铁吸住，纸和木头通常不会。"
+      },
+      {
+        "question": "所有东西都会被磁铁吸住吗？",
+        "options": [
+          "不会",
+          "会",
+          "只有晚上会"
+        ],
+        "answer": 0,
+        "explanation": "磁铁只吸一些材料，不是所有东西都能被吸住。"
+      }
     ],
     "parentPrompt": "可以准备磁铁和回形针，让孩子做分类实验。",
-    "badge": "磁力实验员"
+    "badge": "磁力实验员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：磁铁为什么能吸住铁，先听听孩子自己的猜想。",
+      "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
+      "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
+    }
   },
   {
     "id": "float-sink",
@@ -824,8 +2021,18 @@ export const lessons = [
     "question": "为什么有些东西会浮，有些会沉？",
     "discovery": "原来浮沉和材料、形状，还有水给的托力有关。",
     "funFact": "很重的大船能浮起来，是因为它的形状能排开很多水。",
-    "tags": ["科学", "水", "浮沉", "形状", "实验"],
-    "relatedLessons": ["magnet", "ice-melt", "umbrella"],
+    "tags": [
+      "科学",
+      "水",
+      "浮沉",
+      "形状",
+      "实验"
+    ],
+    "relatedLessons": [
+      "magnet",
+      "ice-melt",
+      "umbrella"
+    ],
     "emoji": "🛟",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -833,15 +2040,44 @@ export const lessons = [
     "content": "东西会浮还是沉，和它的材料、形状以及水给它的向上托力有关。有些东西虽然重，但如果形状能排开很多水，也可能浮起来，比如大船。小石头很密实，就容易沉下去。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "物体浮沉和什么有关？", "options": ["材料、形状和水的托力", "颜色好不好看", "名字长不长"], "answer": 0,
-        "explanation": "浮沉要看物体本身，也要看它怎样排开水。" },
-      { "question": "大船很重，为什么还能浮？", "options": ["形状能排开很多水", "船会飞", "海水帮它写字"], "answer": 0,
-        "explanation": "大船的形状能排开很多水，所以能得到向上的托力。" },
-      { "question": "小石头为什么容易沉？", "options": ["比较密实", "太害羞", "喜欢睡觉"], "answer": 0,
-        "explanation": "小石头很密实，水给它的托力不够就会沉下去。" }
+      {
+        "question": "物体浮沉和什么有关？",
+        "options": [
+          "材料、形状和水的托力",
+          "颜色好不好看",
+          "名字长不长"
+        ],
+        "answer": 0,
+        "explanation": "浮沉要看物体本身，也要看它怎样排开水。"
+      },
+      {
+        "question": "大船很重，为什么还能浮？",
+        "options": [
+          "形状能排开很多水",
+          "船会飞",
+          "海水帮它写字"
+        ],
+        "answer": 0,
+        "explanation": "大船的形状能排开很多水，所以能得到向上的托力。"
+      },
+      {
+        "question": "小石头为什么容易沉？",
+        "options": [
+          "比较密实",
+          "太害羞",
+          "喜欢睡觉"
+        ],
+        "answer": 0,
+        "explanation": "小石头很密实，水给它的托力不够就会沉下去。"
+      }
     ],
     "parentPrompt": "可以和孩子预测物品浮沉，再实际放进水里验证。",
-    "badge": "浮沉小科学家"
+    "badge": "浮沉小科学家",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：为什么有些东西会浮，有些会沉，先听听孩子自己的猜想。",
+      "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
+      "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
+    }
   },
   {
     "id": "shadow",
@@ -850,8 +2086,18 @@ export const lessons = [
     "question": "影子为什么会变长变短？",
     "discovery": "原来太阳位置变了，光照角度不同，影子长度也会变。",
     "funFact": "早上和傍晚的影子常常很长，中午的影子通常比较短。",
-    "tags": ["科学", "影子", "太阳", "光", "观察"],
-    "relatedLessons": ["day-night", "static-electricity", "magnet"],
+    "tags": [
+      "科学",
+      "影子",
+      "太阳",
+      "光",
+      "观察"
+    ],
+    "relatedLessons": [
+      "day-night",
+      "static-electricity",
+      "magnet"
+    ],
     "emoji": "👤",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -859,15 +2105,44 @@ export const lessons = [
     "content": "影子是光被物体挡住后形成的。太阳在天空中的位置会变化，光照来的角度也会变化。早上和傍晚太阳比较低，影子容易变长；中午太阳比较高，影子通常比较短。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "影子是怎么形成的？", "options": ["光被物体挡住", "风吹出来", "声音变出来"], "answer": 0,
-        "explanation": "物体挡住光后，光到不了的地方就形成影子。" },
-      { "question": "太阳比较低时，影子通常怎样？", "options": ["比较长", "完全没有", "变成圆球"], "answer": 0,
-        "explanation": "太阳低时光斜斜照过来，影子会被拉长。" },
-      { "question": "中午太阳比较高，影子通常怎样？", "options": ["比较短", "一定最长", "变成彩虹"], "answer": 0,
-        "explanation": "太阳高时光比较直，影子通常会短一些。" }
+      {
+        "question": "影子是怎么形成的？",
+        "options": [
+          "光被物体挡住",
+          "风吹出来",
+          "声音变出来"
+        ],
+        "answer": 0,
+        "explanation": "物体挡住光后，光到不了的地方就形成影子。"
+      },
+      {
+        "question": "太阳比较低时，影子通常怎样？",
+        "options": [
+          "比较长",
+          "完全没有",
+          "变成圆球"
+        ],
+        "answer": 0,
+        "explanation": "太阳低时光斜斜照过来，影子会被拉长。"
+      },
+      {
+        "question": "中午太阳比较高，影子通常怎样？",
+        "options": [
+          "比较短",
+          "一定最长",
+          "变成彩虹"
+        ],
+        "answer": 0,
+        "explanation": "太阳高时光比较直，影子通常会短一些。"
+      }
     ],
     "parentPrompt": "可以一天中多次观察同一个物体的影子长度。",
-    "badge": "影子观察员"
+    "badge": "影子观察员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：影子为什么会变长变短，先听听孩子自己的猜想。",
+      "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
+      "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
+    }
   },
   {
     "id": "ice-melt",
@@ -876,8 +2151,18 @@ export const lessons = [
     "question": "冰为什么会融化成水？",
     "discovery": "原来冰吸收热量后，会从固体慢慢变成液体水。",
     "funFact": "水还可以变成水蒸气，只是有时我们看不清它。",
-    "tags": ["科学", "冰", "水", "温度", "变化"],
-    "relatedLessons": ["fridge", "float-sink", "cloud-rain"],
+    "tags": [
+      "科学",
+      "冰",
+      "水",
+      "温度",
+      "变化"
+    ],
+    "relatedLessons": [
+      "fridge",
+      "float-sink",
+      "cloud-rain"
+    ],
     "emoji": "🧊",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -885,15 +2170,44 @@ export const lessons = [
     "content": "冰和水其实是同一种东西，只是状态不同。温度低时，水会变成冰；温度升高时，冰吸收热量，就会融化成水。再继续加热，水还可能变成水蒸气。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "冰和水是什么关系？", "options": ["同一种东西的不同状态", "完全无关", "一个是动物一个是植物"], "answer": 0,
-        "explanation": "冰、水和水蒸气都是水的不同样子。" },
-      { "question": "冰融化需要什么？", "options": ["吸收热量", "听音乐", "照镜子"], "answer": 0,
-        "explanation": "冰吸收热量后，里面的小颗粒活动起来就会变成水。" },
-      { "question": "水继续加热可能变成什么？", "options": ["水蒸气", "石头", "纸"], "answer": 0,
-        "explanation": "继续加热时，水可能变成看不见的水蒸气。" }
+      {
+        "question": "冰和水是什么关系？",
+        "options": [
+          "同一种东西的不同状态",
+          "完全无关",
+          "一个是动物一个是植物"
+        ],
+        "answer": 0,
+        "explanation": "冰、水和水蒸气都是水的不同样子。"
+      },
+      {
+        "question": "冰融化需要什么？",
+        "options": [
+          "吸收热量",
+          "听音乐",
+          "照镜子"
+        ],
+        "answer": 0,
+        "explanation": "冰吸收热量后，里面的小颗粒活动起来就会变成水。"
+      },
+      {
+        "question": "水继续加热可能变成什么？",
+        "options": [
+          "水蒸气",
+          "石头",
+          "纸"
+        ],
+        "answer": 0,
+        "explanation": "继续加热时，水可能变成看不见的水蒸气。"
+      }
     ],
     "parentPrompt": "可以问孩子：冰箱为什么能让水变成冰？",
-    "badge": "状态变化小专家"
+    "badge": "状态变化小专家",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：冰为什么会融化成水，先听听孩子自己的猜想。",
+      "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
+      "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
+    }
   },
   {
     "id": "static-electricity",
@@ -902,8 +2216,18 @@ export const lessons = [
     "question": "脱毛衣时为什么会有小电火花？",
     "discovery": "原来摩擦会产生静电，积累多了就可能突然放出来。",
     "funFact": "冬天空气干燥时，静电更容易出现。",
-    "tags": ["科学", "静电", "冬天", "摩擦", "火花"],
-    "relatedLessons": ["magnet", "thunder-lightning", "shadow"],
+    "tags": [
+      "科学",
+      "静电",
+      "冬天",
+      "摩擦",
+      "火花"
+    ],
+    "relatedLessons": [
+      "magnet",
+      "thunder-lightning",
+      "shadow"
+    ],
     "emoji": "✨",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -911,15 +2235,44 @@ export const lessons = [
     "content": "衣服和身体摩擦时，可能会产生静电。静电积累多了，碰到别的东西时就可能突然放电，让我们听到小声音，甚至看到小火花。冬天空气比较干，静电更容易出现。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "衣服摩擦可能产生什么？", "options": ["静电", "雨水", "树叶"], "answer": 0,
-        "explanation": "摩擦会让小电荷移动，于是可能产生静电。" },
-      { "question": "静电积累后可能会怎样？", "options": ["突然放电", "变成糖", "让衣服唱歌"], "answer": 0,
-        "explanation": "静电积累多了，碰到东西时会一下子放出来。" },
-      { "question": "冬天静电更常见，和空气怎么样有关？", "options": ["比较干", "特别湿", "变成红色"], "answer": 0,
-        "explanation": "干燥空气不容易带走电荷，所以冬天静电更常见。" }
+      {
+        "question": "衣服摩擦可能产生什么？",
+        "options": [
+          "静电",
+          "雨水",
+          "树叶"
+        ],
+        "answer": 0,
+        "explanation": "摩擦会让小电荷移动，于是可能产生静电。"
+      },
+      {
+        "question": "静电积累后可能会怎样？",
+        "options": [
+          "突然放电",
+          "变成糖",
+          "让衣服唱歌"
+        ],
+        "answer": 0,
+        "explanation": "静电积累多了，碰到东西时会一下子放出来。"
+      },
+      {
+        "question": "冬天静电更常见，和空气怎么样有关？",
+        "options": [
+          "比较干",
+          "特别湿",
+          "变成红色"
+        ],
+        "answer": 0,
+        "explanation": "干燥空气不容易带走电荷，所以冬天静电更常见。"
+      }
     ],
     "parentPrompt": "可以做气球和头发的小实验，但要避开电子设备。",
-    "badge": "静电发现者"
+    "badge": "静电发现者",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：脱毛衣时为什么会有小电火花，先听听孩子自己的猜想。",
+      "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
+      "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
+    }
   },
   {
     "id": "soap-clean",
@@ -928,8 +2281,18 @@ export const lessons = [
     "question": "肥皂为什么能把手洗干净？",
     "discovery": "原来肥皂能包住油污和脏东西，再让水把它们冲走。",
     "funFact": "洗手时认真搓一搓，肥皂才能照顾到指缝和指尖。",
-    "tags": ["生活", "肥皂", "洗手", "清洁", "健康"],
-    "relatedLessons": ["taste", "teeth-change", "fridge"],
+    "tags": [
+      "生活",
+      "肥皂",
+      "洗手",
+      "清洁",
+      "健康"
+    ],
+    "relatedLessons": [
+      "taste",
+      "teeth-change",
+      "fridge"
+    ],
     "emoji": "🧼",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -937,15 +2300,44 @@ export const lessons = [
     "content": "肥皂分子很特别，一边喜欢水，一边喜欢油。手上的油污和脏东西会被肥皂包住，再被水冲走。所以洗手时要搓一搓，让肥皂有时间帮助我们清洁。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "肥皂为什么能帮助洗手？", "options": ["能包住油污并被水冲走", "能把手变透明", "能让水变甜"], "answer": 0,
-        "explanation": "肥皂一边喜欢水一边喜欢油，能把脏东西带走。" },
-      { "question": "洗手时为什么要搓一搓？", "options": ["让肥皂接触更多地方", "让手变热就够了", "为了制造音乐"], "answer": 0,
-        "explanation": "搓一搓能让肥皂碰到更多地方，清洁更认真。" },
-      { "question": "手上的油污通常只用水容易洗掉吗？", "options": ["不一定容易", "一定马上掉", "水会害怕油污"], "answer": 0,
-        "explanation": "油污不太爱和水在一起，所以只用水有时洗不干净。" }
+      {
+        "question": "肥皂为什么能帮助洗手？",
+        "options": [
+          "能包住油污并被水冲走",
+          "能把手变透明",
+          "能让水变甜"
+        ],
+        "answer": 0,
+        "explanation": "肥皂一边喜欢水一边喜欢油，能把脏东西带走。"
+      },
+      {
+        "question": "洗手时为什么要搓一搓？",
+        "options": [
+          "让肥皂接触更多地方",
+          "让手变热就够了",
+          "为了制造音乐"
+        ],
+        "answer": 0,
+        "explanation": "搓一搓能让肥皂碰到更多地方，清洁更认真。"
+      },
+      {
+        "question": "手上的油污通常只用水容易洗掉吗？",
+        "options": [
+          "不一定容易",
+          "一定马上掉",
+          "水会害怕油污"
+        ],
+        "answer": 0,
+        "explanation": "油污不太爱和水在一起，所以只用水有时洗不干净。"
+      }
     ],
     "parentPrompt": "可以让孩子检查：指缝、指尖、手腕有没有洗到。",
-    "badge": "洗手小卫士"
+    "badge": "洗手小卫士",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：肥皂为什么能把手洗干净，先听听孩子自己的猜想。",
+      "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
+      "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
+    }
   },
   {
     "id": "traffic-light",
@@ -954,8 +2346,18 @@ export const lessons = [
     "question": "红绿灯为什么用红黄绿？",
     "discovery": "原来不同颜色能快速告诉大家停、走和注意安全。",
     "funFact": "大家都遵守同一套灯光规则，马路就会更有秩序。",
-    "tags": ["生活", "红绿灯", "交通", "安全", "颜色"],
-    "relatedLessons": ["elevator", "umbrella", "fridge"],
+    "tags": [
+      "生活",
+      "红绿灯",
+      "交通",
+      "安全",
+      "颜色"
+    ],
+    "relatedLessons": [
+      "elevator",
+      "umbrella",
+      "fridge"
+    ],
     "emoji": "🚦",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -963,15 +2365,44 @@ export const lessons = [
     "content": "红绿灯用不同颜色帮助大家快速理解交通规则。红色很醒目，用来提醒停止；绿色表示可以通行；黄色提醒大家注意，准备变化。大家都遵守同一套规则，马路就更安全。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "红灯通常表示什么？", "options": ["停止", "加速跑", "闭眼走"], "answer": 0,
-        "explanation": "红色很醒目，大家看到就知道要停下来。" },
-      { "question": "绿灯通常表示什么？", "options": ["可以通行", "马上睡觉", "倒着走"], "answer": 0,
-        "explanation": "绿色表示可以走，让路上的人和车有共同规则。" },
-      { "question": "黄灯提醒我们什么？", "options": ["注意，准备变化", "去买糖", "天空下雨"], "answer": 0,
-        "explanation": "黄色提醒快要变化，要慢下来注意安全。" }
+      {
+        "question": "红灯通常表示什么？",
+        "options": [
+          "停止",
+          "加速跑",
+          "闭眼走"
+        ],
+        "answer": 0,
+        "explanation": "红色很醒目，大家看到就知道要停下来。"
+      },
+      {
+        "question": "绿灯通常表示什么？",
+        "options": [
+          "可以通行",
+          "马上睡觉",
+          "倒着走"
+        ],
+        "answer": 0,
+        "explanation": "绿色表示可以走，让路上的人和车有共同规则。"
+      },
+      {
+        "question": "黄灯提醒我们什么？",
+        "options": [
+          "注意，准备变化",
+          "去买糖",
+          "天空下雨"
+        ],
+        "answer": 0,
+        "explanation": "黄色提醒快要变化，要慢下来注意安全。"
+      }
     ],
     "parentPrompt": "过马路时可以让孩子先说出看到的灯和该做的动作。",
-    "badge": "安全过路小队长"
+    "badge": "安全过路小队长",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：红绿灯为什么用红黄绿，先听听孩子自己的猜想。",
+      "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
+      "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
+    }
   },
   {
     "id": "fridge",
@@ -980,8 +2411,18 @@ export const lessons = [
     "question": "冰箱为什么能让食物保鲜？",
     "discovery": "原来低温会让很多细菌活动变慢，食物就能多保存一会儿。",
     "funFact": "冰箱不是魔法箱，食物放太久也要注意气味和时间。",
-    "tags": ["生活", "冰箱", "食物", "保鲜", "低温"],
-    "relatedLessons": ["ice-melt", "soap-clean", "traffic-light"],
+    "tags": [
+      "生活",
+      "冰箱",
+      "食物",
+      "保鲜",
+      "低温"
+    ],
+    "relatedLessons": [
+      "ice-melt",
+      "soap-clean",
+      "traffic-light"
+    ],
     "emoji": "🧊",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -989,15 +2430,44 @@ export const lessons = [
     "content": "冰箱里面温度比较低。很多让食物变坏的细菌在低温下活动会变慢，所以食物能保存得久一些。但冰箱不是魔法箱，食物放太久还是会坏，需要注意时间和气味。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "冰箱里的温度通常怎样？", "options": ["比较低", "特别高", "像火山"], "answer": 0,
-        "explanation": "冰箱温度低，能让食物变化得慢一些。" },
-      { "question": "低温会让很多细菌活动怎样？", "options": ["变慢", "变成玩具", "跑得更快"], "answer": 0,
-        "explanation": "低温会让很多细菌活动变慢，食物就能多放一会儿。" },
-      { "question": "食物放冰箱就永远不会坏吗？", "options": ["不会，太久还是会坏", "会永远新鲜", "会自动变甜"], "answer": 0,
-        "explanation": "冰箱只能帮忙延缓变坏，食物放太久还是不安全。" }
+      {
+        "question": "冰箱里的温度通常怎样？",
+        "options": [
+          "比较低",
+          "特别高",
+          "像火山"
+        ],
+        "answer": 0,
+        "explanation": "冰箱温度低，能让食物变化得慢一些。"
+      },
+      {
+        "question": "低温会让很多细菌活动怎样？",
+        "options": [
+          "变慢",
+          "变成玩具",
+          "跑得更快"
+        ],
+        "answer": 0,
+        "explanation": "低温会让很多细菌活动变慢，食物就能多放一会儿。"
+      },
+      {
+        "question": "食物放冰箱就永远不会坏吗？",
+        "options": [
+          "不会，太久还是会坏",
+          "会永远新鲜",
+          "会自动变甜"
+        ],
+        "answer": 0,
+        "explanation": "冰箱只能帮忙延缓变坏，食物放太久还是不安全。"
+      }
     ],
     "parentPrompt": "可以一起看包装上的保质期，学习食品安全。",
-    "badge": "食物保鲜管理员"
+    "badge": "食物保鲜管理员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：冰箱为什么能让食物保鲜，先听听孩子自己的猜想。",
+      "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
+      "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
+    }
   },
   {
     "id": "umbrella",
@@ -1006,8 +2476,18 @@ export const lessons = [
     "question": "雨伞为什么能挡雨？",
     "discovery": "原来伞面能挡住雨滴，弧形还能让雨水滑到边缘。",
     "funFact": "雨伞打开像一个小屋顶，帮我们把雨水引到旁边。",
-    "tags": ["生活", "雨伞", "下雨", "防水", "雨滴"],
-    "relatedLessons": ["cloud-rain", "rainbow", "traffic-light"],
+    "tags": [
+      "生活",
+      "雨伞",
+      "下雨",
+      "防水",
+      "雨滴"
+    ],
+    "relatedLessons": [
+      "cloud-rain",
+      "rainbow",
+      "traffic-light"
+    ],
     "emoji": "☂️",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -1015,15 +2495,44 @@ export const lessons = [
     "content": "雨伞的布面通常比较防水，雨滴落在伞面上会滑到旁边，而不是直接穿过去。伞面做成弧形，也能让雨水顺着边缘流下去。这样站在伞下面的人就能少淋雨。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "雨伞布面通常有什么特点？", "options": ["比较防水", "会吸走所有水", "会发光"], "answer": 0,
-        "explanation": "防水伞面能挡住雨滴，不让它直接穿过去。" },
-      { "question": "伞面做成弧形有什么帮助？", "options": ["让雨水流到边缘", "让雨水停在中间", "让伞飞起来"], "answer": 0,
-        "explanation": "弧形伞面像小坡，雨水会顺着边缘流走。" },
-      { "question": "站在伞下面为什么少淋雨？", "options": ["雨被伞面挡住并流走", "雨消失了", "人变小了"], "answer": 0,
-        "explanation": "伞把雨挡住并导向旁边，人站下面就少淋雨。" }
+      {
+        "question": "雨伞布面通常有什么特点？",
+        "options": [
+          "比较防水",
+          "会吸走所有水",
+          "会发光"
+        ],
+        "answer": 0,
+        "explanation": "防水伞面能挡住雨滴，不让它直接穿过去。"
+      },
+      {
+        "question": "伞面做成弧形有什么帮助？",
+        "options": [
+          "让雨水流到边缘",
+          "让雨水停在中间",
+          "让伞飞起来"
+        ],
+        "answer": 0,
+        "explanation": "弧形伞面像小坡，雨水会顺着边缘流走。"
+      },
+      {
+        "question": "站在伞下面为什么少淋雨？",
+        "options": [
+          "雨被伞面挡住并流走",
+          "雨消失了",
+          "人变小了"
+        ],
+        "answer": 0,
+        "explanation": "伞把雨挡住并导向旁边，人站下面就少淋雨。"
+      }
     ],
     "parentPrompt": "下雨天可以让孩子观察雨滴在伞面上的路线。",
-    "badge": "雨天小观察员"
+    "badge": "雨天小观察员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：雨伞为什么能挡雨，先听听孩子自己的猜想。",
+      "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
+      "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
+    }
   },
   {
     "id": "elevator",
@@ -1032,8 +2541,18 @@ export const lessons = [
     "question": "电梯为什么能上下移动？",
     "discovery": "原来电动机、钢缆和控制系统一起帮助电梯运行。",
     "funFact": "电梯里有许多安全装置，帮助它平稳地停在楼层。",
-    "tags": ["生活", "电梯", "楼层", "安全", "按钮"],
-    "relatedLessons": ["traffic-light", "magnet", "fridge"],
+    "tags": [
+      "生活",
+      "电梯",
+      "楼层",
+      "安全",
+      "按钮"
+    ],
+    "relatedLessons": [
+      "traffic-light",
+      "magnet",
+      "fridge"
+    ],
     "emoji": "🛗",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -1041,15 +2560,44 @@ export const lessons = [
     "content": "电梯里面有电动机、钢缆和控制系统。电动机会带动电梯上下移动，控制系统会根据按钮知道要去几楼。电梯还有很多安全装置，帮助它平稳、安全地运行。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "电梯上下移动和什么有关？", "options": ["电动机和钢缆", "风把它吹上去", "云朵拉它"], "answer": 0,
-        "explanation": "电动机和钢缆一起工作，帮助电梯上下移动。" },
-      { "question": "电梯怎么知道要去几楼？", "options": ["根据按钮和控制系统", "它自己猜", "听音乐决定"], "answer": 0,
-        "explanation": "按钮把目标楼层告诉控制系统，电梯就知道去哪里。" },
-      { "question": "电梯需要什么装置帮助安全运行？", "options": ["安全装置", "彩虹装置", "糖果装置"], "answer": 0,
-        "explanation": "安全装置帮助电梯平稳运行，乘坐时更安心。" }
+      {
+        "question": "电梯上下移动和什么有关？",
+        "options": [
+          "电动机和钢缆",
+          "风把它吹上去",
+          "云朵拉它"
+        ],
+        "answer": 0,
+        "explanation": "电动机和钢缆一起工作，帮助电梯上下移动。"
+      },
+      {
+        "question": "电梯怎么知道要去几楼？",
+        "options": [
+          "根据按钮和控制系统",
+          "它自己猜",
+          "听音乐决定"
+        ],
+        "answer": 0,
+        "explanation": "按钮把目标楼层告诉控制系统，电梯就知道去哪里。"
+      },
+      {
+        "question": "电梯需要什么装置帮助安全运行？",
+        "options": [
+          "安全装置",
+          "彩虹装置",
+          "糖果装置"
+        ],
+        "answer": 0,
+        "explanation": "安全装置帮助电梯平稳运行，乘坐时更安心。"
+      }
     ],
     "parentPrompt": "可以提醒孩子：乘电梯不要乱按按钮，也不要扒门。",
-    "badge": "电梯安全小达人"
+    "badge": "电梯安全小达人",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：电梯为什么能上下移动，先听听孩子自己的猜想。",
+      "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
+      "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
+    }
   },
   {
     "id": "turtle-slow",
@@ -1058,8 +2606,18 @@ export const lessons = [
     "question": "乌龟为什么走得慢？",
     "discovery": "原来乌龟背着硬硬的壳，身体结构也更适合稳稳地慢慢走。",
     "funFact": "很多乌龟虽然走得慢，却很会节省力气，能安静地生活很久。",
-    "tags": ["动物", "乌龟", "慢", "龟壳", "行走"],
-    "relatedLessons": ["penguin-feet", "giraffe-neck", "cat-eyes"],
+    "tags": [
+      "动物",
+      "乌龟",
+      "慢",
+      "龟壳",
+      "行走"
+    ],
+    "relatedLessons": [
+      "penguin-feet",
+      "giraffe-neck",
+      "cat-eyes"
+    ],
     "emoji": "🐢",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -1067,15 +2625,44 @@ export const lessons = [
     "content": "乌龟的身体外面有硬硬的壳，壳能保护它，但也让身体不太容易大步跑起来。它的腿比较短，走路时常常把身体稳稳撑住。慢慢走对乌龟来说也有好处，可以节省力气，遇到危险时还能把身体缩进壳里。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "乌龟走得慢，和什么有关？", "options": ["硬壳和短腿", "它会飞", "它没有影子"], "answer": 0,
-        "explanation": "硬壳和短腿让乌龟更适合稳稳地慢慢走。" },
-      { "question": "乌龟的壳主要有什么用？", "options": ["保护身体", "当作雨伞", "装很多糖果"], "answer": 0,
-        "explanation": "乌龟的壳像小盔甲，可以帮助保护身体。" },
-      { "question": "慢慢走对乌龟有什么好处？", "options": ["节省力气", "马上变高", "发出音乐"], "answer": 0,
-        "explanation": "慢慢走能少花一些力气，也适合乌龟的身体。" }
+      {
+        "question": "乌龟走得慢，和什么有关？",
+        "options": [
+          "硬壳和短腿",
+          "它会飞",
+          "它没有影子"
+        ],
+        "answer": 0,
+        "explanation": "硬壳和短腿让乌龟更适合稳稳地慢慢走。"
+      },
+      {
+        "question": "乌龟的壳主要有什么用？",
+        "options": [
+          "保护身体",
+          "当作雨伞",
+          "装很多糖果"
+        ],
+        "answer": 0,
+        "explanation": "乌龟的壳像小盔甲，可以帮助保护身体。"
+      },
+      {
+        "question": "慢慢走对乌龟有什么好处？",
+        "options": [
+          "节省力气",
+          "马上变高",
+          "发出音乐"
+        ],
+        "answer": 0,
+        "explanation": "慢慢走能少花一些力气，也适合乌龟的身体。"
+      }
     ],
     "parentPrompt": "可以和孩子观察不同动物走路的样子：谁快，谁稳，为什么不同？",
-    "badge": "稳稳观察员"
+    "badge": "稳稳观察员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：乌龟为什么走得慢，先听听孩子自己的猜想。",
+      "tryThis": "可以一起看图片、绘本或视频，找一找动物身体的明显特点。",
+      "safety": "只观察图片、视频或熟悉宠物，不靠近陌生动物。"
+    }
   },
   {
     "id": "autumn-leaves",
@@ -1084,8 +2671,18 @@ export const lessons = [
     "question": "秋天的树叶为什么会变黄变红？",
     "discovery": "原来秋天天气变凉、阳光变少，叶子里的绿色慢慢退下来了。",
     "funFact": "有些叶子里本来就藏着黄色和红色，只是平时被绿色盖住了。",
-    "tags": ["植物", "秋天", "叶子", "颜色", "树"],
-    "relatedLessons": ["leaf-green", "tree-rings", "sunflower"],
+    "tags": [
+      "植物",
+      "秋天",
+      "叶子",
+      "颜色",
+      "树"
+    ],
+    "relatedLessons": [
+      "leaf-green",
+      "tree-rings",
+      "sunflower"
+    ],
     "emoji": "🍂",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -1093,15 +2690,44 @@ export const lessons = [
     "content": "叶子里有叶绿素，平时让叶子看起来绿绿的。秋天天气变凉，白天变短，树会慢慢减少给叶子的养分，叶绿素也会变少。绿色退下去后，叶子里原本藏着的黄色、红色就更容易被我们看见。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "叶子平时大多是绿色，和什么有关？", "options": ["叶绿素", "石头", "月亮"], "answer": 0,
-        "explanation": "叶绿素让很多叶子看起来是绿色的。" },
-      { "question": "秋天叶绿素变少后会怎样？", "options": ["其他颜色更明显", "叶子会唱歌", "树会飞走"], "answer": 0,
-        "explanation": "绿色变少后，黄色和红色就更容易显出来。" },
-      { "question": "秋天叶子变色和什么季节变化有关？", "options": ["天气变凉、阳光变少", "天上有糖", "风会画画"], "answer": 0,
-        "explanation": "秋天天气和阳光变化，会影响叶子里的颜色。" }
+      {
+        "question": "叶子平时大多是绿色，和什么有关？",
+        "options": [
+          "叶绿素",
+          "石头",
+          "月亮"
+        ],
+        "answer": 0,
+        "explanation": "叶绿素让很多叶子看起来是绿色的。"
+      },
+      {
+        "question": "秋天叶绿素变少后会怎样？",
+        "options": [
+          "其他颜色更明显",
+          "叶子会唱歌",
+          "树会飞走"
+        ],
+        "answer": 0,
+        "explanation": "绿色变少后，黄色和红色就更容易显出来。"
+      },
+      {
+        "question": "秋天叶子变色和什么季节变化有关？",
+        "options": [
+          "天气变凉、阳光变少",
+          "天上有糖",
+          "风会画画"
+        ],
+        "answer": 0,
+        "explanation": "秋天天气和阳光变化，会影响叶子里的颜色。"
+      }
     ],
     "parentPrompt": "可以和孩子捡几片落叶，比一比颜色和形状有什么不同。",
-    "badge": "秋叶小画家"
+    "badge": "秋叶小画家",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：秋天的树叶为什么会变黄变红，先听听孩子自己的猜想。",
+      "tryThis": "可以一起观察身边常见植物，只看叶子、花或茎的变化。",
+      "safety": "只观察常见植物，不采摘、不入口未知植物。"
+    }
   },
   {
     "id": "sky-blue",
@@ -1110,8 +2736,18 @@ export const lessons = [
     "question": "白天的天空为什么常常是蓝色？",
     "discovery": "原来阳光经过空气时，蓝色光更容易被散开，所以天空看起来蓝蓝的。",
     "funFact": "日落时阳光走过更长的空气路，天空就可能变成橙色或红色。",
-    "tags": ["天空", "蓝色", "阳光", "空气", "颜色"],
-    "relatedLessons": ["rainbow", "day-night", "stars-day"],
+    "tags": [
+      "天空",
+      "蓝色",
+      "阳光",
+      "空气",
+      "颜色"
+    ],
+    "relatedLessons": [
+      "rainbow",
+      "day-night",
+      "stars-day"
+    ],
     "emoji": "🌤️",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -1119,15 +2755,44 @@ export const lessons = [
     "content": "太阳光看起来白白亮亮，其实里面有很多颜色。阳光穿过空气时，蓝色的光比较容易被空气里的小颗粒散到各个方向。我们的眼睛从天空的很多方向接收到这些蓝色光，就会觉得天空是蓝色的。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "太阳光里面有什么？", "options": ["很多颜色的光", "只有黑色", "只有声音"], "answer": 0,
-        "explanation": "太阳光看起来白，其实包含很多颜色的光。" },
-      { "question": "天空看起来蓝，和哪种光更容易散开有关？", "options": ["蓝色光", "糖果光", "木头光"], "answer": 0,
-        "explanation": "蓝色光更容易被空气散开，所以天空显得蓝。" },
-      { "question": "日落时天空为什么可能变红橙色？", "options": ["阳光走过更长空气路", "太阳变成苹果", "云朵在刷漆"], "answer": 0,
-        "explanation": "日落时光经过更多空气，留下的颜色看起来会不同。" }
+      {
+        "question": "太阳光里面有什么？",
+        "options": [
+          "很多颜色的光",
+          "只有黑色",
+          "只有声音"
+        ],
+        "answer": 0,
+        "explanation": "太阳光看起来白，其实包含很多颜色的光。"
+      },
+      {
+        "question": "天空看起来蓝，和哪种光更容易散开有关？",
+        "options": [
+          "蓝色光",
+          "糖果光",
+          "木头光"
+        ],
+        "answer": 0,
+        "explanation": "蓝色光更容易被空气散开，所以天空显得蓝。"
+      },
+      {
+        "question": "日落时天空为什么可能变红橙色？",
+        "options": [
+          "阳光走过更长空气路",
+          "太阳变成苹果",
+          "云朵在刷漆"
+        ],
+        "answer": 0,
+        "explanation": "日落时光经过更多空气，留下的颜色看起来会不同。"
+      }
     ],
     "parentPrompt": "可以在白天和傍晚各看一次天空，聊聊颜色有什么变化。",
-    "badge": "蓝天发现者"
+    "badge": "蓝天发现者",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：白天的天空为什么常常是蓝色，先听听孩子自己的猜想。",
+      "tryThis": "可以在白天或傍晚看天空，描述颜色、亮暗和形状变化。",
+      "safety": "观察天空时不要直视太阳，走路时注意脚下安全。"
+    }
   },
   {
     "id": "rain-soil-smell",
@@ -1136,8 +2801,18 @@ export const lessons = [
     "question": "下雨后为什么会闻到泥土味？",
     "discovery": "原来雨滴打到地面时，会把土壤和植物里的小气味带到空气中。",
     "funFact": "这种雨后清新的味道，很多人一闻到就会想到刚下过雨。",
-    "tags": ["地球", "下雨", "泥土", "气味", "空气"],
-    "relatedLessons": ["cloud-rain", "rainbow", "umbrella"],
+    "tags": [
+      "地球",
+      "下雨",
+      "泥土",
+      "气味",
+      "空气"
+    ],
+    "relatedLessons": [
+      "cloud-rain",
+      "rainbow",
+      "umbrella"
+    ],
     "emoji": "🌧️",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -1145,15 +2820,44 @@ export const lessons = [
     "content": "地面、土壤和植物上本来就有一些很小的气味。下雨时，雨滴打到地面，会溅起很小很小的水珠，把这些气味带到空气里。我们的鼻子闻到它们，就会觉得有雨后泥土的味道。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "雨后泥土味主要从哪里来？", "options": ["土壤和植物里的气味", "月亮", "书包"], "answer": 0,
-        "explanation": "土壤和植物里有一些气味，会在雨后进入空气。" },
-      { "question": "雨滴打到地面会帮助什么？", "options": ["把气味带到空气中", "把石头变甜", "让风停下来"], "answer": 0,
-        "explanation": "雨滴溅起小水珠，会把气味带到空气里。" },
-      { "question": "我们用什么闻到雨后的味道？", "options": ["鼻子", "膝盖", "铅笔"], "answer": 0,
-        "explanation": "鼻子能闻到空气里的气味。" }
+      {
+        "question": "雨后泥土味主要从哪里来？",
+        "options": [
+          "土壤和植物里的气味",
+          "月亮",
+          "书包"
+        ],
+        "answer": 0,
+        "explanation": "土壤和植物里有一些气味，会在雨后进入空气。"
+      },
+      {
+        "question": "雨滴打到地面会帮助什么？",
+        "options": [
+          "把气味带到空气中",
+          "把石头变甜",
+          "让风停下来"
+        ],
+        "answer": 0,
+        "explanation": "雨滴溅起小水珠，会把气味带到空气里。"
+      },
+      {
+        "question": "我们用什么闻到雨后的味道？",
+        "options": [
+          "鼻子",
+          "膝盖",
+          "铅笔"
+        ],
+        "answer": 0,
+        "explanation": "鼻子能闻到空气里的气味。"
+      }
     ],
     "parentPrompt": "雨后可以带孩子在安全地方闻一闻空气，描述它像什么味道。",
-    "badge": "雨后气味观察员"
+    "badge": "雨后气味观察员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：下雨后为什么会闻到泥土味，先听听孩子自己的猜想。",
+      "tryThis": "可以在安全的地方观察天气或地面变化，说出看到的现象。",
+      "safety": "遇到雷雨、大风或积水时待在安全地方观察。"
+    }
   },
   {
     "id": "ears-hear-sound",
@@ -1162,8 +2866,18 @@ export const lessons = [
     "question": "耳朵为什么能听见声音？",
     "discovery": "原来声音让空气振动，耳朵接到振动信号后，大脑就能知道声音来了。",
     "funFact": "太大的声音会让耳朵不舒服，所以保护耳朵很重要。",
-    "tags": ["声音", "耳朵", "振动", "听觉", "音乐"],
-    "relatedLessons": ["sound-travel", "echo", "rhythm-heart"],
+    "tags": [
+      "声音",
+      "耳朵",
+      "振动",
+      "听觉",
+      "音乐"
+    ],
+    "relatedLessons": [
+      "sound-travel",
+      "echo",
+      "rhythm-heart"
+    ],
     "emoji": "👂",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -1171,15 +2885,44 @@ export const lessons = [
     "content": "声音常常来自物体的振动。振动会让空气也跟着一波一波动起来，传到我们的耳朵里。耳朵把这些振动变成信号，送给大脑。大脑读懂信号后，我们就知道听到了声音。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "声音常常来自什么？", "options": ["物体振动", "纸自己长大", "影子跳舞"], "answer": 0,
-        "explanation": "很多声音都是物体振动后产生的。" },
-      { "question": "声音怎样来到耳朵？", "options": ["通过空气振动传来", "坐电梯来", "变成石头滚来"], "answer": 0,
-        "explanation": "空气会把振动一波一波传到耳朵。" },
-      { "question": "耳朵接到声音信号后，谁帮我们读懂？", "options": ["大脑", "鞋子", "云朵"], "answer": 0,
-        "explanation": "大脑读懂耳朵送来的信号，我们就知道声音是什么。" }
+      {
+        "question": "声音常常来自什么？",
+        "options": [
+          "物体振动",
+          "纸自己长大",
+          "影子跳舞"
+        ],
+        "answer": 0,
+        "explanation": "很多声音都是物体振动后产生的。"
+      },
+      {
+        "question": "声音怎样来到耳朵？",
+        "options": [
+          "通过空气振动传来",
+          "坐电梯来",
+          "变成石头滚来"
+        ],
+        "answer": 0,
+        "explanation": "空气会把振动一波一波传到耳朵。"
+      },
+      {
+        "question": "耳朵接到声音信号后，谁帮我们读懂？",
+        "options": [
+          "大脑",
+          "鞋子",
+          "云朵"
+        ],
+        "answer": 0,
+        "explanation": "大脑读懂耳朵送来的信号，我们就知道声音是什么。"
+      }
     ],
     "parentPrompt": "可以让孩子闭眼听一听家里的安全声音，猜猜声音从哪里来。",
-    "badge": "小小听音师"
+    "badge": "小小听音师",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：耳朵为什么能听见声音，先听听孩子自己的猜想。",
+      "tryThis": "可以听一听家里的安全声音，找找声音从哪里来、有什么变化。",
+      "safety": "声音不要太大，保护耳朵，不敲打易碎物品。"
+    }
   },
   {
     "id": "brush-teeth-clean",
@@ -1188,8 +2931,18 @@ export const lessons = [
     "question": "牙齿为什么要每天刷干净？",
     "discovery": "原来刷牙能帮助清走食物碎屑和牙菌斑，保护牙齿更健康。",
     "funFact": "牙齿表面看起来硬硬的，也需要每天认真照顾。",
-    "tags": ["身体", "牙齿", "刷牙", "健康", "清洁"],
-    "relatedLessons": ["teeth-change", "soap-clean", "taste"],
+    "tags": [
+      "身体",
+      "牙齿",
+      "刷牙",
+      "健康",
+      "清洁"
+    ],
+    "relatedLessons": [
+      "teeth-change",
+      "soap-clean",
+      "taste"
+    ],
     "emoji": "🪥",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -1197,15 +2950,44 @@ export const lessons = [
     "content": "吃东西后，牙齿缝和牙齿表面会留下小小的食物碎屑。嘴巴里还有一些细菌，它们可能和碎屑一起形成牙菌斑。刷牙能把这些东西清走，帮助牙齿保持干净，也让牙龈更舒服。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "吃完东西后，牙齿上可能留下什么？", "options": ["食物碎屑", "星星", "沙发"], "answer": 0,
-        "explanation": "食物碎屑可能留在牙齿表面和牙缝里。" },
-      { "question": "刷牙可以帮助什么？", "options": ["清走牙菌斑和碎屑", "让牙齿变成彩虹", "让人马上长高"], "answer": 0,
-        "explanation": "刷牙能帮助清洁牙齿，保护口腔健康。" },
-      { "question": "牙齿硬硬的，还需要照顾吗？", "options": ["需要每天照顾", "完全不用", "只要看一眼"], "answer": 0,
-        "explanation": "牙齿虽然硬，也需要每天刷干净。" }
+      {
+        "question": "吃完东西后，牙齿上可能留下什么？",
+        "options": [
+          "食物碎屑",
+          "星星",
+          "沙发"
+        ],
+        "answer": 0,
+        "explanation": "食物碎屑可能留在牙齿表面和牙缝里。"
+      },
+      {
+        "question": "刷牙可以帮助什么？",
+        "options": [
+          "清走牙菌斑和碎屑",
+          "让牙齿变成彩虹",
+          "让人马上长高"
+        ],
+        "answer": 0,
+        "explanation": "刷牙能帮助清洁牙齿，保护口腔健康。"
+      },
+      {
+        "question": "牙齿硬硬的，还需要照顾吗？",
+        "options": [
+          "需要每天照顾",
+          "完全不用",
+          "只要看一眼"
+        ],
+        "answer": 0,
+        "explanation": "牙齿虽然硬，也需要每天刷干净。"
+      }
     ],
     "parentPrompt": "可以和孩子一起检查刷牙顺序：外面、里面、咬合面都刷到。",
-    "badge": "护牙小卫士"
+    "badge": "护牙小卫士",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：牙齿为什么要每天刷干净，先听听孩子自己的猜想。",
+      "tryThis": "可以照镜子或感受自己的身体信号，说说身体怎样提醒我们。",
+      "safety": "只做轻松观察，不模仿让身体不舒服的动作。"
+    }
   },
   {
     "id": "soap-bubble-round",
@@ -1214,8 +2996,18 @@ export const lessons = [
     "question": "肥皂泡为什么常常是圆圆的？",
     "discovery": "原来肥皂泡的薄膜会尽量收紧，圆形能用较小的表面包住空气。",
     "funFact": "肥皂泡上五彩的颜色，和光在薄膜上发生变化有关。",
-    "tags": ["科学", "泡泡", "肥皂", "圆形", "空气"],
-    "relatedLessons": ["soap-clean", "float-sink", "rainbow"],
+    "tags": [
+      "科学",
+      "泡泡",
+      "肥皂",
+      "圆形",
+      "空气"
+    ],
+    "relatedLessons": [
+      "soap-clean",
+      "float-sink",
+      "rainbow"
+    ],
     "emoji": "🫧",
     "readingTime": "6分钟",
     "level": "小学低年级",
@@ -1223,15 +3015,44 @@ export const lessons = [
     "content": "肥皂泡是一层很薄的水和肥皂膜，里面包着空气。薄膜会像轻轻收紧的小皮筋一样，尽量让自己变小。圆形能用比较小的表面包住里面的空气，所以泡泡常常会变成圆圆的。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "肥皂泡里面包着什么？", "options": ["空气", "石头", "铅笔"], "answer": 0,
-        "explanation": "肥皂泡的薄膜里面包着空气。" },
-      { "question": "泡泡的薄膜会怎样？", "options": ["尽量收紧", "变成木头", "一直变厚"], "answer": 0,
-        "explanation": "薄膜会尽量收紧，让表面变得更小。" },
-      { "question": "为什么泡泡常常是圆的？", "options": ["圆形更容易包住空气", "泡泡喜欢画圈", "风规定的"], "answer": 0,
-        "explanation": "圆形能用较小表面包住空气，所以泡泡常常圆圆的。" }
+      {
+        "question": "肥皂泡里面包着什么？",
+        "options": [
+          "空气",
+          "石头",
+          "铅笔"
+        ],
+        "answer": 0,
+        "explanation": "肥皂泡的薄膜里面包着空气。"
+      },
+      {
+        "question": "泡泡的薄膜会怎样？",
+        "options": [
+          "尽量收紧",
+          "变成木头",
+          "一直变厚"
+        ],
+        "answer": 0,
+        "explanation": "薄膜会尽量收紧，让表面变得更小。"
+      },
+      {
+        "question": "为什么泡泡常常是圆的？",
+        "options": [
+          "圆形更容易包住空气",
+          "泡泡喜欢画圈",
+          "风规定的"
+        ],
+        "answer": 0,
+        "explanation": "圆形能用较小表面包住空气，所以泡泡常常圆圆的。"
+      }
     ],
     "parentPrompt": "可以在户外安全地吹泡泡，观察泡泡大小和颜色的变化。",
-    "badge": "泡泡形状研究员"
+    "badge": "泡泡形状研究员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：肥皂泡为什么常常是圆圆的，先听听孩子自己的猜想。",
+      "tryThis": "可以先玩页面互动，再比较变化前后哪里不一样。",
+      "safety": "只做页面互动或安全观察，不碰电、火和化学品。"
+    }
   },
   {
     "id": "clock-hands-turn",
@@ -1240,8 +3061,18 @@ export const lessons = [
     "question": "钟表的指针为什么会一圈一圈转？",
     "discovery": "原来钟表里面有小零件或电子控制，让指针按照固定节奏移动。",
     "funFact": "秒针走一圈通常是 60 秒，分针走一圈通常是 60 分钟。",
-    "tags": ["生活", "钟表", "时间", "指针", "齿轮"],
-    "relatedLessons": ["traffic-light", "elevator", "shadow"],
+    "tags": [
+      "生活",
+      "钟表",
+      "时间",
+      "指针",
+      "齿轮"
+    ],
+    "relatedLessons": [
+      "traffic-light",
+      "elevator",
+      "shadow"
+    ],
     "emoji": "🕰️",
     "readingTime": "5分钟",
     "level": "小学低年级",
@@ -1249,14 +3080,43 @@ export const lessons = [
     "content": "钟表里面有帮助计时的小装置。有些钟表靠齿轮一步一步带动指针，有些钟表靠电子控制来计时。它们都会按照固定节奏工作，让秒针、分针和时针慢慢移动，帮助我们知道现在是什么时间。",
     "interaction": "点击图标，按步骤观察这个现象。",
     "quiz": [
-      { "question": "钟表指针转动和什么有关？", "options": ["计时装置", "雨水", "植物根"], "answer": 0,
-        "explanation": "钟表里面的计时装置会带动指针移动。" },
-      { "question": "有些钟表会用什么带动指针？", "options": ["齿轮", "棉花", "云朵"], "answer": 0,
-        "explanation": "齿轮可以一步一步传动，让指针转起来。" },
-      { "question": "钟表有什么用？", "options": ["帮助我们知道时间", "让书包变轻", "让雨停下"], "answer": 0,
-        "explanation": "钟表按照固定节奏走，能帮我们看时间。" }
+      {
+        "question": "钟表指针转动和什么有关？",
+        "options": [
+          "计时装置",
+          "雨水",
+          "植物根"
+        ],
+        "answer": 0,
+        "explanation": "钟表里面的计时装置会带动指针移动。"
+      },
+      {
+        "question": "有些钟表会用什么带动指针？",
+        "options": [
+          "齿轮",
+          "棉花",
+          "云朵"
+        ],
+        "answer": 0,
+        "explanation": "齿轮可以一步一步传动，让指针转起来。"
+      },
+      {
+        "question": "钟表有什么用？",
+        "options": [
+          "帮助我们知道时间",
+          "让书包变轻",
+          "让雨停下"
+        ],
+        "answer": 0,
+        "explanation": "钟表按照固定节奏走，能帮我们看时间。"
+      }
     ],
     "parentPrompt": "可以和孩子看一看秒针走一圈，数数大约用了多久。",
-    "badge": "时间小观察员"
+    "badge": "时间小观察员",
+    "parentGuide": {
+      "talkAbout": "可以聊一聊：钟表的指针为什么会一圈一圈转，先听听孩子自己的猜想。",
+      "tryThis": "可以观察家里的日常物品，想想它怎样让生活更方便。",
+      "safety": "只观察外观和用法，不拆机器，不碰电器内部。"
+    }
   }
 ];

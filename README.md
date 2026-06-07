@@ -77,7 +77,7 @@ npm run dev
 npm.cmd run validate:lessons
 ```
 
-校验会检查 lesson id、分类引用、必填字段、quiz、tags 和 relatedLessons。更多内容维护规则见 [课程内容维护指南](docs/lesson-authoring-guide.md)。
+校验会检查 lesson id、分类引用、必填字段、quiz、parentGuide、tags 和 relatedLessons。更多内容维护规则见 [课程内容维护指南](docs/lesson-authoring-guide.md)。
 
 课程内容改动后的完整检查流程：
 
@@ -122,7 +122,8 @@ git push origin HEAD
 
 - 添加或编辑课程时，只改 `src/data/lessons.js` 中必要的 lesson 对象。
 - 分类 id 来自 `src/data/categories.js`，不要随意重命名已有 lesson id 或 category id。
-- 每个 lesson 必须包含 `id`、`category`、`title`、`emoji`、`readingTime`、`level`、`intro`、`content`、`interaction`、`quiz`、`parentPrompt`、`badge`、`question`、`discovery`、`funFact`、`tags`、`relatedLessons`。
+- 每个 lesson 必须包含 `id`、`category`、`title`、`emoji`、`readingTime`、`level`、`intro`、`content`、`interaction`、`quiz`、`parentPrompt`、`parentGuide`、`badge`、`question`、`discovery`、`funFact`、`tags`、`relatedLessons`。
+- `parentGuide` 必须包含 `talkAbout`、`tryThis`、`safety` 三个简短中文字段，活动建议必须安全、日常、适合家长陪同。
 - 每课 quiz 必须正好 3 题，每题包含 `question`、`options`、`answer`、`explanation`。
 - `tags` 使用 3-6 个短中文标签，同一课内不要重复。
 - `relatedLessons` 使用 2-3 个已存在 lesson id，不要引用自己。
