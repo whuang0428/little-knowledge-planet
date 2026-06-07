@@ -367,3 +367,60 @@ git branch --show-current
 - 当前分支
 - 用户手动 push 命令
 - 未提交但有意排除的文件或验证限制
+
+## Latest Handoff Notes
+
+Current branch: `main`.
+
+Recent local commits:
+- `2f74148 Improve accessibility and mobile usability`
+- `f64e0dd Add age range metadata and filtering`
+- `282dbb1 Add parent guidance to lessons`
+
+The accessibility/mobile usability task is complete and committed locally in
+`2f74148 Improve accessibility and mobile usability`. Validation was run twice
+before that commit:
+
+```powershell
+npm.cmd run validate:lessons
+npm.cmd run build
+npm.cmd run lint
+```
+
+All three passed. Browser automation was intentionally not run for that task
+because the user explicitly said not to install or run Playwright and not to
+retry browser automation.
+
+Files changed by commit `2f74148`:
+- `src/App.jsx`
+- `src/components/LessonCard.jsx`
+- `src/components/ProgressSummary.jsx`
+- `src/components/demos/CatEyesDemo.jsx`
+- `src/components/demos/CategoryExploreDemo.jsx`
+- `src/components/demos/MoonShapeDemo.jsx`
+- `src/components/demos/PipaStringDemo.jsx`
+- `src/components/demos/RainbowDemo.jsx`
+- `src/components/demos/SunflowerDemo.jsx`
+
+Important current working-tree note: after commit `2f74148`, there are still
+uncommitted demo-related changes from an earlier task. They were deliberately
+excluded from the accessibility/mobile usability commit:
+
+```text
+ M src/components/demos/InteractiveDemo.jsx
+ M src/data/lessons.js
+?? src/components/demos/MagnetAttractDemo.jsx
+?? src/components/demos/SkyBlueDemo.jsx
+?? src/components/demos/SoapBubbleDemo.jsx
+```
+
+Do not assume those files belong to a new task. Inspect them before staging or
+committing. If a future task is only about unrelated app behavior, leave these
+demo files unstaged.
+
+Manual push command for the user remains:
+
+```powershell
+cd D:\react-projects\little-knowledge-planet
+git push origin HEAD
+```
